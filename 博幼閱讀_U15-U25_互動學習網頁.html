@@ -1,0 +1,2730 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="canopy">
+  <title>博幼閱讀 1（初級）互動學習室：Unit 15–25</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..600&family=Noto+Sans+TC:wght@400;500;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Canopy Style Tokens */
+      --background: #faf6ef;
+      --surface-container-low: #f0eae0;
+      --surface-container: #e8e0d2;
+      --surface-container-high: #ddd3c2;
+
+      --on-surface: #2a302b;
+      --on-surface-variant: #4a524b;
+
+      --outline: #737872;
+      --outline-variant: #cbc5b8;
+
+      --primary: #366948;
+      --on-primary: #ffffff;
+      --primary-container: #d8efe0;
+      --on-primary-container: #1f4d30;
+      --secondary: #5c635c;
+      --tertiary: #8f5822;
+      --tertiary-container: #f2d4a7;
+      --on-tertiary-container: #6e3f0c;
+      --error: #b83230;
+      --on-error: #ffffff;
+      --error-container: #fae5e4;
+      --on-error-container: #7c1c1a;
+
+      --data-1: #366948;
+      --data-2: #8f5822;
+      --data-3: #a85438;
+      --data-4: #4b6b78;
+      --data-context: #b5b0a3;
+
+      /* Fonts (Noto Sans TC first for zh-Hant legibility, paired with Canopy faces) */
+      --font-headline: 'Noto Sans TC', 'Literata', serif;
+      --font-body: 'Noto Sans TC', 'Nunito Sans', sans-serif;
+      --font-label: 'Geist Mono', 'Noto Sans TC', monospace;
+      --font-en-serif: 'Literata', 'Noto Sans TC', serif;
+      --font-en-sans: 'Nunito Sans', 'Noto Sans TC', sans-serif;
+
+      /* Shape */
+      --rounded: 0.625rem;
+      --rounded-lg: 1rem;
+      --rounded-full: 9999px;
+
+      /* Effects */
+      --shadow-soft: 0 4px 20px rgb(42 48 43 / 0.06);
+      --shadow-soft-hover: 0 8px 28px rgb(42 48 43 / 0.1);
+      --border-soft: 1px solid rgb(203 197 184 / 0.7);
+      --focus-glow: 0 0 0 4px rgb(54 105 72 / 0.18);
+
+      /* Shared Semantic & Focus Tokens */
+      --positive: #2b6e44;
+      --positive-container: #d8efe0;
+      --warning: #8f5822;
+      --focus: #366948;
+
+      /* Type Scale (Tool / Workspace) */
+      --display-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --body-size: clamp(0.95rem, 0.92rem + 0.15vw, 1.03rem);
+      --label-size: 0.75rem;
+
+      /* Spacing Scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base Reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+    button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+      box-shadow: var(--focus-glow);
+    }
+
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1120px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: var(--font-headline);
+      color: var(--on-surface);
+      margin: 0;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+    .page-title {
+      font-size: var(--display-size);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: var(--space-xs);
+    }
+    .page-subtitle {
+      color: var(--on-surface-variant);
+      max-width: 65ch;
+      margin: 0;
+    }
+    .kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--tertiary);
+      margin-bottom: var(--space-xs);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .section-heading {
+      font-size: var(--headline-size);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .en-serif {
+      font-family: var(--font-en-serif);
+    }
+    .en-sans {
+      font-family: var(--font-en-sans);
+    }
+
+    /* Header & KPI Overview */
+    .workspace-header {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--space-md);
+    }
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    /* Almanac Cycle Strip (Unit 15 - 25 Navigator) */
+    .almanac-strip {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      box-shadow: var(--shadow-soft);
+    }
+    .almanac-meta {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .almanac-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--secondary);
+    }
+    .almanac-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+    .legend-dot {
+      display: inline-block;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: var(--space-xs);
+      vertical-align: middle;
+      margin-right: var(--space-xs);
+    }
+    .legend-dot.idle { background: var(--surface-container-high); }
+    .legend-dot.prep { background: var(--tertiary-container); }
+    .legend-dot.peak { background: var(--primary); }
+
+    .unit-cells {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .unit-cell {
+      font-family: var(--font-label);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      min-width: 2.75rem;
+      min-height: 2.75rem;
+      padding: 0 var(--space-sm);
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--rounded);
+      border: 2px solid transparent;
+      background: var(--surface-container-high);
+      color: var(--on-surface-variant);
+      cursor: pointer;
+      transition: transform var(--dur-micro) var(--ease-out),
+                  background-color var(--dur-short) var(--ease-out),
+                  box-shadow var(--dur-short) var(--ease-out);
+    }
+    .unit-cell:hover {
+      transform: translateY(-2px);
+      background: var(--surface-container);
+    }
+    .unit-cell.is-prep {
+      background: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+    }
+    .unit-cell.is-peak {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+    .unit-cell.is-active {
+      border-color: var(--on-surface);
+      box-shadow: var(--focus-glow);
+      transform: translateY(-1px);
+    }
+    .unit-cell-sub {
+      font-size: 0.625rem;
+      line-height: 1;
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+
+    /* Summary Metrics Row */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .kpi-card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .kpi-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--secondary);
+      font-weight: 600;
+    }
+    .kpi-value {
+      font-family: var(--font-en-serif);
+      font-size: 1.75rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      color: var(--on-surface);
+      line-height: 1.2;
+    }
+    .kpi-caption {
+      font-size: 0.85rem;
+      color: var(--tertiary);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 2.75rem;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      border: 0;
+      font-weight: 700;
+      font-size: 0.925rem;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out),
+                  transform var(--dur-micro) var(--ease-out),
+                  box-shadow var(--dur-short) var(--ease-out);
+      text-decoration: none;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-soft);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: var(--on-primary-container);
+      box-shadow: var(--shadow-soft-hover);
+    }
+    .btn-secondary {
+      background: var(--surface-container);
+      color: var(--on-surface);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--surface-container-high);
+    }
+    .btn-ochre {
+      background: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+    }
+    .btn-ochre:hover:not(:disabled) {
+      background: var(--surface-container-high);
+    }
+    .btn-sm {
+      min-height: 2.35rem;
+      padding: var(--space-xs) var(--space-sm);
+      font-size: 0.85rem;
+    }
+    .btn-pill {
+      border-radius: var(--rounded-full);
+    }
+    .btn-active-pill {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+
+    /* Unit Banner & Quick Section Jump */
+    .unit-banner {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      box-shadow: var(--shadow-soft);
+    }
+    .unit-banner-title {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .unit-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--rounded-full);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+    }
+    .badge-ochre {
+      background: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+    }
+    .badge-leaf {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+    .section-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* Cards & Layout */
+    .card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-soft);
+    }
+    .card.is-leaf-highlight {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+    .card.is-leaf-highlight h3,
+    .card.is-leaf-highlight .kicker,
+    .card.is-leaf-highlight p {
+      color: var(--on-primary-container);
+    }
+
+    .study-stack {
+      display: grid;
+      gap: var(--space-xl);
+    }
+
+    .section-header-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    /* Part 1: Reading Section */
+    .reading-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .mode-group {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      background: var(--surface-container);
+      padding: var(--space-xs);
+      border-radius: var(--rounded);
+    }
+    .mode-btn {
+      min-height: 2.35rem;
+      padding: var(--space-xs) var(--space-md);
+      border: 0;
+      border-radius: var(--rounded);
+      background: transparent;
+      color: var(--on-surface-variant);
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out),
+                  color var(--dur-micro) var(--ease-out);
+    }
+    .mode-btn.is-selected {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+
+    .reading-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+    .sentence-list {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .sentence-row {
+      background: var(--background);
+      border: var(--border-soft);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-md);
+      transition: background-color var(--dur-micro) var(--ease-out),
+                  box-shadow var(--dur-short) var(--ease-out);
+    }
+    .sentence-row.is-speaking {
+      background: var(--primary-container);
+      box-shadow: var(--focus-glow);
+    }
+    .sentence-num {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--tertiary);
+      min-width: 1.5rem;
+      padding-top: 2px;
+    }
+    .sentence-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .sentence-en {
+      font-family: var(--font-en-serif);
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--on-surface);
+      line-height: 1.5;
+    }
+    .sentence-zh {
+      font-size: 0.975rem;
+      color: var(--on-surface-variant);
+    }
+    .reveal-box {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--surface-container);
+      color: var(--on-surface-variant);
+      border: 0;
+      border-radius: var(--rounded);
+      padding: var(--space-xs) var(--space-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      align-self: flex-start;
+      min-height: 2.2rem;
+    }
+    .reveal-box:hover {
+      background: var(--surface-container-high);
+      color: var(--on-surface);
+    }
+    .key-hl {
+      background: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+      padding: 0 0.25rem;
+      border-radius: var(--space-xs);
+      font-weight: 600;
+    }
+
+    .full-passage-box {
+      background: var(--background);
+      border: var(--border-soft);
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .passage-zh {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--on-surface);
+      margin: 0;
+    }
+    .passage-en {
+      font-family: var(--font-en-serif);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--on-surface-variant);
+      margin: 0;
+    }
+    .divider-soft {
+      height: 1px;
+      background: var(--outline-variant);
+      border: 0;
+      margin: 0;
+    }
+
+    /* Part 2: Vocabulary & Grammar */
+    .vocab-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .vocab-card-wrap {
+      container-type: inline-size;
+    }
+    .vocab-card {
+      background: var(--background);
+      border: var(--border-soft);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      height: 100%;
+      transition: transform var(--dur-short) var(--ease-out),
+                  box-shadow var(--dur-short) var(--ease-out);
+    }
+    .vocab-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft-hover);
+    }
+    .vocab-card.is-mastered {
+      background: var(--primary-container);
+      border-color: var(--primary);
+    }
+    .vocab-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+    .vocab-word {
+      font-family: var(--font-en-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--on-surface);
+      line-height: 1.3;
+    }
+    .vocab-pos {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--tertiary);
+      font-weight: 600;
+    }
+    .vocab-meaning {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--on-surface);
+      min-height: 1.8rem;
+    }
+    .vocab-example {
+      font-family: var(--font-en-sans);
+      font-size: 0.9rem;
+      color: var(--on-surface-variant);
+      background: var(--surface-container-low);
+      padding: var(--space-sm);
+      border-radius: var(--rounded);
+      line-height: 1.45;
+    }
+    .vocab-card.is-mastered .vocab-example {
+      background: var(--background);
+    }
+    .vocab-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-top: var(--space-xs);
+    }
+
+    .pattern-and-builder {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+      align-items: stretch;
+    }
+    .grammar-list {
+      margin: var(--space-sm) 0 0 0;
+      padding-left: 1.25rem;
+      display: grid;
+      gap: var(--space-xs);
+    }
+    .builder-box {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .builder-prompt {
+      font-weight: 700;
+      color: var(--on-surface);
+      font-size: 1.05rem;
+    }
+    .builder-slots {
+      min-height: 3.5rem;
+      background: var(--background);
+      border: 2px dashed var(--outline-variant);
+      border-radius: var(--rounded);
+      padding: var(--space-sm);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      align-items: center;
+    }
+    .builder-pool {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+    .word-chip {
+      min-height: 2.5rem;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      border: var(--border-soft);
+      background: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-en-sans);
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform var(--dur-micro) var(--ease-out),
+                  background-color var(--dur-micro) var(--ease-out);
+    }
+    .word-chip:hover {
+      background: var(--tertiary-container);
+      transform: translateY(-1px);
+    }
+    .word-chip.in-slot {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .feedback-banner {
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.925rem;
+      font-weight: 600;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+    .feedback-banner.is-correct {
+      background: var(--positive-container);
+      color: var(--on-primary-container);
+    }
+    .feedback-banner.is-wrong {
+      background: var(--error-container);
+      color: var(--on-error-container);
+    }
+
+    /* Part 3: Quiz Section */
+    .quiz-score-bar {
+      background: var(--background);
+      border: var(--border-soft);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+    .quiz-progress-track {
+      flex: 1;
+      min-width: 180px;
+      height: 0.625rem;
+      background: var(--surface-container-high);
+      border-radius: var(--rounded-full);
+      overflow: hidden;
+    }
+    .quiz-progress-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: var(--rounded-full);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+    .quiz-list {
+      display: grid;
+      gap: var(--space-md);
+    }
+    .quiz-question {
+      background: var(--background);
+      border: var(--border-soft);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .quiz-q-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .quiz-q-title {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--on-surface);
+      line-height: 1.5;
+    }
+    .quiz-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-sm);
+    }
+    .option-btn {
+      min-height: 2.85rem;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      border: var(--border-soft);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      text-align: left;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out),
+                  box-shadow var(--dur-micro) var(--ease-out);
+    }
+    .option-btn:hover:not(:disabled) {
+      background: var(--surface-container);
+    }
+    .option-btn:disabled {
+      cursor: default;
+    }
+    .option-btn.is-correct-choice {
+      background: var(--positive-container);
+      color: var(--on-primary-container);
+      box-shadow: 0 0 0 2px var(--positive);
+    }
+    .option-btn.is-wrong-choice {
+      background: var(--error-container);
+      color: var(--on-error-container);
+      box-shadow: 0 0 0 2px var(--error);
+    }
+    .option-letter {
+      font-family: var(--font-label);
+      font-size: 0.8125rem;
+      width: 1.65rem;
+      height: 1.65rem;
+      border-radius: var(--rounded-full);
+      background: var(--surface-container-high);
+      color: var(--on-surface);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .option-btn.is-correct-choice .option-letter {
+      background: var(--positive);
+      color: var(--on-primary);
+    }
+    .option-btn.is-wrong-choice .option-letter {
+      background: var(--error);
+      color: var(--on-error);
+    }
+
+    .quiz-summary-card {
+      margin-top: var(--space-lg);
+      background: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    /* Footer Navigation */
+    .unit-footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--outline-variant);
+    }
+    .source-credit {
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+      padding: var(--space-md) 0 var(--space-lg);
+    }
+
+    /* Icon sizing */
+    .icon-sm {
+      width: 1.1rem;
+      height: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 820px) {
+      .reading-layout,
+      .pattern-and-builder {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-md);
+      }
+      .card, .unit-banner, .almanac-strip {
+        padding: var(--space-md);
+      }
+      .quiz-options {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-grid" id="app-root">
+    <!-- Top Header & Almanac Progress Strip -->
+    <header class="workspace-header">
+      <div class="header-top">
+        <div>
+          <div class="kicker">國中英語初級閱讀自主複習站 · UNIT 15–25</div>
+          <h1 class="page-title">博幼閱讀 1（初級）互動學習室</h1>
+          <p class="page-subtitle">點選下方單元（Unit 15 至 Unit 25），依序進行中英短文對照閱讀、核心單字與文法句型記憶，並透過即時批改測驗檢核學習成果。</p>
+        </div>
+        <div class="header-actions">
+          <button type="button" class="btn btn-secondary btn-sm" id="export-btn" onclick="exportProgressReport()">
+            <i data-lucide="download" class="icon-sm" aria-hidden="true"></i>
+            <span>匯出成績紀錄</span>
+          </button>
+          <button type="button" class="btn btn-ochre btn-sm" id="reset-btn" data-armed="false" onclick="handleResetAll(this)">
+            <i data-lucide="rotate-ccw" class="icon-sm" aria-hidden="true"></i>
+            <span>重設全部進度</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Almanac Unit Selector Strip -->
+      <section class="almanac-strip" aria-label="單元選擇與進度條">
+        <div class="almanac-meta">
+          <div class="almanac-label">單元進度總覽（UNIT 15 — UNIT 25）</div>
+          <div class="almanac-legend">
+            <span><span class="legend-dot idle"></span>尚未測驗</span>
+            <span><span class="legend-dot prep"></span>練習中（未滿 80 分）</span>
+            <span><span class="legend-dot peak"></span>已精熟（80 分以上）</span>
+          </div>
+        </div>
+        <div class="unit-cells" id="unit-strip-cells" role="tablist" aria-label="選擇學習單元"></div>
+      </section>
+
+      <!-- KPI Overview Row -->
+      <section class="kpi-grid" aria-label="學習統計摘要">
+        <div class="kpi-card">
+          <span class="kpi-label">已完成測驗單元</span>
+          <span class="kpi-value" id="kpi-completed">0 / 11</span>
+          <span class="kpi-caption" id="kpi-completed-caption">從 Unit 15 開始挑戰吧</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">已熟記核心單字</span>
+          <span class="kpi-value" id="kpi-vocab">0 / 0</span>
+          <span class="kpi-caption">點擊單字卡「已熟記」可累積進度</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">已測驗平均分數</span>
+          <span class="kpi-value" id="kpi-avg">—</span>
+          <span class="kpi-caption" id="kpi-avg-caption">完成任一單元測驗後自動計算</span>
+        </div>
+      </section>
+    </header>
+
+    <!-- Active Unit Banner -->
+    <section class="unit-banner" aria-label="目前單元標題與快速導覽">
+      <div class="unit-banner-title">
+        <div class="unit-badge-row">
+          <span class="badge badge-ochre" id="unit-number-badge">UNIT 15</span>
+          <span class="badge badge-leaf" id="unit-page-badge">p.29</span>
+          <span class="badge badge-ochre" id="unit-status-badge">尚未測驗</span>
+        </div>
+        <h2 class="section-heading" id="unit-main-title">我的家人</h2>
+      </div>
+      <nav class="section-nav" aria-label="本單元學習步驟跳轉">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToSection('sec-reading')">1. 短文閱讀</button>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="scrollToSection('sec-vocab')">2. 單字與句型</button>
+        <button type="button" class="btn btn-primary btn-sm" onclick="scrollToSection('sec-quiz')">3. 單元測驗</button>
+      </nav>
+    </section>
+
+    <div class="study-stack">
+      <!-- Part 1: Reading Comprehension & Bilingual Study -->
+      <section class="card" id="sec-reading" aria-labelledby="heading-reading">
+        <div class="section-header-bar">
+          <div>
+            <div class="kicker">STEP 1 · 短文閱讀與中翻英練習</div>
+            <h3 class="section-heading" id="heading-reading">逐句對照閱讀</h3>
+          </div>
+          <div class="reading-controls">
+            <div class="mode-group" role="group" aria-label="閱讀模式切換">
+              <button type="button" class="mode-btn is-selected" id="mode-bilingual" onclick="setReadingMode('bilingual')">中英對照</button>
+              <button type="button" class="mode-btn" id="mode-en-only" onclick="setReadingMode('en-only')">純英文閱讀</button>
+              <button type="button" class="mode-btn" id="mode-zh-only" onclick="setReadingMode('zh-only')">中翻英挑戰</button>
+            </div>
+            <button type="button" class="btn btn-ochre btn-sm" id="highlight-toggle-btn" onclick="toggleKeyHighlight()">
+              <i data-lucide="highlighter" class="icon-sm" aria-hidden="true"></i>
+              <span>重點標記：開</span>
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" id="read-all-btn" onclick="speakFullUnit()">
+              <i data-lucide="volume-2" class="icon-sm" aria-hidden="true"></i>
+              <span>朗讀全篇</span>
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" id="speed-btn" onclick="toggleSpeechRate()">
+              語速：1.0x
+            </button>
+          </div>
+        </div>
+
+        <div class="reading-layout">
+          <div class="sentence-list" id="sentence-list"></div>
+          <aside class="full-passage-box" aria-label="短文全文總覽">
+            <div class="kicker">全文總覽</div>
+            <p class="passage-zh" id="full-zh-passage"></p>
+            <hr class="divider-soft">
+            <p class="passage-en" id="full-en-passage"></p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Part 2: Core Vocabulary, Grammar Spotlight & Sentence Builder -->
+      <section id="sec-vocab" aria-labelledby="heading-vocab">
+        <div class="card">
+          <div class="section-header-bar">
+            <div>
+              <div class="kicker">STEP 2 · 核心字彙記憶</div>
+              <h3 class="section-heading" id="heading-vocab">本單元核心單字與片語</h3>
+            </div>
+            <div class="vocab-toolbar">
+              <button type="button" class="btn btn-secondary btn-sm" id="flashcard-hide-btn" onclick="toggleHideMeaning()">
+                <i data-lucide="eye-off" class="icon-sm" aria-hidden="true"></i>
+                <span>自我背誦（遮蔽中文）</span>
+              </button>
+            </div>
+          </div>
+          <div class="vocab-grid" id="vocab-grid"></div>
+        </div>
+
+        <div class="pattern-and-builder">
+          <!-- Single Leaf Highlight Card in View -->
+          <article class="card is-leaf-highlight" id="grammar-spotlight" aria-labelledby="heading-grammar">
+            <div class="kicker">文法與句型重點</div>
+            <h3 class="section-heading" id="heading-grammar">重點整理</h3>
+            <p id="grammar-summary"></p>
+            <ul class="grammar-list" id="grammar-points"></ul>
+          </article>
+
+          <!-- Interactive Sentence Builder -->
+          <div class="builder-box" aria-labelledby="heading-builder">
+            <div class="section-header-bar" style="margin-bottom: 0;">
+              <div>
+                <div class="kicker">句型重組互動練習</div>
+                <h3 class="section-heading" id="heading-builder">點選字塊排出正確句子</h3>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="nextBuilderPrompt()">換一題</button>
+            </div>
+            <div class="builder-prompt" id="builder-prompt"></div>
+            <div class="builder-slots" id="builder-slots" aria-label="已選取的單字排列區"></div>
+            <div class="builder-pool" id="builder-pool" aria-label="可用單字區"></div>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+              <button type="button" class="btn btn-primary btn-sm" onclick="checkBuilderAnswer()">檢查句型</button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="resetBuilderCurrent()">清除重排</button>
+            </div>
+            <div id="builder-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Part 3: Interactive Unit Quiz -->
+      <section class="card" id="sec-quiz" aria-labelledby="heading-quiz">
+        <div class="section-header-bar">
+          <div>
+            <div class="kicker">STEP 3 · 單元自我檢測</div>
+            <h3 class="section-heading" id="heading-quiz">單元互動測驗（即時批改與詳解）</h3>
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="resetCurrentUnitQuiz()">
+            <i data-lucide="refresh-cw" class="icon-sm" aria-hidden="true"></i>
+            <span>重測本單元</span>
+          </button>
+        </div>
+
+        <div class="quiz-score-bar">
+          <div>
+            <strong id="quiz-answered-text">作答進度：0 / 5 題</strong>
+            <span style="margin-left: var(--space-md); color: var(--primary); font-weight: 700;" id="quiz-score-text">目前得分：0 分</span>
+          </div>
+          <div class="quiz-progress-track" aria-hidden="true">
+            <div class="quiz-progress-fill" id="quiz-progress-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <div class="quiz-list" id="quiz-list"></div>
+        <div id="quiz-summary-area"></div>
+      </section>
+    </div>
+
+    <!-- Prev / Next Unit Navigation -->
+    <nav class="unit-footer-nav" aria-label="單元上下切換">
+      <button type="button" class="btn btn-secondary" id="prev-unit-btn" onclick="stepUnit(-1)">
+        <i data-lucide="arrow-left" class="icon-sm" aria-hidden="true"></i>
+        <span id="prev-unit-label">上一單元</span>
+      </button>
+      <button type="button" class="btn btn-primary" id="next-unit-btn" onclick="stepUnit(1)">
+        <span id="next-unit-label">下一單元</span>
+        <i data-lucide="arrow-right" class="icon-sm" aria-hidden="true"></i>
+      </button>
+    </nav>
+
+    <footer class="source-credit">
+      教材短文、句子與核心語料整理自《博幼閱讀 1（初級）》Unit 15 至 Unit 25，供國中學生與英語初學者自我檢測與複習使用。
+    </footer>
+  </main>
+
+  <api-shim></api-shim>
+
+  <script>
+    const UNITS_DATA = [
+      {
+        id: 15,
+        title: `我的家人`,
+        page: `p.29`,
+        zhPassage: `我爸爸是一位計程車司機。我媽媽是一位老師。他們都很忙。我和我的姊姊們每天做家事。我的姊姊們做菜，而我洗碗盤。我的小妹妹只有四歲。她每天吃和玩。`,
+        sentences: [
+          { en: `My father is a taxi driver.`, zh: `我爸爸是一位計程車司機。`, hl: [`taxi driver`] },
+          { en: `My mother is a teacher.`, zh: `我媽媽是一位老師。`, hl: [`teacher`] },
+          { en: `They are busy.`, zh: `他們都很忙。`, hl: [`busy`] },
+          { en: `My sisters and I do the housework every day.`, zh: `我和我的姊姊們每天做家事。`, hl: [`do the housework`, `every day`] },
+          { en: `My sisters cook, and I do the dishes.`, zh: `我的姊姊們做菜，而我洗碗盤。`, hl: [`cook`, `do the dishes`] },
+          { en: `My little sister is only four.`, zh: `我的小妹妹只有四歲。`, hl: [`little`, `only`] },
+          { en: `She eats and plays every day.`, zh: `她每天吃和玩。`, hl: [`eats`, `plays`] }
+        ],
+        vocab: [
+          { key: `u15_taxi_driver`, word: `taxi driver`, pos: `n. 名詞片語`, meaning: `計程車司機`, example: `My father is a taxi driver.` },
+          { key: `u15_busy`, word: `busy`, pos: `adj. 形容詞`, meaning: `忙碌的`, example: `They are busy.` },
+          { key: `u15_housework`, word: `do the housework`, pos: `phr. 動詞片語`, meaning: `做家事`, example: `My sisters and I do the housework every day.` },
+          { key: `u15_cook`, word: `cook`, pos: `v. 動詞`, meaning: `煮飯；做菜`, example: `My sisters cook, and I do the dishes.` },
+          { key: `u15_dishes`, word: `do the dishes`, pos: `phr. 動詞片語`, meaning: `洗碗盤`, example: `My sisters cook, and I do the dishes.` },
+          { key: `u15_only`, word: `only`, pos: `adv. 副詞`, meaning: `只有；僅僅`, example: `My little sister is only four.` }
+        ],
+        grammar: {
+          title: `並列表述、做家事片語與第三人稱單數`,
+          summary: `本單元介紹家庭成員的職業與日常分工，練習區分「做家事」與「洗碗盤」的常見片語，並注意主詞為第三人稱單數時動詞的變化。`,
+          points: [
+            `禮貌的英語順序：說「我和我的姊姊們」時，習慣把他人放前面、自己放後面，寫作 My sisters and I（視為複數主詞）。`,
+            `家事片語區分：do the housework 指「做家事（總稱）」；do the dishes 專指「洗碗盤」。`,
+            `第三人稱單數動詞：主詞為 She（小妹妹）時，現在式動詞須加 -s，例如 She eats and plays every day.`
+          ]
+        },
+        builders: [
+          { zh: `我和我的姊姊們每天做家事。`, en: `My sisters and I do the housework every day.` },
+          { zh: `我的姊姊們做菜，而我洗碗盤。`, en: `My sisters cook, and I do the dishes.` }
+        ],
+        quiz: [
+          {
+            type: `閱讀理解`,
+            question: `根據短文，作者的爸爸是什麼職業？`,
+            options: [`老師`, `廚師`, `公車司機`, `計程車司機`],
+            answer: 3,
+            explanation: `短文第一句寫到「My father is a taxi driver.」，表示爸爸是計程車司機。`
+          },
+          {
+            type: `核心片語`,
+            question: `「我和我的姊姊們每天做家事。」中的「做家事」英文是哪一個？`,
+            options: [`do the dishes`, `do the housework`, `take a walk`, `play with`],
+            answer: 1,
+            explanation: `do the housework 是「做家事」；do the dishes 則是「洗碗盤」。`
+          },
+          {
+            type: `文法句型`,
+            question: `My little sister is only four. She ____ and ____ every day.`,
+            options: [`eat; play`, `eats; play`, `eats; plays`, `eating; playing`],
+            answer: 2,
+            explanation: `主詞 She 為第三人稱單數，現在簡單式中兩個並列的動詞都必須加上 -s（eats and plays）。`
+          },
+          {
+            type: `核心片語`,
+            question: `「我的姊姊們做菜，而我洗碗盤。」My sisters cook, and I ____.`,
+            options: [`do the dishes`, `make the bed`, `cook dinner`, `am busy`],
+            answer: 0,
+            explanation: `「洗碗盤」的固定片語是 do the dishes。`
+          },
+          {
+            type: `細節判斷`,
+            question: `關於作者的小妹妹，下列敘述何者正確？`,
+            options: [`她每天幫忙做菜`, `她今年五歲`, `她每天吃東西和玩耍`, `她也是一位老師`],
+            answer: 2,
+            explanation: `短文最後兩句指出「My little sister is only four. She eats and plays every day.」。`
+          }
+        ]
+      },
+      {
+        id: 16,
+        title: `Sue 和我`,
+        page: `p.31`,
+        zhPassage: `Sue 和我是姊妹。我們有不同的嗜好。她喜歡音樂，而且她每天聽音樂。我喜歡運動，而且我常常在星期六早上游泳。在星期日，我的家人總是到公園散步。`,
+        sentences: [
+          { en: `Sue and I are sisters.`, zh: `Sue 和我是姊妹。`, hl: [`sisters`] },
+          { en: `We have different hobbies.`, zh: `我們有不同的嗜好。`, hl: [`different`, `hobbies`] },
+          { en: `She likes music, and she listens to music every day.`, zh: `她喜歡音樂，而且她每天聽音樂。`, hl: [`listens to`, `music`] },
+          { en: `I like sports, and I often swim on Saturday morning.`, zh: `我喜歡運動，而且我常常在星期六早上游泳。`, hl: [`sports`, `often`, `on Saturday morning`] },
+          { en: `On Sunday, my family always take a walk at the park.`, zh: `在星期日，我的家人總是到公園散步。`, hl: [`always`, `take a walk`, `at the park`] }
+        ],
+        vocab: [
+          { key: `u16_different`, word: `different`, pos: `adj. 形容詞`, meaning: `不同的`, example: `We have different hobbies.` },
+          { key: `u16_hobby`, word: `hobby / hobbies`, pos: `n. 名詞`, meaning: `嗜好（複數去 y 加 ies）`, example: `We have different hobbies.` },
+          { key: `u16_listen`, word: `listen to`, pos: `phr. 動詞片語`, meaning: `聆聽…`, example: `She listens to music every day.` },
+          { key: `u16_swim`, word: `swim`, pos: `v. 動詞`, meaning: `游泳`, example: `I often swim on Saturday morning.` },
+          { key: `u16_take_walk`, word: `take a walk`, pos: `phr. 動詞片語`, meaning: `散步`, example: `My family always take a walk at the park.` },
+          { key: `u16_park`, word: `park`, pos: `n. 名詞`, meaning: `公園`, example: `My family always take a walk at the park.` }
+        ],
+        grammar: {
+          title: `星期介系詞 on 與 listen to 的用法`,
+          summary: `學習談論休閒嗜好時，須注意「星期幾」的介系詞搭配、不及物動詞 listen to，以及頻率副詞 often / always 的位置。`,
+          points: [
+            `星期介系詞：無論是「星期日」On Sunday，或是「星期六早上」on Saturday morning，特定日期與星期幾前皆用介系詞 on。`,
+            `listen to + 名詞：listen 後面不能直接加 music，中間一定要有介系詞 to（listens to music）。`,
+            `hobby 的複數變化：字尾為「子音 + y」的名詞，變複數時去 y 加 ies → hobbies。`
+          ]
+        },
+        builders: [
+          { zh: `她喜歡音樂，而且她每天聽音樂。`, en: `She likes music, and she listens to music every day.` },
+          { en: `We have different hobbies.`, zh: `我們有不同的嗜好。` }
+        ],
+        quiz: [
+          {
+            type: `閱讀理解`,
+            question: `根據短文，作者常常在什麼時候游泳？`,
+            options: [`星期日早上`, `星期六早上`, `每天早上`, `星期五晚上`],
+            answer: 1,
+            explanation: `短文第四句明確寫道：「I often swim on Saturday morning.」。`
+          },
+          {
+            type: `字彙變化`,
+            question: `「我們有不同的嗜好。」We have different ____.`,
+            options: [`hobby`, `hobbys`, `hobbies`, `hobies`],
+            answer: 2,
+            explanation: `hobby 是「子音 + y」結尾，複數形應去 y 加 ies，寫作 hobbies。`
+          },
+          {
+            type: `動詞片語`,
+            question: `「她每天聽音樂。」She ____ music every day.`,
+            options: [`listens`, `listen to`, `listens to`, `hears to`],
+            answer: 2,
+            explanation: `主詞為 She（第三人稱單數），且 listen 接對象須加 to，故選 listens to。`
+          },
+          {
+            type: `時間介系詞`,
+            question: `____ Sunday, my family always take a walk at the park.`,
+            options: [`In`, `At`, `On`, `To`],
+            answer: 2,
+            explanation: `星期幾（On Sunday）前面必須搭配介系詞 On。`
+          },
+          {
+            type: `閱讀理解`,
+            question: `在星期日，作者的家人總是做什麼事？`,
+            options: [`在家聽音樂`, `去公園散步`, `去海邊游泳`, `打掃家裡`],
+            answer: 1,
+            explanation: `短文最後一句：On Sunday, my family always take a walk at the park.`
+          }
+        ]
+      },
+      {
+        id: 17,
+        title: `Jack 的寵物`,
+        page: `p.33`,
+        zhPassage: `Jack 有一隻狗和一隻貓。牠們是他的寵物。每天 Jack 和他的狗玩。他的貓不和他們玩。牠整天睡覺。`,
+        sentences: [
+          { en: `Jack has a dog and a cat.`, zh: `Jack 有一隻狗和一隻貓。`, hl: [`has`] },
+          { en: `They are his pets.`, zh: `牠們是他的寵物。`, hl: [`pets`] },
+          { en: `Jack plays with his dog every day.`, zh: `每天 Jack 和他的狗玩。`, hl: [`plays with`] },
+          { en: `His cat does not play with them.`, zh: `他的貓不和他們玩。`, hl: [`does not`, `them`] },
+          { en: `It sleeps all day long.`, zh: `牠整天睡覺。`, hl: [`sleeps`, `all day long`] }
+        ],
+        vocab: [
+          { key: `u17_pet`, word: `pet / pets`, pos: `n. 名詞`, meaning: `寵物`, example: `They are his pets.` },
+          { key: `u17_play_with`, word: `play with`, pos: `phr. 動詞片語`, meaning: `和…一起玩`, example: `Jack plays with his dog every day.` },
+          { key: `u17_them`, word: `them`, pos: `pron. 受格代名詞`, meaning: `他們；牠們`, example: `His cat does not play with them.` },
+          { key: `u17_sleep`, word: `sleep`, pos: `v. 動詞`, meaning: `睡覺`, example: `It sleeps all day long.` },
+          { key: `u17_all_day`, word: `all day long`, pos: `phr. 副詞片語`, meaning: `整天`, example: `It sleeps all day long.` }
+        ],
+        grammar: {
+          title: `第三人稱單數「有」has、否定句 does not 與受格 them`,
+          summary: `當主詞是單數（Jack / His cat / It）時，肯定句與否定句的動詞形式完全不同，也是國中段考最常考的重點！`,
+          points: [
+            `have 的單數變化：Jack 是第三人稱單數，表示「有」要用 has，不可寫 Jack have。`,
+            `一般動詞的單數否定：His cat does not play... 助動詞 does not 出現後，後面的 play 必須恢復原形（不加 s）。`,
+            `介系詞後接「受格」：with 是介系詞，後面要接代名詞受格 them（他們，指 Jack 和狗），不可寫 with they。`
+          ]
+        },
+        builders: [
+          { zh: `他的貓不和他們玩。`, en: `His cat does not play with them.` },
+          { zh: `每天 Jack 和他的狗玩。`, en: `Jack plays with his dog every day.` }
+        ],
+        quiz: [
+          {
+            type: `閱讀理解`,
+            question: `Jack 總共養了哪些寵物？`,
+            options: [`一隻狗和一隻貓`, `兩隻狗和一隻貓`, `兩隻貓和三隻鳥`, `一隻兔子和一隻狗`],
+            answer: 0,
+            explanation: `短文第一句：Jack has a dog and a cat.`
+          },
+          {
+            type: `否定句文法`,
+            question: `His cat ____ play with them.`,
+            options: [`do not`, `does not`, `is not`, `are not`],
+            answer: 1,
+            explanation: `His cat 為第三人稱單數，一般動詞 play 的現在式否定須使用助動詞 does not。`
+          },
+          {
+            type: `代名詞受格`,
+            question: `Jack plays with his dog every day. His cat does not play with ____.`,
+            options: [`they`, `their`, `them`, `theirs`],
+            answer: 2,
+            explanation: `介系詞 with 後面須使用受格代名詞 them。`
+          },
+          {
+            type: `核心片語`,
+            question: `「牠整天睡覺。」中的「整天」英文片語是？`,
+            options: [`every morning`, `all day long`, `on weekends`, `after school`],
+            answer: 1,
+            explanation: `all day long 意為「整天、一整天」。`
+          },
+          {
+            type: `動詞變化`,
+            question: `It ____ all day long. 空格應填入？`,
+            options: [`sleep`, `sleeping`, `sleeps`, `to sleep`],
+            answer: 2,
+            explanation: `主詞為 It（第三人稱單數），現在式肯定句動詞 sleep 須加 -s 成為 sleeps。`
+          }
+        ]
+      },
+      {
+        id: 18,
+        title: `我的爸爸和媽媽`,
+        page: `p.35`,
+        zhPassage: `我的爸爸和媽媽是老師。他們有很多書。我媽媽每天讀兩本書。我沒有每天讀書。我不是他們的學生。`,
+        sentences: [
+          { en: `My mom and dad are teachers.`, zh: `我的爸爸和媽媽是老師。`, hl: [`teachers`] },
+          { en: `They have many books.`, zh: `他們有很多書。`, hl: [`many books`] },
+          { en: `My mom reads two books every day.`, zh: `我媽媽每天讀兩本書。`, hl: [`reads`, `two books`] },
+          { en: `I don’t read books every day.`, zh: `我沒有每天讀書。`, hl: [`don’t read`] },
+          { en: `I am not their student.`, zh: `我不是他們的學生。`, hl: [`am not`, `their`] }
+        ],
+        vocab: [
+          { key: `u18_many`, word: `many`, pos: `adj. 形容詞`, meaning: `許多的（接複數名詞）`, example: `They have many books.` },
+          { key: `u18_read`, word: `read`, pos: `v. 動詞`, meaning: `閱讀；看（書）`, example: `My mom reads two books every day.` },
+          { key: `u18_their`, word: `their`, pos: `pron. 所有格`, meaning: `他們的`, example: `I am not their student.` },
+          { key: `u18_student`, word: `student`, pos: `n. 名詞`, meaning: `學生`, example: `I am not their student.` }
+        ],
+        grammar: {
+          title: `分辨兩種否定句：「don't + 原形動詞」vs.「am not」`,
+          summary: `初學者最容易把 be 動詞否定和一般動詞否定混用！透過本單元兩句並列比較，一次搞懂兩者差異。`,
+          points: [
+            `一般動詞否定：I don't read books every day.（句中有動作「讀」read，所以用助動詞 don't 來幫忙否定）。`,
+            `be 動詞否定：I am not their student.（句中沒有動作，只是說明身分「是不是學生」，直接用 am not）。`,
+            `複數名詞搭配：many（許多的）與 two（兩個）後面都要接複數名詞 books，而 My mom and dad 兩個人也搭配複數 teachers。`
+          ]
+        },
+        builders: [
+          { zh: `我媽媽每天讀兩本書。`, en: `My mom reads two books every day.` },
+          { zh: `我不是他們的學生。`, en: `I am not their student.` }
+        ],
+        quiz: [
+          {
+            type: `閱讀理解`,
+            question: `作者的爸爸和媽媽是什麼職業？`,
+            options: [`醫生`, `老師`, `司機`, `工程師`],
+            answer: 1,
+            explanation: `短文第一句：My mom and dad are teachers.`
+          },
+          {
+            type: `名詞單複數`,
+            question: `My mom reads two ____ every day.`,
+            options: [`book`, `books`, `a book`, `bookes`],
+            answer: 1,
+            explanation: `數量詞 two 後面須接可數名詞複數 books。`
+          },
+          {
+            type: `否定句分辨`,
+            question: `「我沒有每天讀書。」I ____ read books every day.`,
+            options: [`don’t`, `doesn’t`, `am not`, `not`],
+            answer: 0,
+            explanation: `主詞為第一人稱 I，搭配一般動詞 read 的否定須使用助動詞 don’t（do not）。`
+          },
+          {
+            type: `否定句分辨`,
+            question: `「我不是他們的學生。」I ____ their student.`,
+            options: [`don’t`, `doesn’t`, `am not`, `isn’t`],
+            answer: 2,
+            explanation: `句子表達「不是…（身分）」，不含一般動詞，須使用 be 動詞否定 am not。`
+          },
+          {
+            type: `細節判斷`,
+            question: `根據短文，下列何者正確？`,
+            options: [`作者每天都讀書`, `作者是爸爸媽媽的學生`, `爸爸媽媽有很多書`, `媽媽每天讀三本書`],
+            answer: 2,
+            explanation: `第二句明確說明「They have many books.」（他們有很多書）。`
+          }
+        ]
+      },
+      {
+        id: 19,
+        title: `Mark`,
+        page: `p.37`,
+        zhPassage: `Mark 是我的好朋友。他喜歡水果。他每天早上吃蘋果。他不喝可樂。他總是喝牛奶。這有益於他的健康。`,
+        sentences: [
+          { en: `Mark is my good friend.`, zh: `Mark 是我的好朋友。`, hl: [`good friend`] },
+          { en: `He likes fruit.`, zh: `他喜歡水果。`, hl: [`fruit`] },
+          { en: `He eats apples every morning.`, zh: `他每天早上吃蘋果。`, hl: [`eats`, `apples`, `every morning`] },
+          { en: `He does not drink Coke.`, zh: `他不喝可樂。`, hl: [`does not drink`, `Coke`] },
+          { en: `He always drinks milk.`, zh: `他總是喝牛奶。`, hl: [`always`, `drinks`, `milk`] },
+          { en: `This is good for his health.`, zh: `這有益於他的健康。`, hl: [`is good for`, `health`] }
+        ],
+        vocab: [
+          { key: `u19_fruit`, word: `fruit`, pos: `n. 不可數名詞`, meaning: `水果（總稱）`, example: `He likes fruit.` },
+          { key: `u19_drink`, word: `drink`, pos: `v. 動詞`, meaning: `喝`, example: `He always drinks milk.` },
+          { key: `u19_coke`, word: `Coke`, pos: `n. 專有名詞`, meaning: `可樂（字首大寫）`, example: `He does not drink Coke.` },
+          { key: `u19_milk`, word: `milk`, pos: `n. 不可數名詞`, meaning: `牛奶`, example: `He always drinks milk.` },
+          { key: `u19_health`, word: `health`, pos: `n. 名詞`, meaning: `健康`, example: `This is good for his health.` },
+          { key: `u19_good_for`, word: `be good for`, pos: `phr. 形容詞片語`, meaning: `有益於…；對…有好處`, example: `This is good for his health.` }
+        ],
+        grammar: {
+          title: `文法補充站：be good for（有益於…）與飲食習慣描述`,
+          summary: `課本特別標記的重要片語「be good for」代表對健康或某人有好處，同時注意不可數名詞 fruit / milk 不加 s，而可數的 apple 泛指時要加 s！`,
+          points: [
+            `課本補充：be good for 意為「有益於…、對…有好處」（例：This is good for his health.）。`,
+            `不可數 vs. 可數：fruit（水果總稱）與 milk（牛奶）不可數，不加 s；apple 是可數名詞，每天早上吃蘋果泛指常寫作複數 apples。`,
+            `頻率副詞位置：always（總是）放在一般動詞 drinks 的前面 → He always drinks milk.`
+          ]
+        },
+        builders: [
+          { zh: `這有益於他的健康。`, en: `This is good for his health.` },
+          { zh: `他總是喝牛奶。`, en: `He always drinks milk.` }
+        ],
+        quiz: [
+          {
+            type: `閱讀理解`,
+            question: `Mark 每天早上吃什麼？`,
+            options: [`香蕉`, `蛋`, `蘋果`, `餅乾`],
+            answer: 2,
+            explanation: `第三句：He eats apples every morning.`
+          },
+          {
+            type: `文法補充站`,
+            question: `「這有益於他的健康。」This ____ his health.`,
+            options: [`is good at`, `is good for`, `is busy with`, `plays with`],
+            answer: 1,
+            explanation: `「對…有益、有好處」的片語是 be good for。`
+          },
+          {
+            type: `否定句文法`,
+            question: `He ____ drink Coke. 空格應填入？`,
+            options: [`don’t`, `isn’t`, `does not`, `not`],
+            answer: 2,
+            explanation: `主詞 He 為第三人稱單數，一般動詞 drink 的現在式否定用 does not。`
+          },
+          {
+            type: `核心單字`,
+            question: `「健康」的英文名詞是哪一個？`,
+            options: [`health`, `fruit`, `milk`, `morning`],
+            answer: 0,
+            explanation: `health 意為「健康」。`
+          },
+          {
+            type: `句型語序`,
+            question: `「他總是喝牛奶。」哪一句的語序和動詞變化完全正確？`,
+            options: [`He drinks always milk.`, `Always he drinks milk.`, `He always drinks milk.`, `He is always drink milk.`],
+            answer: 2,
+            explanation: `頻率副詞 always 放在一般動詞前，且主詞為 He，動詞要加 s 成為 drinks。`
+          }
+        ]
+      },
+      {
+        id: 20,
+        title: `不同的嗜好`,
+        page: `p.39`,
+        zhPassage: `我的爸爸是公車司機。他擅長運動。他經常打網球。我媽媽不喜歡運動。她喜歡電影。他們有不同的嗜好。`,
+        sentences: [
+          { en: `My father is a bus driver.`, zh: `我的爸爸是公車司機。`, hl: [`bus driver`] },
+          { en: `He’s good at sports.`, zh: `他擅長運動。`, hl: [`good at`, `sports`] },
+          { en: `He often plays tennis.`, zh: `他經常打網球。`, hl: [`often`, `plays tennis`] },
+          { en: `My mother doesn’t like sports.`, zh: `我媽媽不喜歡運動。`, hl: [`doesn’t like`] },
+          { en: `She likes movies.`, zh: `她喜歡電影。`, hl: [`movies`] },
+          { en: `They have different hobbies.`, zh: `他們有不同的嗜好。`, hl: [`different hobbies`] }
+        ],
+        vocab: [
+          { key: `u20_bus_driver`, word: `bus driver`, pos: `n. 名詞片語`, meaning: `公車司機`, example: `My father is a bus driver.` },
+          { key: `u20_good_at`, word: `be good at`, pos: `phr. 形容詞片語`, meaning: `擅長於…`, example: `He’s good at sports.` },
+          { key: `u20_tennis`, word: `play tennis`, pos: `phr. 動詞片語`, meaning: `打網球`, example: `He often plays tennis.` },
+          { key: `u20_movie`, word: `movie / movies`, pos: `n. 名詞`, meaning: `電影`, example: `She likes movies.` },
+          { key: `u20_often`, word: `often`, pos: `adv. 頻率副詞`, meaning: `經常；常常`, example: `He often plays tennis.` }
+        ],
+        grammar: {
+          title: `be good at（擅長）與 Unit 19 be good for（有益）比較`,
+          summary: `只差一個介系詞，意思大不同！同時練習球類運動前不加 the 的規則。`,
+          points: [
+            `介系詞大比拚：be good at（擅長某事，如 He’s good at sports.）；be good for（對…有益，如 This is good for his health.）。`,
+            `球類運動不加 the：打網球寫作 play tennis（主詞 He 寫 plays tennis），打棒球則是 play baseball，球類前面不加 the。`,
+            `縮寫用法：He’s = He is；doesn’t = does not。`
+          ]
+        },
+        builders: [
+          { zh: `他擅長運動。`, en: `He’s good at sports.` },
+          { zh: `他經常打網球。`, en: `He often plays tennis.` }
+        ],
+        quiz: [
+          {
+            type: `閱讀理解`,
+            question: `根據短文，作者的爸爸擅長什麼？`,
+            options: [`煮飯`, `運動`, `看電影`, `音樂`],
+            answer: 1,
+            explanation: `第二句：He’s good at sports.`
+          },
+          {
+            type: `片語辨析`,
+            question: `「他擅長運動。」He is ____ sports. 空格應填入？`,
+            options: [`good for`, `good at`, `busy with`, `good to`],
+            answer: 1,
+            explanation: `be good at 表示「擅長於…」；be good for 則是「對…有好處」。`
+          },
+          {
+            type: `動詞搭配`,
+            question: `「他經常打網球。」He often ____.`,
+            options: [`play the tennis`, `plays tennis`, `plays a tennis`, `does tennis`],
+            answer: 1,
+            explanation: `球類運動名稱前不加冠詞 the 或 a，且主詞為 He，故用 plays tennis。`
+          },
+          {
+            type: `否定句文法`,
+            question: `My mother ____ like sports. She likes movies.`,
+            options: [`don’t`, `isn’t`, `doesn’t`, `aren’t`],
+            answer: 2,
+            explanation: `My mother 為第三人稱單數，一般動詞 like 的否定須使用 doesn’t。`
+          },
+          {
+            type: `閱讀理解`,
+            question: `關於爸爸和媽媽的嗜好，下列何者正確？`,
+            options: [`兩人都喜歡運動`, `媽媽喜歡看電影`, `媽媽經常打網球`, `他們有相同的嗜好`],
+            answer: 1,
+            explanation: `短文指出媽媽不喜歡運動，她喜歡電影（She likes movies.）。`
+          }
+        ]
+      },
+      {
+        id: 21,
+        title: `Paul 和他的哥哥`,
+        page: `p.41`,
+        zhPassage: `Paul 和他的哥哥是學生。他們每天看書。Paul 喜歡中文。他不喜歡數學。他的哥哥喜歡數學。他不喜歡英文。`,
+        sentences: [
+          { en: `Paul and his brother are students.`, zh: `Paul 和他的哥哥是學生。`, hl: [`brother`, `are students`] },
+          { en: `They read books every day.`, zh: `他們每天看書。`, hl: [`read books`] },
+          { en: `Paul likes Chinese.`, zh: `Paul 喜歡中文。`, hl: [`Chinese`] },
+          { en: `He does not like math.`, zh: `他不喜歡數學。`, hl: [`does not like`, `math`] },
+          { en: `His brother likes math.`, zh: `他的哥哥喜歡數學。`, hl: [`likes math`] },
+          { en: `He does not like English.`, zh: `他不喜歡英文。`, hl: [`English`] }
+        ],
+        vocab: [
+          { key: `u21_brother`, word: `brother`, pos: `n. 名詞`, meaning: `哥哥；弟弟`, example: `Paul and his brother are students.` },
+          { key: `u21_read_books`, word: `read books`, pos: `phr. 動詞片語`, meaning: `看書；讀書`, example: `They read books every day.` },
+          { key: `u21_chinese`, word: `Chinese`, pos: `n. 專有名詞`, meaning: `中文（字首大寫）`, example: `Paul likes Chinese.` },
+          { key: `u21_math`, word: `math`, pos: `n. 名詞`, meaning: `數學`, example: `His brother likes math.` },
+          { key: `u21_english`, word: `English`, pos: `n. 專有名詞`, meaning: `英文（字首大寫）`, example: `He does not like English.` }
+        ],
+        grammar: {
+          title: `科目名稱大小寫與對比句型`,
+          summary: `練習用兩個人物喜歡與不喜歡的科目做對比，並記住語言科目專有名詞必須大寫。`,
+          points: [
+            `語言科目首字必大寫：Chinese（中文）與 English（英文）是專有名詞，開頭必須大寫；一般科目如 math（數學）放在句中則小寫。`,
+            `複數主詞配對：Paul and his brother 是兩個人，所以 be 動詞用 are，且「學生」要加 s 成為 students。`,
+            `對比句裡的助動詞：肯定寫 Paul likes...（加 s），否定寫 He does not like...（還原成原形 like）。`
+          ]
+        },
+        builders: [
+          { zh: `Paul 和他的哥哥是學生。`, en: `Paul and his brother are students.` },
+          { zh: `他不喜歡英文。`, en: `He does not like English.` }
+        ],
+        quiz: [
+          {
+            type: `閱讀理解`,
+            question: `根據短文，Paul 喜歡哪一個科目？`,
+            options: [`數學`, `英文`, `中文`, `音樂`],
+            answer: 2,
+            explanation: `第三句：Paul likes Chinese.`
+          },
+          {
+            type: `閱讀理解`,
+            question: `Paul 的哥哥不喜歡哪一個科目？`,
+            options: [`數學`, `英文`, `中文`, `體育`],
+            answer: 1,
+            explanation: `最後兩句說哥哥喜歡數學，不喜歡英文（He does not like English.）。`
+          },
+          {
+            type: `主詞動詞一致`,
+            question: `Paul and his brother ____ students.`,
+            options: [`is`, `am`, `are`, `be`],
+            answer: 2,
+            explanation: `Paul 和他的哥哥總共兩人，屬於複數主詞，故 be 動詞選 are。`
+          },
+          {
+            type: `動詞變化`,
+            question: `They ____ books every day.`,
+            options: [`read`, `reads`, `reading`, `is reading`],
+            answer: 0,
+            explanation: `主詞 They 為複數，現在式一般動詞維持原形 read。`
+          },
+          {
+            type: `否定句文法`,
+            question: `He does not ____ math.`,
+            options: [`likes`, `liking`, `like`, `to like`],
+            answer: 2,
+            explanation: `助動詞 does not 後方的動詞必須恢復為原形 like。`
+          }
+        ]
+      },
+      {
+        id: 22,
+        title: `我的哥哥`,
+        page: `p.43`,
+        zhPassage: `Mark 是我的哥哥。他喜歡水果。他每天早上吃香蕉。他不喝可樂。他總是喝水。這有益他的健康。`,
+        sentences: [
+          { en: `Mark is my brother.`, zh: `Mark 是我的哥哥。`, hl: [`brother`] },
+          { en: `He likes fruit.`, zh: `他喜歡水果。`, hl: [`likes fruit`] },
+          { en: `He eats bananas every morning.`, zh: `他每天早上吃香蕉。`, hl: [`bananas`] },
+          { en: `He does not drink Coke.`, zh: `他不喝可樂。`, hl: [`does not drink`] },
+          { en: `He always drinks water.`, zh: `他總是喝水。`, hl: [`drinks water`] },
+          { en: `This is good for his health.`, zh: `這有益他的健康。`, hl: [`good for`, `his health`] }
+        ],
+        vocab: [
+          { key: `u22_banana`, word: `banana / bananas`, pos: `n. 名詞`, meaning: `香蕉`, example: `He eats bananas every morning.` },
+          { key: `u22_water`, word: `water`, pos: `n. 不可數名詞`, meaning: `水`, example: `He always drinks water.` },
+          { key: `u22_always`, word: `always`, pos: `adv. 頻率副詞`, meaning: `總是`, example: `He always drinks water.` },
+          { key: `u22_every_morning`, word: `every morning`, pos: `phr. 時間副詞`, meaning: `每天早上`, example: `He eats bananas every morning.` }
+        ],
+        grammar: {
+          title: `複習與比較（Unit 19 vs. Unit 22）：細節變換練習`,
+          summary: `這個單元和 Unit 19 結構相似，但換了人物關係與飲食細節！請仔細比對 apples vs. bananas、milk vs. water 的單複數差異。`,
+          points: [
+            `可數 vs. 不可數：banana 是可數名詞，每天吃的習慣常寫複數 bananas；water（水）是不可數名詞，絕對不加 s。`,
+            `所有格 his：This is good for his health.（「他的」健康用 his，不可寫 he 或 him）。`,
+            `時間片語：every morning（每天早上）與 every day（每天）一樣，通常放在句尾。`
+          ]
+        },
+        builders: [
+          { zh: `他每天早上吃香蕉。`, en: `He eats bananas every morning.` },
+          { zh: `他總是喝水。`, en: `He always drinks water.` }
+        ],
+        quiz: [
+          {
+            type: `閱讀理解`,
+            question: `在本單元中，Mark 是作者的誰？`,
+            options: [`好朋友`, `哥哥`, `爸爸`, `同學`],
+            answer: 1,
+            explanation: `第一句：Mark is my brother.`
+          },
+          {
+            type: `細節辨別`,
+            question: `根據 Unit 22 短文，Mark 每天早上吃什麼水果？`,
+            options: [`蘋果`, `西瓜`, `香蕉`, `草莓`],
+            answer: 2,
+            explanation: `Unit 22 寫的是「He eats bananas every morning.」（Unit 19 才是蘋果喔）。`
+          },
+          {
+            type: `閱讀理解`,
+            question: `Mark 總是喝什麼？`,
+            options: [`可樂`, `牛奶`, `果汁`, `水`],
+            answer: 3,
+            explanation: `第五句：He always drinks water.`
+          },
+          {
+            type: `所有格用法`,
+            question: `This is good for ____ health. 空格應填入？`,
+            options: [`he`, `him`, `his`, `he’s`],
+            answer: 2,
+            explanation: `名詞 health 前面須接所有格代名詞「他的」his。`
+          },
+          {
+            type: `中翻英選擇`,
+            question: `「他不喝可樂。」正確英文寫法為？`,
+            options: [`He is not drink Coke.`, `He does not drink Coke.`, `He do not drinks Coke.`, `He not drinks Coke.`],
+            answer: 1,
+            explanation: `主詞為 He，一般動詞 drink 的現在式否定為 He does not drink Coke.`
+          }
+        ]
+      },
+      {
+        id: 23,
+        title: `我的朋友`,
+        page: `p.45`,
+        zhPassage: `Tom 是我的朋友。他沒有每天吃早餐。他總是吃兩顆蛋。有時候他喝果汁。他不喜歡水果，所以他從不吃任何水果。`,
+        sentences: [
+          { en: `Tom is my friend.`, zh: `Tom 是我的朋友。`, hl: [`friend`] },
+          { en: `He doesn’t eat breakfast every day.`, zh: `他沒有每天吃早餐。`, hl: [`doesn’t eat`, `breakfast`] },
+          { en: `He always eats two eggs.`, zh: `他總是吃兩顆蛋。`, hl: [`always`, `two eggs`] },
+          { en: `Sometimes he drinks juice.`, zh: `有時候他喝果汁。`, hl: [`Sometimes`, `juice`] },
+          { en: `He doesn’t like fruit, so he never eats any fruit.`, zh: `他不喜歡水果，所以他從不吃任何水果。`, hl: [`so`, `never`, `any`] }
+        ],
+        vocab: [
+          { key: `u23_breakfast`, word: `breakfast`, pos: `n. 名詞`, meaning: `早餐`, example: `He doesn’t eat breakfast every day.` },
+          { key: `u23_egg`, word: `egg / eggs`, pos: `n. 名詞`, meaning: `蛋`, example: `He always eats two eggs.` },
+          { key: `u23_sometimes`, word: `sometimes`, pos: `adv. 頻率副詞`, meaning: `有時候`, example: `Sometimes he drinks juice.` },
+          { key: `u23_juice`, word: `juice`, pos: `n. 不可數名詞`, meaning: `果汁`, example: `Sometimes he drinks juice.` },
+          { key: `u23_so`, word: `so`, pos: `conj. 連接詞`, meaning: `所以`, example: `He doesn’t like fruit, so he never eats any fruit.` },
+          { key: `u23_never`, word: `never`, pos: `adv. 頻率副詞`, meaning: `從不`, example: `He never eats any fruit.` },
+          { key: `u23_any`, word: `any`, pos: `adj. 形容詞`, meaning: `任何的（常用於否定句）`, example: `He never eats any fruit.` }
+        ],
+        grammar: {
+          title: `頻率副詞（always / sometimes / never）與 any 的否定用法`,
+          summary: `這個單元加入了表示「有時」的 sometimes 和「從不」的 never，並練習因果連接詞 so！`,
+          points: [
+            `never + any：never 本身帶有「完全不、從不」的否定意思，因此動詞 eats 維持肯定形式（加 s），且後面常搭配 any（任何的）。`,
+            `三餐名稱不加冠詞：eat breakfast（吃早餐），中間不加 a 或 the。`,
+            `連接詞 so：用來連接「原因，so 結果」（他不喜歡水果，所以他從不吃任何水果）。`
+          ]
+        },
+        builders: [
+          { zh: `有時候他喝果汁。`, en: `Sometimes he drinks juice.` },
+          { zh: `他總是吃兩顆蛋。`, en: `He always eats two eggs.` }
+        ],
+        quiz: [
+          {
+            type: `閱讀理解`,
+            question: `根據短文，Tom 總是吃什麼？`,
+            options: [`兩顆蛋`, `水果沙拉`, `兩根香蕉`, `蛋糕`],
+            answer: 0,
+            explanation: `第三句：He always eats two eggs.`
+          },
+          {
+            type: `頻率副詞`,
+            question: `「有時候他喝果汁。」____ he drinks juice.`,
+            options: [`Always`, `Often`, `Sometimes`, `Never`],
+            answer: 2,
+            explanation: `Sometimes 意為「有時候」，且可放在句首修飾整句。`
+          },
+          {
+            type: `否定與 any`,
+            question: `He doesn’t like fruit, so he ____ eats ____ fruit.`,
+            options: [`always; many`, `never; any`, `often; some`, `never; a`],
+            answer: 1,
+            explanation: `never 表「從不」，具否定語意，後面搭配不可數名詞時常使用 any。`
+          },
+          {
+            type: `固定搭配`,
+            question: `「吃早餐」的正確英文說法是？`,
+            options: [`eat breakfast`, `drink breakfast`, `eat a breakfast`, `take breakfast`],
+            answer: 0,
+            explanation: `三餐名詞 breakfast 前通常不加冠詞，寫作 eat breakfast。`
+          },
+          {
+            type: `連接詞`,
+            question: `He doesn’t like fruit, ____ he never eats any fruit. 空格應填表示「所以」的？`,
+            options: [`but`, `or`, `and`, `so`],
+            answer: 3,
+            explanation: `前後句為因果關係，用連接詞 so（所以）連接。`
+          }
+        ]
+      },
+      {
+        id: 24,
+        title: `Jane 和我`,
+        page: `p.47`,
+        zhPassage: `Jane 和我是姊妹。我們有兩隻狗和五隻貓。牠們是我們的寵物。Jane 整天和牠們玩。她三歲。她不是學生。`,
+        sentences: [
+          { en: `Jane and I are sisters.`, zh: `Jane 和我是姊妹。`, hl: [`sisters`] },
+          { en: `We have two dogs and five cats.`, zh: `我們有兩隻狗和五隻貓。`, hl: [`two dogs`, `five cats`] },
+          { en: `They are our pets.`, zh: `牠們是我們的寵物。`, hl: [`our pets`] },
+          { en: `Jane plays with them all day long.`, zh: `Jane 整天和牠們玩。`, hl: [`plays with`, `them`, `all day long`] },
+          { en: `She is 3.`, zh: `她三歲。`, hl: [`is 3`] },
+          { en: `She is not a student.`, zh: `她不是學生。`, hl: [`is not`] }
+        ],
+        vocab: [
+          { key: `u24_our`, word: `our`, pos: `pron. 所有格`, meaning: `我們的`, example: `They are our pets.` },
+          { key: `u24_sister`, word: `sister / sisters`, pos: `n. 名詞`, meaning: `姊妹`, example: `Jane and I are sisters.` },
+          { key: `u24_three`, word: `3 (three)`, pos: `num. 數詞`, meaning: `三（歲）`, example: `She is 3.` },
+          { key: `u24_five`, word: `five`, pos: `num. 數詞`, meaning: `五`, example: `We have two dogs and five cats.` }
+        ],
+        grammar: {
+          title: `主格 We、所有格 our 與受格 them 的代名詞家族`,
+          summary: `這個單元同時出現了「我們 (We)」、「我們的 (our)」和「牠們 (They / them)」，非常適合一起對照整理！`,
+          points: [
+            `代名詞位置口訣：當主詞用主格（We have... / They are...）；名詞前面用所有格（our pets）；動詞或介系詞後面用受格（with them）。`,
+            `年齡表示法：直接說 She is 3. 或 She is three years old. 皆可，注意不可寫成 She has 3.。`,
+            `不定冠詞 a：單數可數名詞如 student 前面要加 a（She is not a student.）。`
+          ]
+        },
+        builders: [
+          { zh: `牠們是我們的寵物。`, en: `They are our pets.` },
+          { zh: `Jane 整天和牠們玩。`, en: `Jane plays with them all day long.` }
+        ],
+        quiz: [
+          {
+            type: `閱讀理解`,
+            question: `「我們」家裡總共養了幾隻寵物？`,
+            options: [`5 隻`, `7 隻`, `3 隻`, `2 隻`],
+            answer: 1,
+            explanation: `兩隻狗加上五隻貓（two dogs and five cats），一共是 7 隻寵物。`
+          },
+          {
+            type: `閱讀理解`,
+            question: `為什麼 Jane 不是學生？`,
+            options: [`她每天在家看電影`, `她只有三歲`, `她要照顧狗和貓`, `她不喜歡讀書`],
+            answer: 1,
+            explanation: `短文倒數兩句：She is 3. She is not a student.`
+          },
+          {
+            type: `所有格用法`,
+            question: `「牠們是我們的寵物。」They are ____ pets.`,
+            options: [`we`, `us`, `our`, `ours`],
+            answer: 2,
+            explanation: `名詞 pets 前面需要用所有格「我們的」our。`
+          },
+          {
+            type: `受格用法`,
+            question: `Jane plays with ____ all day long.`,
+            options: [`they`, `their`, `them`, `theirs`],
+            answer: 2,
+            explanation: `介系詞 with 後面須接受格代名詞 them。`
+          },
+          {
+            type: `主詞搭配`,
+            question: `Jane and I ____ sisters. 空格應填入？`,
+            options: [`is`, `am`, `are`, `be`],
+            answer: 2,
+            explanation: `Jane and I 等於複數主詞 We，be 動詞須用 are。`
+          }
+        ]
+      },
+      {
+        id: 25,
+        title: `Cherry 和 Jane`,
+        page: `p.49`,
+        zhPassage: `Cherry 和 Jane 是好朋友。她們有不同的嗜好。Cherry 喜歡運動。她每天慢跑。Jane 不擅長運動。她常在家裡看電影。她有很多影碟片。`,
+        sentences: [
+          { en: `Cherry and Jane are good friends.`, zh: `Cherry 和 Jane 是好朋友。`, hl: [`good friends`] },
+          { en: `They have different hobbies.`, zh: `她們有不同的嗜好。`, hl: [`different hobbies`] },
+          { en: `Cherry likes sports.`, zh: `Cherry 喜歡運動。`, hl: [`sports`] },
+          { en: `She jogs every day.`, zh: `她每天慢跑。`, hl: [`jogs`] },
+          { en: `Jane is not good at sports.`, zh: `Jane 不擅長運動。`, hl: [`is not good at`] },
+          { en: `She often watches movies at home.`, zh: `她常在家裡看電影。`, hl: [`watches movies`, `at home`] },
+          { en: `She has many DVDs.`, zh: `她有很多影碟片。`, hl: [`DVDs`] }
+        ],
+        vocab: [
+          { key: `u25_jog`, word: `jog`, pos: `v. 動詞`, meaning: `慢跑`, example: `She jogs every day.` },
+          { key: `u25_watch_movies`, word: `watch movies`, pos: `phr. 動詞片語`, meaning: `看電影`, example: `She often watches movies at home.` },
+          { key: `u25_at_home`, word: `at home`, pos: `phr. 地方副詞`, meaning: `在家裡`, example: `She often watches movies at home.` },
+          { key: `u25_dvd`, word: `DVD / DVDs`, pos: `n. 名詞`, meaning: `影碟片（複數直接加 s）`, example: `She has many DVDs.` }
+        ],
+        grammar: {
+          title: `字尾 ch 動詞變化 watches 與縮寫名詞複數 DVDs`,
+          summary: `Unit 25 總結了嗜好與運動主題，包含動詞第三人稱加 -es 的拼字規則，以及「不擅長」的否定寫法。`,
+          points: [
+            `第三人稱動詞加 -es：動詞字尾為 s, x, ch, sh, o 時，第三人稱單數須加 -es，例如 watch → watches。`,
+            `「看電影」用 watch：看電視 (watch TV)、看電影 (watch movies)、看比賽 (watch games) 都使用動詞 watch。`,
+            `「在家裡」：固定片語為 at home，中間不加 the。`
+          ]
+        },
+        builders: [
+          { zh: `她常在家裡看電影。`, en: `She often watches movies at home.` },
+          { zh: `Jane 不擅長運動。`, en: `Jane is not good at sports.` }
+        ],
+        quiz: [
+          {
+            type: `閱讀理解`,
+            question: `根據短文，Cherry 每天做什麼運動？`,
+            options: [`游泳`, `打網球`, `打棒球`, `慢跑`],
+            answer: 3,
+            explanation: `第四句：She jogs every day.（她每天慢跑）。`
+          },
+          {
+            type: `閱讀理解`,
+            question: `Jane 在家裡常做什麼事？`,
+            options: [`聽音樂`, `看電影`, `讀書`, `做家事`],
+            answer: 1,
+            explanation: `第六句：She often watches movies at home.`
+          },
+          {
+            type: `動詞變化`,
+            question: `She often ____ movies at home. 空格應填入？`,
+            options: [`watchs`, `watching`, `watches`, `to watch`],
+            answer: 2,
+            explanation: `字尾為 ch 的動詞 watch，遇到第三人稱單數主詞 She 須加 -es，寫作 watches。`
+          },
+          {
+            type: `名詞複數`,
+            question: `「她有很多影碟片。」She has many ____.`,
+            options: [`DVD`, `DVDs`, `DVD’s`, `a DVD`],
+            answer: 1,
+            explanation: `縮寫名詞變複數時直接在字尾加小寫 s：DVDs（不可加上撇號 ’s）。`
+          },
+          {
+            type: `be 動詞否定`,
+            question: `Jane ____ good at sports. 空格應填入？`,
+            options: [`is not`, `does not`, `do not`, `has not`],
+            answer: 0,
+            explanation: `good at 中的 good 是形容詞，搭配 be 動詞使用，故否定為 is not。`
+          }
+        ]
+      }
+    ];
+
+    /* Application State */
+    const appState = {
+      currentUnitId: 15,
+      readingMode: `bilingual`,
+      showHighlight: true,
+      hideMeaning: false,
+      speechRate: 1.0,
+      masteredWords: [],
+      quizAnswers: {}, // { [unitId]: { [qIndex]: chosenIdx } }
+      revealedSentences: {}, // { [unitId_sIdx]: true }
+      revealedVocab: {}, // { [wordKey]: true }
+      builderIdxByUnit: {}, // { [unitId]: idx }
+      builderSelected: [], // array of token indices from shuffled pool
+      builderPool: [], // current shuffled tokens
+      builderChecked: null // null | { ok: boolean, message: string }
+    };
+
+    let speechSupported = false;
+
+    function getCurrentUnit() {
+      const found = UNITS_DATA.find((u) => u.id === appState.currentUnitId);
+      return found || UNITS_DATA[0];
+    }
+
+    function computeUnitQuizStats(unit) {
+      const unitAns = appState.quizAnswers[String(unit.id)] || {};
+      const total = unit.quiz.length;
+      let answered = 0;
+      let correct = 0;
+      unit.quiz.forEach((q, idx) => {
+        if (typeof unitAns[String(idx)] === `number`) {
+          answered += 1;
+          if (unitAns[String(idx)] === q.answer) correct += 1;
+        }
+      });
+      const score = Math.round((correct / total) * 100);
+      return { answered, correct, total, score };
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, `&amp;`)
+        .replace(/</g, `&lt;`)
+        .replace(/>/g, `&gt;`)
+        .replace(/"/g, `&quot;`);
+    }
+
+    function formatHighlightedEn(text, hlList) {
+      let safe = escapeHtml(text);
+      if (!appState.showHighlight || !Array.isArray(hlList) || hlList.length === 0) {
+        return safe;
+      }
+      hlList.forEach((phrase) => {
+        const safePhrase = escapeHtml(phrase);
+        const escapedRegex = safePhrase.replace(/[.*+?^${}()|[\]\\]/g, `\\$&`);
+        const re = new RegExp(`(${escapedRegex})`, `g`);
+        safe = safe.replace(re, `<mark class="key-hl">$1</mark>`);
+      });
+      return safe;
+    }
+
+    /* State Persistence via notebookAppApi */
+    async function saveAppState() {
+      if (!window.notebookAppApi || typeof window.notebookAppApi.setAppState !== `function`) return;
+      try {
+        await window.notebookAppApi.setAppState({
+          currentUnitId: appState.currentUnitId,
+          readingMode: appState.readingMode,
+          showHighlight: appState.showHighlight,
+          hideMeaning: appState.hideMeaning,
+          speechRate: appState.speechRate,
+          masteredWords: appState.masteredWords,
+          quizAnswers: appState.quizAnswers
+        });
+      } catch (err) {
+        // Ignore persistence errors silently in standalone mode
+      }
+    }
+
+    function restoreFromSavedState(saved) {
+      if (!saved || typeof saved !== `object`) return;
+      if (typeof saved.currentUnitId === `number` && UNITS_DATA.some((u) => u.id === saved.currentUnitId)) {
+        appState.currentUnitId = saved.currentUnitId;
+      }
+      if (saved.readingMode === `bilingual` || saved.readingMode === `en-only` || saved.readingMode === `zh-only`) {
+        appState.readingMode = saved.readingMode;
+      }
+      if (typeof saved.showHighlight === `boolean`) appState.showHighlight = saved.showHighlight;
+      if (typeof saved.hideMeaning === `boolean`) appState.hideMeaning = saved.hideMeaning;
+      if (saved.speechRate === 1.0 || saved.speechRate === 0.75) appState.speechRate = saved.speechRate;
+      if (Array.isArray(saved.masteredWords)) appState.masteredWords = saved.masteredWords.slice();
+      if (saved.quizAnswers && typeof saved.quizAnswers === `object`) appState.quizAnswers = saved.quizAnswers;
+    }
+
+    /* Speech Synthesis */
+    function stopSpeaking() {
+      if (speechSupported) {
+        window.speechSynthesis.cancel();
+      }
+      document.querySelectorAll(`.sentence-row.is-speaking`).forEach((el) => {
+        el.classList.remove(`is-speaking`);
+      });
+    }
+
+    function speakText(text, rowIdx) {
+      if (!speechSupported) return;
+      stopSpeaking();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = `en-US`;
+      utter.rate = appState.speechRate;
+      if (typeof rowIdx === `number`) {
+        const rowEl = document.getElementById(`sentence-row-${rowIdx}`);
+        if (rowEl) rowEl.classList.add(`is-speaking`);
+        utter.onend = () => {
+          if (rowEl) rowEl.classList.remove(`is-speaking`);
+        };
+      }
+      window.speechSynthesis.speak(utter);
+    }
+
+    function speakFullUnit() {
+      const unit = getCurrentUnit();
+      const fullText = unit.sentences.map((s) => s.en).join(` `);
+      speakText(fullText);
+    }
+
+    function toggleSpeechRate() {
+      appState.speechRate = appState.speechRate === 1.0 ? 0.75 : 1.0;
+      const btn = document.getElementById(`speed-btn`);
+      if (btn) btn.textContent = `語速：${appState.speechRate === 1.0 ? `1.0x` : `0.75x 慢速`}`;
+      saveAppState();
+    }
+
+    /* Sentence Builder Setup */
+    function tokenizeSentence(sentence) {
+      return sentence.trim().split(/\s+/);
+    }
+
+    function initBuilderForUnit(unit) {
+      const idx = appState.builderIdxByUnit[String(unit.id)] || 0;
+      const item = unit.builders[idx % unit.builders.length];
+      const tokens = tokenizeSentence(item.en);
+      // Deterministic yet scrambled order that avoids matching original order
+      const indexed = tokens.map((word, i) => ({ word, id: i }));
+      for (let i = indexed.length - 1; i > 0; i--) {
+        const j = (i * 7 + unit.id + idx) % (i + 1);
+        const tmp = indexed[i];
+        indexed[i] = indexed[j];
+        indexed[j] = tmp;
+      }
+      if (indexed.map((t) => t.word).join(` `) === item.en && indexed.length > 1) {
+        const first = indexed.shift();
+        indexed.push(first);
+      }
+      appState.builderPool = indexed;
+      appState.builderSelected = [];
+      appState.builderChecked = null;
+    }
+
+    /* Render Functions */
+    function renderAlmanacAndKpis() {
+      const stripEl = document.getElementById(`unit-strip-cells`);
+      if (stripEl) {
+        stripEl.innerHTML = UNITS_DATA.map((u) => {
+          const stats = computeUnitQuizStats(u);
+          let stateClass = ``;
+          let statusLabel = `未測`;
+          if (stats.answered === stats.total && stats.score >= 80) {
+            stateClass = `is-peak`;
+            statusLabel = `${stats.score}分`;
+          } else if (stats.answered > 0) {
+            stateClass = `is-prep`;
+            statusLabel = `${stats.score}分`;
+          }
+          const activeClass = u.id === appState.currentUnitId ? `is-active` : ``;
+          return `
+            <button
+              type="button"
+              role="tab"
+              aria-selected="${u.id === appState.currentUnitId}"
+              class="unit-cell ${stateClass} ${activeClass}"
+              onclick="selectUnit(${u.id})"
+              title="Unit ${u.id}：${escapeHtml(u.title)}"
+            >
+              <span>U${u.id}</span>
+              <span class="unit-cell-sub">${statusLabel}</span>
+            </button>
+          `;
+        }).join(``);
+      }
+
+      // Compute global KPIs
+      let completedCount = 0;
+      let totalAttemptedUnits = 0;
+      let sumScores = 0;
+      let totalVocab = 0;
+      UNITS_DATA.forEach((u) => {
+        totalVocab += u.vocab.length;
+        const st = computeUnitQuizStats(u);
+        if (st.answered === st.total) {
+          totalAttemptedUnits += 1;
+          sumScores += st.score;
+          if (st.score >= 80) completedCount += 1;
+        }
+      });
+
+      const kpiComp = document.getElementById(`kpi-completed`);
+      const kpiCompCap = document.getElementById(`kpi-completed-caption`);
+      if (kpiComp) kpiComp.textContent = `${completedCount} / ${UNITS_DATA.length}`;
+      if (kpiCompCap) {
+        kpiCompCap.textContent = completedCount === UNITS_DATA.length
+          ? `太棒了！全 11 個單元皆已達 80 分精熟`
+          : `測驗達 80 分即標記為綠色精熟單元`;
+      }
+
+      const kpiVocab = document.getElementById(`kpi-vocab`);
+      if (kpiVocab) kpiVocab.textContent = `${appState.masteredWords.length} / ${totalVocab}`;
+
+      const kpiAvg = document.getElementById(`kpi-avg`);
+      const kpiAvgCap = document.getElementById(`kpi-avg-caption`);
+      if (kpiAvg) {
+        kpiAvg.textContent = totalAttemptedUnits > 0 ? `${Math.round(sumScores / totalAttemptedUnits)} 分` : `—`;
+      }
+      if (kpiAvgCap) {
+        kpiAvgCap.textContent = totalAttemptedUnits > 0
+          ? `已統計 ${totalAttemptedUnits} 個已完成單元`
+          : `完成任一單元測驗後自動計算`;
+      }
+    }
+
+    function renderUnitBanner(unit) {
+      const numBadge = document.getElementById(`unit-number-badge`);
+      const pageBadge = document.getElementById(`unit-page-badge`);
+      const statusBadge = document.getElementById(`unit-status-badge`);
+      const mainTitle = document.getElementById(`unit-main-title`);
+
+      if (numBadge) numBadge.textContent = `UNIT ${unit.id}`;
+      if (pageBadge) pageBadge.textContent = unit.page;
+      if (mainTitle) mainTitle.textContent = `Unit ${unit.id} ─ ${unit.title}`;
+
+      const stats = computeUnitQuizStats(unit);
+      if (statusBadge) {
+        if (stats.answered === stats.total && stats.score >= 80) {
+          statusBadge.className = `badge badge-leaf`;
+          statusBadge.textContent = `已精熟 · ${stats.score} 分`;
+        } else if (stats.answered > 0) {
+          statusBadge.className = `badge badge-ochre`;
+          statusBadge.textContent = `作答中 · ${stats.answered}/${stats.total} 題`;
+        } else {
+          statusBadge.className = `badge badge-ochre`;
+          statusBadge.textContent = `尚未測驗`;
+        }
+      }
+
+      const prevBtn = document.getElementById(`prev-unit-btn`);
+      const nextBtn = document.getElementById(`next-unit-btn`);
+      const prevLabel = document.getElementById(`prev-unit-label`);
+      const nextLabel = document.getElementById(`next-unit-label`);
+      const currentIdx = UNITS_DATA.findIndex((u) => u.id === unit.id);
+
+      if (prevBtn && prevLabel) {
+        prevBtn.disabled = currentIdx <= 0;
+        prevLabel.textContent = currentIdx > 0 ? `上一單元：Unit ${UNITS_DATA[currentIdx - 1].id}` : `已是第一單元`;
+      }
+      if (nextBtn && nextLabel) {
+        nextBtn.disabled = currentIdx >= UNITS_DATA.length - 1;
+        nextLabel.textContent = currentIdx < UNITS_DATA.length - 1 ? `下一單元：Unit ${UNITS_DATA[currentIdx + 1].id}` : `已是最後單元`;
+      }
+    }
+
+    function renderReadingSection(unit) {
+      const modeMap = {
+        'bilingual': `mode-bilingual`,
+        'en-only': `mode-en-only`,
+        'zh-only': `mode-zh-only`
+      };
+      Object.keys(modeMap).forEach((mode) => {
+        const btn = document.getElementById(modeMap[mode]);
+        if (btn) btn.classList.toggle(`is-selected`, appState.readingMode === mode);
+      });
+
+      const hlBtn = document.getElementById(`highlight-toggle-btn`);
+      if (hlBtn) {
+        const span = hlBtn.querySelector(`span`);
+        if (span) span.textContent = `重點標記：${appState.showHighlight ? `開` : `關`}`;
+      }
+
+      const speedBtn = document.getElementById(`speed-btn`);
+      if (speedBtn) {
+        speedBtn.textContent = `語速：${appState.speechRate === 1.0 ? `1.0x` : `0.75x 慢速`}`;
+        if (!speechSupported) speedBtn.style.display = `none`;
+      }
+      const readAllBtn = document.getElementById(`read-all-btn`);
+      if (readAllBtn && !speechSupported) readAllBtn.style.display = `none`;
+
+      const listEl = document.getElementById(`sentence-list`);
+      if (listEl) {
+        listEl.innerHTML = unit.sentences.map((s, idx) => {
+          const revealKey = `${unit.id}_${idx}`;
+          const isRevealed = Boolean(appState.revealedSentences[revealKey]);
+          const enHtml = formatHighlightedEn(s.en, s.hl);
+          const zhHtml = escapeHtml(s.zh);
+
+          let contentHtml = ``;
+          if (appState.readingMode === `bilingual`) {
+            contentHtml = `
+              <div class="sentence-en">${enHtml}</div>
+              <div class="sentence-zh">${zhHtml}</div>
+            `;
+          } else if (appState.readingMode === `en-only`) {
+            contentHtml = `
+              <div class="sentence-en">${enHtml}</div>
+              ${isRevealed
+                ? `<div class="sentence-zh">${zhHtml}</div>`
+                : `<button type="button" class="reveal-box" onclick="toggleSentenceReveal('${revealKey}')">點我看中文翻譯</button>`}
+            `;
+          } else {
+            contentHtml = `
+              <div class="sentence-zh" style="font-weight: 600; color: var(--on-surface);">${zhHtml}</div>
+              ${isRevealed
+                ? `<div class="sentence-en">${enHtml}</div>`
+                : `<button type="button" class="reveal-box" onclick="toggleSentenceReveal('${revealKey}')">點我看英文解答（練習中翻英）</button>`}
+            `;
+          }
+
+          const speakBtnHtml = speechSupported
+            ? `<button type="button" class="btn btn-secondary btn-sm" onclick="speakSentence(${idx})" aria-label="朗讀第 ${idx + 1} 句">
+                 <i data-lucide="volume-2" class="icon-sm" aria-hidden="true"></i>
+               </button>`
+            : ``;
+
+          return `
+            <div class="sentence-row" id="sentence-row-${idx}">
+              <span class="sentence-num">${idx + 1}.</span>
+              <div class="sentence-content">${contentHtml}</div>
+              ${speakBtnHtml}
+            </div>
+          `;
+        }).join(``);
+      }
+
+      const fullZh = document.getElementById(`full-zh-passage`);
+      const fullEn = document.getElementById(`full-en-passage`);
+      if (fullZh) fullZh.textContent = unit.zhPassage;
+      if (fullEn) {
+        if (appState.readingMode === `zh-only`) {
+          fullEn.textContent = `（中翻英挑戰模式進行中：請先閱讀左側中文句並嘗試口說或寫出英文，再點擊各句查看英文解答。）`;
+        } else {
+          fullEn.textContent = unit.sentences.map((s) => s.en).join(` `);
+        }
+      }
+    }
+
+    function renderVocabAndGrammar(unit) {
+      const hideBtn = document.getElementById(`flashcard-hide-btn`);
+      if (hideBtn) {
+        const span = hideBtn.querySelector(`span`);
+        if (span) span.textContent = appState.hideMeaning ? `顯示全部中文釋義` : `自我背誦（遮蔽中文）`;
+      }
+
+      const vocabEl = document.getElementById(`vocab-grid`);
+      if (vocabEl) {
+        vocabEl.innerHTML = unit.vocab.map((v) => {
+          const isMastered = appState.masteredWords.includes(v.key);
+          const isRevealed = !appState.hideMeaning || Boolean(appState.revealedVocab[v.key]);
+          const speakWord = v.word.split(`/`)[0].trim();
+          const audioBtn = speechSupported
+            ? `<button type="button" class="btn btn-secondary btn-sm" onclick="speakWordText('${escapeHtml(speakWord).replace(/'/g, `\\'`)}')" aria-label="發音 ${escapeHtml(v.word)}">
+                 <i data-lucide="volume-2" class="icon-sm" aria-hidden="true"></i>
+               </button>`
+            : ``;
+
+          return `
+            <div class="vocab-card-wrap">
+              <div class="vocab-card ${isMastered ? `is-mastered` : ``}">
+                <div>
+                  <div class="vocab-top">
+                    <div>
+                      <div class="vocab-word">${escapeHtml(v.word)}</div>
+                      <div class="vocab-pos">${escapeHtml(v.pos)}</div>
+                    </div>
+                    ${audioBtn}
+                  </div>
+                  <div class="vocab-meaning" style="margin-top: var(--space-sm);">
+                    ${isRevealed
+                      ? escapeHtml(v.meaning)
+                      : `<button type="button" class="reveal-box" onclick="revealVocabMeaning('${v.key}')">點擊翻看中文</button>`}
+                  </div>
+                </div>
+                <div>
+                  <div class="vocab-example">${escapeHtml(v.example)}</div>
+                  <div class="vocab-actions">
+                    <button type="button" class="btn btn-sm ${isMastered ? `btn-primary` : `btn-secondary`}" onclick="toggleMasteredWord('${v.key}')" aria-pressed="${isMastered}">
+                      <i data-lucide="${isMastered ? `check-circle-2` : `circle`}" class="icon-sm" aria-hidden="true"></i>
+                      <span>${isMastered ? `已熟記` : `標記熟記`}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join(``);
+      }
+
+      // Grammar spotlight
+      const gTitle = document.getElementById(`heading-grammar`);
+      const gSum = document.getElementById(`grammar-summary`);
+      const gPoints = document.getElementById(`grammar-points`);
+      if (gTitle) gTitle.textContent = unit.grammar.title;
+      if (gSum) gSum.textContent = unit.grammar.summary;
+      if (gPoints) {
+        gPoints.innerHTML = unit.grammar.points.map((pt) => `<li>${escapeHtml(pt)}</li>`).join(``);
+      }
+
+      renderBuilder(unit);
+    }
+
+    function renderBuilder(unit) {
+      const idx = appState.builderIdxByUnit[String(unit.id)] || 0;
+      const item = unit.builders[idx % unit.builders.length];
+      const promptEl = document.getElementById(`builder-prompt`);
+      const slotsEl = document.getElementById(`builder-slots`);
+      const poolEl = document.getElementById(`builder-pool`);
+      const fbEl = document.getElementById(`builder-feedback`);
+
+      if (promptEl) promptEl.textContent = `題目 ${idx % unit.builders.length + 1}：${item.zh}`;
+
+      if (slotsEl) {
+        if (appState.builderSelected.length === 0) {
+          slotsEl.innerHTML = `<span style="color: var(--on-surface-variant); font-size: 0.9rem;">請點選下方單字按鈕依序組合成完整英文句子…</span>`;
+        } else {
+          slotsEl.innerHTML = appState.builderSelected.map((tokenIdx) => {
+            const tok = appState.builderPool[tokenIdx];
+            if (!tok) return ``;
+            return `<button type="button" class="word-chip in-slot" onclick="removeBuilderToken(${tokenIdx})">${escapeHtml(tok.word)}</button>`;
+          }).join(``);
+        }
+      }
+
+      if (poolEl) {
+        poolEl.innerHTML = appState.builderPool.map((tok, i) => {
+          const used = appState.builderSelected.includes(i);
+          if (used) return ``;
+          return `<button type="button" class="word-chip" onclick="addBuilderToken(${i})">${escapeHtml(tok.word)}</button>`;
+        }).join(``);
+      }
+
+      if (fbEl) {
+        if (!appState.builderChecked) {
+          fbEl.innerHTML = ``;
+        } else {
+          fbEl.innerHTML = `
+            <div class="feedback-banner ${appState.builderChecked.ok ? `is-correct` : `is-wrong`}">
+              <i data-lucide="${appState.builderChecked.ok ? `check-circle` : `alert-circle`}" class="icon-sm" aria-hidden="true"></i>
+              <span>${escapeHtml(appState.builderChecked.message)}</span>
+            </div>
+          `;
+        }
+      }
+    }
+
+    function renderQuizSection(unit) {
+      const stats = computeUnitQuizStats(unit);
+      const ansText = document.getElementById(`quiz-answered-text`);
+      const scoreText = document.getElementById(`quiz-score-text`);
+      const fillEl = document.getElementById(`quiz-progress-fill`);
+
+      if (ansText) ansText.textContent = `作答進度：${stats.answered} / ${stats.total} 題`;
+      if (scoreText) scoreText.textContent = `目前得分：${stats.score} 分`;
+      if (fillEl) fillEl.style.width = `${Math.round((stats.answered / stats.total) * 100)}%`;
+
+      const unitAns = appState.quizAnswers[String(unit.id)] || {};
+      const listEl = document.getElementById(`quiz-list`);
+      const letters = [`A`, `B`, `C`, `D`];
+
+      if (listEl) {
+        listEl.innerHTML = unit.quiz.map((q, qIdx) => {
+          const chosen = unitAns[String(qIdx)];
+          const hasAnswered = typeof chosen === `number`;
+          const isCorrect = hasAnswered && chosen === q.answer;
+
+          const optionsHtml = q.options.map((opt, oIdx) => {
+            let cls = `option-btn`;
+            if (hasAnswered) {
+              if (oIdx === q.answer) cls += ` is-correct-choice`;
+              else if (oIdx === chosen && chosen !== q.answer) cls += ` is-wrong-choice`;
+            }
+            return `
+              <button
+                type="button"
+                class="${cls}"
+                ${hasAnswered ? `disabled` : ``}
+                onclick="submitQuizAnswer(${qIdx}, ${oIdx})"
+              >
+                <span class="option-letter">${letters[oIdx]}</span>
+                <span>${escapeHtml(opt)}</span>
+              </button>
+            `;
+          }).join(``);
+
+          const feedbackHtml = hasAnswered
+            ? `
+              <div class="feedback-banner ${isCorrect ? `is-correct` : `is-wrong`}">
+                <i data-lucide="${isCorrect ? `check-circle` : `x-circle`}" class="icon-sm" aria-hidden="true"></i>
+                <div>
+                  <strong>${isCorrect ? `答對了！` : `答錯了（正確答案為 ${letters[q.answer]}）`}</strong>
+                  <div style="font-weight: 400; margin-top: 2px;">${escapeHtml(q.explanation)}</div>
+                </div>
+              </div>
+            `
+            : ``;
+
+          return `
+            <article class="quiz-question">
+              <div class="quiz-q-header">
+                <span class="badge badge-ochre">第 ${qIdx + 1} 題 · ${escapeHtml(q.type)}</span>
+                ${hasAnswered ? `<span class="badge ${isCorrect ? `badge-leaf` : `badge-ochre`}">${isCorrect ? `+20 分` : `+0 分`}</span>` : ``}
+              </div>
+              <div class="quiz-q-title">${escapeHtml(q.question)}</div>
+              <div class="quiz-options">${optionsHtml}</div>
+              ${feedbackHtml}
+            </article>
+          `;
+        }).join(``);
+      }
+
+      const summaryArea = document.getElementById(`quiz-summary-area`);
+      if (summaryArea) {
+        if (stats.answered === stats.total) {
+          let comment = `很棒的開始！建議重新閱讀本單元短文，再挑戰一次拿高分。`;
+          if (stats.score === 100) comment = `滿分 100 分！你已經完全掌握 Unit ${unit.id} 的短文、單字與文法重點。`;
+          else if (stats.score >= 80) comment = `表現優秀！已達精熟標準，可以繼續挑戰下一個單元囉。`;
+
+          const currentIdx = UNITS_DATA.findIndex((u) => u.id === unit.id);
+          const nextBtnHtml = currentIdx < UNITS_DATA.length - 1
+            ? `<button type="button" class="btn btn-primary" onclick="stepUnit(1)">前往 Unit ${UNITS_DATA[currentIdx + 1].id}</button>`
+            : ``;
+
+          summaryArea.innerHTML = `
+            <div class="quiz-summary-card">
+              <div>
+                <div style="font-family: var(--font-label); font-size: var(--label-size); font-weight: 700;">UNIT ${unit.id} 測驗結算</div>
+                <div style="font-size: 1.35rem; font-weight: 700; margin-top: 2px;">總分 ${stats.score} 分（答對 ${stats.correct} / ${stats.total} 題）</div>
+                <div style="margin-top: 4px;">${escapeHtml(comment)}</div>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+                <button type="button" class="btn btn-secondary" onclick="resetCurrentUnitQuiz()">再測一次</button>
+                ${nextBtnHtml}
+              </div>
+            </div>
+          `;
+        } else {
+          summaryArea.innerHTML = ``;
+        }
+      }
+    }
+
+    function renderAll() {
+      const unit = getCurrentUnit();
+      renderAlmanacAndKpis();
+      renderUnitBanner(unit);
+      renderReadingSection(unit);
+      renderVocabAndGrammar(unit);
+      renderQuizSection(unit);
+      if (window.lucide && typeof window.lucide.createIcons === `function`) {
+        window.lucide.createIcons();
+      }
+    }
+
+    /* Event Handlers (Hoisted function declarations) */
+    function selectUnit(unitId) {
+      stopSpeaking();
+      appState.currentUnitId = unitId;
+      initBuilderForUnit(getCurrentUnit());
+      saveAppState();
+      renderAll();
+    }
+
+    function stepUnit(delta) {
+      const idx = UNITS_DATA.findIndex((u) => u.id === appState.currentUnitId);
+      const nextIdx = idx + delta;
+      if (nextIdx >= 0 && nextIdx < UNITS_DATA.length) {
+        selectUnit(UNITS_DATA[nextIdx].id);
+        window.scrollTo({ top: 0, behavior: `smooth` });
+      }
+    }
+
+    function scrollToSection(sectionId) {
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: `smooth`, block: `start` });
+    }
+
+    function setReadingMode(mode) {
+      appState.readingMode = mode;
+      saveAppState();
+      renderReadingSection(getCurrentUnit());
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function toggleKeyHighlight() {
+      appState.showHighlight = !appState.showHighlight;
+      saveAppState();
+      renderReadingSection(getCurrentUnit());
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function toggleSentenceReveal(key) {
+      appState.revealedSentences[key] = !appState.revealedSentences[key];
+      renderReadingSection(getCurrentUnit());
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function speakSentence(idx) {
+      const unit = getCurrentUnit();
+      if (unit.sentences[idx]) speakText(unit.sentences[idx].en, idx);
+    }
+
+    function speakWordText(word) {
+      speakText(word);
+    }
+
+    function toggleHideMeaning() {
+      appState.hideMeaning = !appState.hideMeaning;
+      appState.revealedVocab = {};
+      saveAppState();
+      renderVocabAndGrammar(getCurrentUnit());
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function revealVocabMeaning(key) {
+      appState.revealedVocab[key] = true;
+      renderVocabAndGrammar(getCurrentUnit());
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function toggleMasteredWord(key) {
+      const idx = appState.masteredWords.indexOf(key);
+      if (idx >= 0) appState.masteredWords.splice(idx, 1);
+      else appState.masteredWords.push(key);
+      saveAppState();
+      renderAlmanacAndKpis();
+      renderVocabAndGrammar(getCurrentUnit());
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function addBuilderToken(poolIdx) {
+      if (!appState.builderSelected.includes(poolIdx)) {
+        appState.builderSelected.push(poolIdx);
+        appState.builderChecked = null;
+        renderBuilder(getCurrentUnit());
+        if (window.lucide) window.lucide.createIcons();
+      }
+    }
+
+    function removeBuilderToken(poolIdx) {
+      appState.builderSelected = appState.builderSelected.filter((i) => i !== poolIdx);
+      appState.builderChecked = null;
+      renderBuilder(getCurrentUnit());
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function resetBuilderCurrent() {
+      appState.builderSelected = [];
+      appState.builderChecked = null;
+      renderBuilder(getCurrentUnit());
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function nextBuilderPrompt() {
+      const unit = getCurrentUnit();
+      const cur = appState.builderIdxByUnit[String(unit.id)] || 0;
+      appState.builderIdxByUnit[String(unit.id)] = (cur + 1) % unit.builders.length;
+      initBuilderForUnit(unit);
+      renderBuilder(unit);
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function checkBuilderAnswer() {
+      const unit = getCurrentUnit();
+      const idx = appState.builderIdxByUnit[String(unit.id)] || 0;
+      const item = unit.builders[idx % unit.builders.length];
+      if (appState.builderSelected.length < appState.builderPool.length) {
+        appState.builderChecked = { ok: false, message: `請先把所有單字都排進上方格子再檢查喔！` };
+      } else {
+        const built = appState.builderSelected.map((i) => appState.builderPool[i].word).join(` `);
+        if (built === item.en) {
+          appState.builderChecked = { ok: true, message: `完全正確！這句就是：${item.en}` };
+          if (speechSupported) speakText(item.en);
+        } else {
+          appState.builderChecked = { ok: false, message: `還差一點點，提示開頭是「${tokenizeSentence(item.en)[0]}」，請再調整順序！` };
+        }
+      }
+      renderBuilder(unit);
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function submitQuizAnswer(qIdx, oIdx) {
+      const unit = getCurrentUnit();
+      const uid = String(unit.id);
+      if (!appState.quizAnswers[uid]) appState.quizAnswers[uid] = {};
+      if (typeof appState.quizAnswers[uid][String(qIdx)] === `number`) return;
+      appState.quizAnswers[uid][String(qIdx)] = oIdx;
+      saveAppState();
+      renderAlmanacAndKpis();
+      renderUnitBanner(unit);
+      renderQuizSection(unit);
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function resetCurrentUnitQuiz() {
+      const unit = getCurrentUnit();
+      delete appState.quizAnswers[String(unit.id)];
+      saveAppState();
+      renderAlmanacAndKpis();
+      renderUnitBanner(unit);
+      renderQuizSection(unit);
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function handleResetAll(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        const span = btn.querySelector(`span`);
+        if (span) span.textContent = `再點一次確認重設`;
+        setTimeout(() => {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            const s = btn.querySelector(`span`);
+            if (s) s.textContent = `重設全部進度`;
+          }
+        }, 4000);
+        return;
+      }
+      btn.dataset.armed = `false`;
+      const span = btn.querySelector(`span`);
+      if (span) span.textContent = `重設全部進度`;
+
+      appState.masteredWords = [];
+      appState.quizAnswers = {};
+      appState.revealedSentences = {};
+      appState.revealedVocab = {};
+      initBuilderForUnit(getCurrentUnit());
+      saveAppState();
+      renderAll();
+    }
+
+    function exportProgressReport() {
+      const lines = [
+        `《博幼閱讀 1（初級）》Unit 15–25 學習成績紀錄`,
+        `==================================================`,
+        `已熟記核心單字數：${appState.masteredWords.length}`,
+        ``
+      ];
+      UNITS_DATA.forEach((u) => {
+        const st = computeUnitQuizStats(u);
+        const status = st.answered === st.total ? `${st.score} 分（答對 ${st.correct}/${st.total} 題）` : `尚未完成（${st.answered}/${st.total} 題）`;
+        lines.push(`Unit ${u.id} - ${u.title}：${status}`);
+      });
+      const content = lines.join(`\n`);
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content,
+          contentType: `text/plain`,
+          encoding: `UTF-8`,
+          filename: `博幼閱讀1_U15-25學習紀錄.txt`
+        });
+      } else {
+        const blob = new Blob([content], { type: `text/plain;charset=utf-8` });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement(`a`);
+        a.href = url;
+        a.download = `博幼閱讀1_U15-25學習紀錄.txt`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      }
+    }
+
+    /* Initialization */
+    async function initApp() {
+      speechSupported = `speechSynthesis` in window && typeof SpeechSynthesisUtterance !== `undefined`;
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          restoreFromSavedState(saved);
+        } catch (err) {
+          // Proceed with default state
+        }
+      }
+      initBuilderForUnit(getCurrentUnit());
+      renderAll();
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>
