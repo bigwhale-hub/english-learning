@@ -1,0 +1,2677 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="sticker">
+  <title>Unit 1-1 英文句子的秘密：四大車廂與黃金順序</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400..900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Sticker palette) */
+      --background: #fef7ff;
+      --surface-container-low: #ffffff;
+      --surface-container: #f8eef8;
+      --surface-container-high: #f2e8f2;
+
+      /* Ink */
+      --on-surface: #2e1a28;
+      --on-surface-variant: #604868;
+
+      /* Rules */
+      --outline: #907898;
+      --outline-variant: #dcc8e0;
+
+      /* Accents */
+      --primary: #c2207f;
+      --on-primary: #ffffff;
+      --primary-container: #f080c0;
+      --primary-soft: #fde8f4;
+      --on-primary-container: #2e1a28;
+      --secondary: #7c52aa;
+      --on-secondary: #ffffff;
+      --secondary-soft: #f0e8fa;
+      --tertiary: #0096cc;
+      --tertiary-soft: #e3f6fd;
+      --tertiary-ink: #005b82;
+      --tangerine: #d96a00;
+      --tangerine-soft: #fff1e0;
+      --tangerine-ink: #8a4000;
+      --error: #c53030;
+      --on-error: #ffffff;
+
+      /* Semantic */
+      --positive: #15803d;
+      --positive-soft: #dcfce7;
+      --positive-ink: #14532d;
+      --warning: #b45309;
+      --warning-soft: #fef3c7;
+      --warning-ink: #78350f;
+      --focus: #c2207f;
+
+      /* Data series */
+      --data-1: #c2207f;
+      --data-2: #7c52aa;
+      --data-3: #0096cc;
+      --data-4: #d96a00;
+      --data-context: #c8b8d0;
+
+      /* Fonts */
+      --font-headline: 'Noto Sans TC', 'DM Sans', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      --font-body: 'Noto Sans TC', 'DM Sans', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      --font-label: 'Noto Sans TC', 'DM Sans', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      --font-english: 'DM Sans', 'Noto Sans TC', sans-serif;
+
+      /* Shape */
+      --rounded: 1.25rem;
+      --rounded-lg: 2rem;
+      --rounded-full: 9999px;
+
+      /* Type scale (large & high-legibility for resource room students) */
+      --display-size: clamp(2.1rem, 1.45rem + 2.6vw, 3.25rem);
+      --headline-size: clamp(1.55rem, 1.25rem + 1.2vw, 2.15rem);
+      --subhead-size: clamp(1.2rem, 1.05rem + 0.55vw, 1.45rem);
+      --body-size: clamp(1.0625rem, 1rem + 0.25vw, 1.2rem);
+      --en-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.55rem);
+      --label-size: clamp(0.875rem, 0.84rem + 0.15vw, 0.95rem);
+
+      /* Spacing scale */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 3.75rem;
+      --space-3xl: 5rem;
+
+      /* Effects */
+      --shadow-pink: 0 6px 20px rgb(194 32 127 / 0.18);
+      --shadow-pink-deep: 0 10px 28px rgb(194 32 127 / 0.3);
+      --shadow-grape: 0 6px 20px rgb(124 82 170 / 0.18);
+      --shadow-sky: 0 6px 20px rgb(0 150 204 / 0.2);
+      --shadow-tangerine: 0 6px 20px rgb(217 106 0 / 0.18);
+      --shadow-positive: 0 6px 20px rgb(21 128 61 / 0.2);
+      --pop-scale: scale(1.03);
+      --lift: translateY(-4px);
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    html, body { overflow-x: clip; margin: 0; padding: 0; }
+    header { position: static !important; }
+
+    body {
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.65;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    .page-grid {
+      display: grid;
+      gap: var(--space-2xl);
+      padding: var(--space-lg);
+      max-width: 1120px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Focus visibility */
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Typography helpers */
+    .display {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: var(--display-size);
+      line-height: 1.15;
+      color: var(--on-surface);
+      margin: 0;
+    }
+    .display em {
+      font-style: normal;
+      color: var(--primary);
+    }
+
+    .section-title {
+      font-family: var(--font-headline);
+      font-weight: 800;
+      font-size: var(--headline-size);
+      line-height: 1.25;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    .section-lead {
+      font-size: var(--subhead-size);
+      color: var(--on-surface-variant);
+      margin: var(--space-sm) 0 0;
+      max-width: 65ch;
+    }
+
+    .en-text {
+      font-family: var(--font-english);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .kicker-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+      font-family: var(--font-label);
+      font-weight: 700;
+      font-size: var(--label-size);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded);
+      box-shadow: var(--shadow-pink);
+      padding: var(--space-lg);
+    }
+    .hero-panel {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--shadow-pink);
+      padding: var(--space-xl);
+    }
+
+    /* Buttons (large touch targets >= 52px) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 52px;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--rounded-full);
+      border: 2px solid transparent;
+      font-weight: 700;
+      font-size: var(--body-size);
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform var(--dur-short) var(--ease-bounce),
+                  box-shadow var(--dur-short) var(--ease-out),
+                  background-color var(--dur-micro) var(--ease-out);
+      user-select: none;
+    }
+    .btn:hover { transform: var(--pop-scale); }
+    .btn:active { transform: scale(0.97); }
+    .btn:disabled {
+      opacity: 0.48;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-pink);
+    }
+    .btn-primary:hover:not(:disabled) { box-shadow: var(--shadow-pink-deep); }
+
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: var(--on-secondary);
+      box-shadow: var(--shadow-grape);
+    }
+
+    .btn-soft {
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+      border-color: var(--outline-variant);
+    }
+    .btn-soft:hover:not(:disabled) {
+      background-color: var(--surface-container-high);
+    }
+
+    .btn-speak {
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      border: 2px solid var(--primary-container);
+      min-height: 48px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      cursor: pointer;
+      transition: transform var(--dur-short) var(--ease-bounce), background-color var(--dur-micro) var(--ease-out);
+    }
+    .btn-speak:hover {
+      transform: var(--pop-scale);
+      background-color: var(--primary);
+      color: var(--on-primary);
+    }
+    .btn-speak:active { transform: scale(0.97); }
+    .btn-speak.is-speaking {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-pink-deep);
+    }
+
+    /* Hero & Control Bar */
+    .hero-header {
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .hero-top-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .voice-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-md) var(--space-lg);
+      background-color: var(--surface-container);
+      border-radius: var(--rounded);
+    }
+    .segmented {
+      display: inline-flex;
+      background-color: var(--surface-container-high);
+      border-radius: var(--rounded-full);
+      padding: var(--space-xs);
+      gap: var(--space-xs);
+    }
+    .seg-btn {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      border: 0;
+      background: transparent;
+      color: var(--on-surface-variant);
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .seg-btn.is-active {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-pink);
+    }
+
+    .speech-live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      background-color: var(--surface-container-low);
+      color: var(--on-surface-variant);
+      font-size: var(--label-size);
+      font-weight: 700;
+      min-height: 44px;
+    }
+
+    /* Progress & Stage Navigation Strip */
+    .stage-nav-card {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded);
+      box-shadow: var(--shadow-grape);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+    }
+    .progress-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .progress-track {
+      width: 100%;
+      height: 18px;
+      background-color: var(--surface-container-high);
+      border-radius: var(--rounded-full);
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background-color: var(--tertiary);
+      border-radius: var(--rounded-full);
+      transition: width var(--dur-long) var(--ease-out);
+    }
+    .stage-jump-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(175px, 100%), 1fr));
+      gap: var(--space-sm);
+    }
+    .stage-jump-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      min-height: 54px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded-full);
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid transparent;
+      transition: transform var(--dur-short) var(--ease-bounce), border-color var(--dur-micro) var(--ease-out);
+    }
+    .stage-jump-btn:hover {
+      transform: var(--pop-scale);
+      border-color: var(--primary);
+    }
+    .stage-jump-btn.is-done {
+      background-color: var(--positive-soft);
+      color: var(--positive-ink);
+      border-color: var(--positive);
+    }
+    .stage-badge-dot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: var(--rounded-full);
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .stage-jump-btn.is-done .stage-badge-dot {
+      background-color: var(--positive);
+      color: var(--on-primary);
+    }
+
+    /* Golden Train Overview Anchor */
+    .train-overview {
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .train-track-wrap {
+      display: grid;
+      grid-template-columns: auto repeat(4, minmax(0, 1fr));
+      gap: var(--space-md);
+      align-items: stretch;
+    }
+    .locomotive-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      padding: var(--space-md);
+      background-color: var(--on-surface);
+      color: var(--surface-container-low);
+      border-radius: var(--rounded);
+      min-width: 110px;
+      text-align: center;
+    }
+    .car-pill {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-xs);
+      padding: var(--space-md);
+      border-radius: var(--rounded);
+      border: 3px solid transparent;
+      transition: transform var(--dur-short) var(--ease-bounce), box-shadow var(--dur-short) var(--ease-out);
+    }
+    .car-pill.is-lit {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-pink-deep);
+    }
+    .car-subj { background-color: var(--primary-soft); border-color: var(--primary); color: var(--on-surface); }
+    .car-verb { background-color: var(--secondary-soft); border-color: var(--secondary); color: var(--on-surface); }
+    .car-place { background-color: var(--tertiary-soft); border-color: var(--tertiary); color: var(--on-surface); }
+    .car-time { background-color: var(--tangerine-soft); border-color: var(--tangerine); color: var(--on-surface); }
+
+    .car-num-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--rounded-full);
+      font-size: var(--label-size);
+      font-weight: 800;
+      width: fit-content;
+    }
+    .car-subj .car-num-tag { background-color: var(--primary); color: var(--on-primary); }
+    .car-verb .car-num-tag { background-color: var(--secondary); color: var(--on-secondary); }
+    .car-place .car-num-tag { background-color: var(--tertiary); color: var(--on-surface); }
+    .car-time .car-num-tag { background-color: var(--tangerine); color: var(--on-surface); }
+
+    .mnemonic-box {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+      background-color: var(--surface-container);
+      border-radius: var(--rounded);
+    }
+    .mnemonic-text {
+      font-size: var(--subhead-size);
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* Section Header Layout */
+    .stage-section {
+      display: grid;
+      gap: var(--space-lg);
+      scroll-margin-top: var(--space-lg);
+    }
+    .stage-heading-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .stage-status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      background-color: var(--surface-container-high);
+      color: var(--on-surface-variant);
+      font-weight: 700;
+      font-size: var(--label-size);
+    }
+    .stage-status-chip.is-complete {
+      background-color: var(--positive-soft);
+      color: var(--positive-ink);
+    }
+
+    /* Stage 1: Flip Cards */
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: var(--space-lg);
+    }
+    .flip-card {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+      border: 3px solid transparent;
+      transition: transform var(--dur-short) var(--ease-bounce), box-shadow var(--dur-short) var(--ease-out);
+    }
+    .flip-card:nth-child(1) { box-shadow: var(--shadow-pink); border-color: var(--primary); }
+    .flip-card:nth-child(2) { box-shadow: var(--shadow-grape); border-color: var(--secondary); }
+    .flip-card:nth-child(3) { box-shadow: var(--shadow-sky); border-color: var(--tertiary); }
+    .flip-card:nth-child(4) { box-shadow: var(--shadow-tangerine); border-color: var(--tangerine); }
+
+    .flip-front, .flip-back {
+      display: grid;
+      gap: var(--space-md);
+    }
+    .flip-card:not(.is-flipped) .flip-back { display: none; }
+    .flip-card.is-flipped .flip-front { display: none; }
+
+    .flip-front-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: var(--space-md) 0;
+      gap: var(--space-sm);
+    }
+    .flip-def-box {
+      padding: var(--space-md);
+      border-radius: var(--rounded);
+      background-color: var(--surface-container);
+      font-weight: 700;
+      font-size: var(--subhead-size);
+    }
+    .word-chips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-sm);
+    }
+    .word-audio-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      min-height: 64px;
+      padding: var(--space-sm);
+      border-radius: var(--rounded);
+      border: 2px solid var(--outline-variant);
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+      cursor: pointer;
+      transition: transform var(--dur-short) var(--ease-bounce), background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .word-audio-btn:hover {
+      transform: var(--pop-scale);
+      border-color: var(--primary);
+      background-color: var(--primary-soft);
+    }
+    .word-audio-btn.is-speaking {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .word-audio-btn .en-main {
+      font-family: var(--font-english);
+      font-weight: 800;
+      font-size: 1.2rem;
+      line-height: 1.2;
+    }
+    .word-audio-btn .zh-sub {
+      font-size: var(--label-size);
+      opacity: 0.85;
+      font-weight: 500;
+    }
+
+    /* Stage 2: Train Builder */
+    .game-card {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--shadow-sky);
+      padding: var(--space-xl);
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .game-top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .q-counter-pill {
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      background-color: var(--secondary-soft);
+      color: var(--secondary);
+      font-weight: 800;
+    }
+    .slots-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+    .train-slot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 124px;
+      padding: var(--space-md);
+      border-radius: var(--rounded);
+      border: 3px dashed var(--outline);
+      background-color: var(--surface-container);
+      text-align: center;
+      cursor: pointer;
+      transition: transform var(--dur-short) var(--ease-bounce), border-color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+    }
+    .train-slot.is-next {
+      border-style: solid;
+      border-color: var(--primary);
+      background-color: var(--primary-soft);
+    }
+    .train-slot.is-filled {
+      border-style: solid;
+      background-color: var(--surface-container-low);
+      box-shadow: var(--shadow-pink);
+    }
+    .train-slot.is-wrong {
+      border-color: var(--warning);
+      background-color: var(--warning-soft);
+    }
+    .train-slot.is-correct {
+      border-color: var(--positive);
+      background-color: var(--positive-soft);
+    }
+    .slot-role-label {
+      font-size: var(--label-size);
+      font-weight: 800;
+      padding: 2px var(--space-sm);
+      border-radius: var(--rounded-full);
+    }
+    .slot-role-0 { background-color: var(--primary-soft); color: var(--primary); }
+    .slot-role-1 { background-color: var(--secondary-soft); color: var(--secondary); }
+    .slot-role-2 { background-color: var(--tertiary-soft); color: var(--tertiary-ink); }
+    .slot-role-3 { background-color: var(--tangerine-soft); color: var(--tangerine-ink); }
+
+    .slot-word-val {
+      font-family: var(--font-english);
+      font-weight: 800;
+      font-size: var(--en-size);
+      color: var(--on-surface);
+    }
+
+    .pool-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .pool-tile {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      min-height: 68px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded-full);
+      border: 2px solid var(--outline-variant);
+      background-color: var(--surface-container-low);
+      box-shadow: var(--shadow-grape);
+      cursor: pointer;
+      transition: transform var(--dur-short) var(--ease-bounce), opacity var(--dur-micro) var(--ease-out);
+    }
+    .pool-tile:hover:not(:disabled) { transform: var(--pop-scale); border-color: var(--primary); }
+    .pool-tile:disabled {
+      opacity: 0.35;
+      cursor: default;
+      box-shadow: none;
+    }
+    .pool-tile-main {
+      text-align: left;
+      display: grid;
+    }
+    .pool-tile-en {
+      font-family: var(--font-english);
+      font-weight: 800;
+      font-size: var(--en-size);
+      color: var(--on-surface);
+    }
+    .pool-tile-zh {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+    }
+    .mini-audio-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--rounded-full);
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      border: 0;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .mini-audio-icon:hover {
+      background-color: var(--primary);
+      color: var(--on-primary);
+    }
+
+    /* Feedback Banners (Inline, Positive, Friendly Hints) */
+    .feedback-box {
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--rounded);
+      font-weight: 700;
+      display: none;
+      gap: var(--space-sm);
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .feedback-box.is-visible { display: flex; }
+    .feedback-box.is-success {
+      background-color: var(--positive-soft);
+      color: var(--positive-ink);
+      border: 2px solid var(--positive);
+    }
+    .feedback-box.is-hint {
+      background-color: var(--warning-soft);
+      color: var(--warning-ink);
+      border: 2px solid var(--warning);
+    }
+
+    /* Stage 3: Nested Doll (先小後大) */
+    .doll-guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      gap: var(--space-lg);
+    }
+    .doll-rule-card {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-grape);
+      display: grid;
+      gap: var(--space-md);
+    }
+    .doll-example-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-md);
+      background-color: var(--surface-container);
+      border-radius: var(--rounded);
+    }
+    .size-tag-small {
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+      font-weight: 800;
+    }
+    .size-tag-big {
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      background-color: var(--secondary);
+      color: var(--on-secondary);
+      font-weight: 800;
+    }
+
+    .doll-slots-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-lg);
+    }
+    .doll-slot {
+      min-height: 132px;
+      padding: var(--space-lg);
+      border-radius: var(--rounded);
+      border: 3px dashed var(--outline);
+      background-color: var(--surface-container);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      text-align: center;
+      cursor: pointer;
+    }
+    .doll-slot.is-filled {
+      border-style: solid;
+      border-color: var(--secondary);
+      background-color: var(--surface-container-low);
+      box-shadow: var(--shadow-grape);
+    }
+    .doll-slot.is-correct {
+      border-color: var(--positive);
+      background-color: var(--positive-soft);
+    }
+    .doll-slot.is-wrong {
+      border-color: var(--warning);
+      background-color: var(--warning-soft);
+    }
+
+    /* Stage 4: Bug Fixer (小小車長來除錯) */
+    .bug-sentence-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+      background-color: var(--surface-container);
+      border-radius: var(--rounded);
+    }
+    .bug-token {
+      min-height: 64px;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--rounded-full);
+      border: 3px solid var(--outline-variant);
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+      font-family: var(--font-english);
+      font-weight: 800;
+      font-size: var(--en-size);
+      cursor: pointer;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      transition: transform var(--dur-short) var(--ease-bounce), border-color var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+    }
+    .bug-token:hover { transform: var(--pop-scale); border-color: var(--primary); }
+    .bug-token .token-zh {
+      font-family: var(--font-body);
+      font-size: var(--label-size);
+      font-weight: 500;
+      color: var(--on-surface-variant);
+    }
+    .bug-token.is-suspect {
+      border-color: var(--warning);
+      background-color: var(--warning-soft);
+      box-shadow: var(--shadow-tangerine);
+    }
+    .bug-token.is-fixed {
+      border-color: var(--positive);
+      background-color: var(--positive-soft);
+      color: var(--positive-ink);
+    }
+
+    /* Stage 5: A4 Summary Note & Conductor Badge */
+    .summary-sheet-card {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--shadow-pink);
+      padding: var(--space-xl);
+      border: 3px solid var(--primary-container);
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .summary-formula-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+    .formula-cell {
+      padding: var(--space-md);
+      border-radius: var(--rounded);
+      text-align: center;
+      display: grid;
+      gap: var(--space-xs);
+    }
+    .badge-award-card {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--shadow-grape);
+      padding: var(--space-xl);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .name-input-group {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .name-input-label {
+      font-weight: 800;
+      color: var(--on-surface);
+    }
+    .pill-input {
+      min-height: 54px;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--rounded-full);
+      border: 2px solid var(--outline);
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+      font-weight: 700;
+      width: 100%;
+    }
+    .pill-input:focus {
+      border-color: var(--primary);
+      background-color: var(--surface-container-low);
+    }
+
+    .conductor-medal {
+      background-color: var(--primary-soft);
+      border: 4px solid var(--primary);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      text-align: center;
+      display: grid;
+      gap: var(--space-sm);
+      justify-items: center;
+      box-shadow: var(--shadow-pink-deep);
+    }
+    .conductor-medal.is-locked {
+      background-color: var(--surface-container);
+      border-color: var(--outline-variant);
+      box-shadow: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 820px) {
+      .train-track-wrap {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .locomotive-box {
+        grid-column: 1 / -1;
+      }
+      .slots-row, .summary-formula-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .badge-award-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-xl);
+      }
+      .hero-panel, .game-card, .summary-sheet-card, .badge-award-card {
+        padding: var(--space-lg);
+      }
+      .train-track-wrap, .slots-row, .doll-slots-pair, .summary-formula-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body { background: var(--surface-container-low); }
+      .no-print { display: none !important; }
+      .summary-sheet-card { box-shadow: none; border: 2px solid var(--on-surface); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-grid">
+    <!-- Top Header & Controls -->
+    <header class="hero-panel hero-header">
+      <div class="hero-top-row">
+        <span class="kicker-pill">Unit 1-1 基礎文法互動課</span>
+        <div class="speech-live-pill" id="speech-status-pill" aria-live="polite">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span id="speech-status-text">點擊任何英文單字即可聽發音</span>
+        </div>
+      </div>
+
+      <div>
+        <h1 class="display">英文句子的秘密：<em>四大車廂</em>與黃金順序</h1>
+        <p class="section-lead">歡迎來到小火車車站！只要記住四節車廂的順序和「先小後大」魔法，英文句子就再也不會排錯囉。</p>
+      </div>
+
+      <div class="voice-toolbar no-print">
+        <span style="font-weight: 800;">語音速度：</span>
+        <div class="segmented" role="group" aria-label="語音朗讀速度">
+          <button type="button" class="seg-btn is-active" id="rate-slow-btn" onclick="setSpeechRate(0.75)">慢速清晰 (0.75x)</button>
+          <button type="button" class="seg-btn" id="rate-norm-btn" onclick="setSpeechRate(0.95)">正常語速 (0.95x)</button>
+        </div>
+        <button type="button" class="btn-speak" onclick="speakText('Hello! Welcome to the sentence train.', this)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          試聽英文發音
+        </button>
+      </div>
+    </header>
+
+    <!-- Progress Tracker & Quick Stage Nav -->
+    <nav class="stage-nav-card no-print" aria-label="關卡進度與快速跳轉">
+      <div class="progress-header">
+        <div>
+          <strong style="font-size: var(--subhead-size);">闖關進度：<span id="stars-count-text">0 / 5 關完成</span></strong>
+        </div>
+        <button type="button" class="btn btn-soft" id="reset-all-btn" onclick="handleResetAll(this)" style="min-height: 44px; padding: var(--space-xs) var(--space-md);">
+          重新開始全部關卡
+        </button>
+      </div>
+      <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="main-progress-bar">
+        <div class="progress-fill" id="main-progress-fill"></div>
+      </div>
+      <div class="stage-jump-row">
+        <a href="#stage-1" class="stage-jump-btn" id="nav-stage-1">
+          <span>第 1 關 認識車廂</span>
+          <span class="stage-badge-dot" id="dot-stage-1">1</span>
+        </a>
+        <a href="#stage-2" class="stage-jump-btn" id="nav-stage-2">
+          <span>第 2 關 車廂排隊</span>
+          <span class="stage-badge-dot" id="dot-stage-2">2</span>
+        </a>
+        <a href="#stage-3" class="stage-jump-btn" id="nav-stage-3">
+          <span>第 3 關 先小後大</span>
+          <span class="stage-badge-dot" id="dot-stage-3">3</span>
+        </a>
+        <a href="#stage-4" class="stage-jump-btn" id="nav-stage-4">
+          <span>第 4 關 車長除錯</span>
+          <span class="stage-badge-dot" id="dot-stage-4">4</span>
+        </a>
+        <a href="#stage-5" class="stage-jump-btn" id="nav-stage-5">
+          <span>第 5 關 重點徽章</span>
+          <span class="stage-badge-dot" id="dot-stage-5">5</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Visual Anchor: Golden Order Train -->
+    <section class="card train-overview" aria-label="句子黃金順序小火車總覽">
+      <div class="stage-heading-row">
+        <div>
+          <h2 class="section-title">句子黃金順序：小火車出發</h2>
+          <p class="section-lead">每個英文完整句子，就像一列有順序的小火車。</p>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="playTrainDemo()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          示範開火車念句子
+        </button>
+      </div>
+
+      <div class="train-track-wrap">
+        <div class="locomotive-box">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect x="6" y="16" width="28" height="20" rx="5" fill="var(--primary-container)"/>
+            <rect x="24" y="10" width="12" height="10" rx="3" fill="var(--surface-container-low)"/>
+            <rect x="10" y="8" width="6" height="8" rx="2" fill="var(--tertiary)"/>
+            <circle cx="15" cy="39" r="5" fill="var(--primary)"/>
+            <circle cx="31" cy="39" r="5" fill="var(--primary)"/>
+            <path d="M34 26L43 36H34V26Z" fill="var(--tangerine)"/>
+          </svg>
+          <strong>火車頭</strong>
+          <span style="font-size: var(--label-size);">出發囉！</span>
+        </div>
+
+        <div class="car-pill car-subj" id="demo-car-0">
+          <span class="car-num-tag">1. 主詞</span>
+          <strong style="font-size: var(--subhead-size);">主角是誰</strong>
+          <span class="en-text" style="font-size: var(--en-size);">I</span>
+        </div>
+
+        <div class="car-pill car-verb" id="demo-car-1">
+          <span class="car-num-tag">2. 動詞</span>
+          <strong style="font-size: var(--subhead-size);">做什麼動作</strong>
+          <span class="en-text" style="font-size: var(--en-size);">read</span>
+        </div>
+
+        <div class="car-pill car-place" id="demo-car-2">
+          <span class="car-num-tag">3. 地點</span>
+          <strong style="font-size: var(--subhead-size);">在哪裡</strong>
+          <span class="en-text" style="font-size: var(--en-size);">at home</span>
+        </div>
+
+        <div class="car-pill car-time" id="demo-car-3">
+          <span class="car-num-tag">4. 時間</span>
+          <strong style="font-size: var(--subhead-size);">什麼時候</strong>
+          <span class="en-text" style="font-size: var(--en-size);">every day</span>
+        </div>
+      </div>
+
+      <div class="mnemonic-box">
+        <p class="mnemonic-text">口訣：車頭是主角（<strong>主詞</strong>），帶動動作（<strong>動詞</strong>），接著去哪裡（<strong>地點</strong>），最後什麼時候（<strong>時間</strong>）。</p>
+        <button type="button" class="btn-speak" onclick="speakChinese('車頭是主角主詞，帶動動作動詞，接著去哪裡地點，最後什麼時候時間。', this)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          念出口訣
+        </button>
+      </div>
+    </section>
+
+    <!-- STAGE 1: 認識四大車廂 -->
+    <section class="stage-section" id="stage-1">
+      <div class="stage-heading-row">
+        <div>
+          <span class="kicker-pill">第 1 關</span>
+          <h2 class="section-title" style="margin-top: var(--space-xs);">認識四大車廂</h2>
+          <p class="section-lead">點一下卡片「翻開看秘密」，再點擊裡面的英文單字聽發音！4 張都翻開就過關囉。</p>
+        </div>
+        <div class="stage-status-chip" id="status-stage-1">已翻開 0 / 4 張卡片</div>
+      </div>
+
+      <div class="flip-grid">
+        <!-- Card 1: 主詞 -->
+        <article class="flip-card" id="flip-card-0">
+          <div class="flip-front">
+            <span class="car-num-tag" style="background-color: var(--primary); color: var(--on-primary);">第 1 節車廂</span>
+            <div class="flip-front-center">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <circle cx="32" cy="32" r="30" fill="var(--primary-soft)"/>
+                <circle cx="32" cy="24" r="10" fill="var(--primary)"/>
+                <path d="M16 50C16 41.1634 23.1634 34 32 34C40.8366 34 48 41.1634 48 50" stroke="var(--primary)" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+              <h3 style="font-size: var(--headline-size); margin: 0;">主詞</h3>
+              <p style="margin: 0; color: var(--on-surface-variant);">誰是這句話的老大？</p>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="toggleFlipCard(0)">翻開看秘密</button>
+          </div>
+          <div class="flip-back">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm);">
+              <span class="car-num-tag" style="background-color: var(--primary); color: var(--on-primary);">1. 主詞</span>
+              <button type="button" class="btn btn-soft" style="min-height: 44px; padding: var(--space-xs) var(--space-md);" onclick="toggleFlipCard(0)">翻回正面</button>
+            </div>
+            <div class="flip-def-box">定義：句子的主角</div>
+            <p style="margin: 0; font-size: var(--label-size); color: var(--on-surface-variant); font-weight: 700;">點擊單字聽發音：</p>
+            <div class="word-chips-grid">
+              <button type="button" class="word-audio-btn" onclick="speakText('I', this)">
+                <span class="en-main">I</span>
+                <span class="zh-sub">我</span>
+              </button>
+              <button type="button" class="word-audio-btn" onclick="speakText('The cat', this)">
+                <span class="en-main">The cat</span>
+                <span class="zh-sub">這隻貓</span>
+              </button>
+              <button type="button" class="word-audio-btn" onclick="speakText('We', this)">
+                <span class="en-main">We</span>
+                <span class="zh-sub">我們</span>
+              </button>
+              <button type="button" class="word-audio-btn" onclick="speakText('Sandy', this)">
+                <span class="en-main">Sandy</span>
+                <span class="zh-sub">珊迪</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: 動詞 -->
+        <article class="flip-card" id="flip-card-1">
+          <div class="flip-front">
+            <span class="car-num-tag" style="background-color: var(--secondary); color: var(--on-secondary);">第 2 節車廂</span>
+            <div class="flip-front-center">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <circle cx="32" cy="32" r="30" fill="var(--secondary-soft)"/>
+                <path d="M22 36L30 22L36 30L44 18" stroke="var(--secondary)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="44" cy="18" r="4" fill="var(--secondary)"/>
+                <path d="M18 46H46" stroke="var(--secondary)" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+              <h3 style="font-size: var(--headline-size); margin: 0;">動詞</h3>
+              <p style="margin: 0; color: var(--on-surface-variant);">主角正在做什麼？</p>
+            </div>
+            <button type="button" class="btn btn-secondary" onclick="toggleFlipCard(1)">翻開看秘密</button>
+          </div>
+          <div class="flip-back">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm);">
+              <span class="car-num-tag" style="background-color: var(--secondary); color: var(--on-secondary);">2. 動詞</span>
+              <button type="button" class="btn btn-soft" style="min-height: 44px; padding: var(--space-xs) var(--space-md);" onclick="toggleFlipCard(1)">翻回正面</button>
+            </div>
+            <div class="flip-def-box">定義：主角的動作或狀態</div>
+            <p style="margin: 0; font-size: var(--label-size); color: var(--on-surface-variant); font-weight: 700;">點擊單字聽發音：</p>
+            <div class="word-chips-grid">
+              <button type="button" class="word-audio-btn" onclick="speakText('eat', this)">
+                <span class="en-main">eat</span>
+                <span class="zh-sub">吃</span>
+              </button>
+              <button type="button" class="word-audio-btn" onclick="speakText('sleep', this)">
+                <span class="en-main">sleep</span>
+                <span class="zh-sub">睡覺</span>
+              </button>
+              <button type="button" class="word-audio-btn" onclick="speakText('run', this)">
+                <span class="en-main">run</span>
+                <span class="zh-sub">跑步</span>
+              </button>
+              <button type="button" class="word-audio-btn" onclick="speakText('read', this)">
+                <span class="en-main">read</span>
+                <span class="zh-sub">閱讀</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: 地點 -->
+        <article class="flip-card" id="flip-card-2">
+          <div class="flip-front">
+            <span class="car-num-tag" style="background-color: var(--tertiary); color: var(--on-surface);">第 3 節車廂</span>
+            <div class="flip-front-center">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <circle cx="32" cy="32" r="30" fill="var(--tertiary-soft)"/>
+                <path d="M32 14C24.268 14 18 20.268 18 28C18 38.5 32 52 32 52C32 52 46 38.5 46 28C46 20.268 39.732 14 32 14Z" fill="var(--tertiary)"/>
+                <circle cx="32" cy="28" r="5" fill="var(--surface-container-low)"/>
+              </svg>
+              <h3 style="font-size: var(--headline-size); margin: 0;">地點</h3>
+              <p style="margin: 0; color: var(--on-surface-variant);">動作發生在什麼地方？</p>
+            </div>
+            <button type="button" class="btn" style="background-color: var(--tertiary); color: var(--on-surface); box-shadow: var(--shadow-sky);" onclick="toggleFlipCard(2)">翻開看秘密</button>
+          </div>
+          <div class="flip-back">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm);">
+              <span class="car-num-tag" style="background-color: var(--tertiary); color: var(--on-surface);">3. 地點</span>
+              <button type="button" class="btn btn-soft" style="min-height: 44px; padding: var(--space-xs) var(--space-md);" onclick="toggleFlipCard(2)">翻回正面</button>
+            </div>
+            <div class="flip-def-box">定義：在哪裡</div>
+            <p style="margin: 0; font-size: var(--label-size); color: var(--on-surface-variant); font-weight: 700;">點擊片語聽發音：</p>
+            <div class="word-chips-grid">
+              <button type="button" class="word-audio-btn" onclick="speakText('at home', this)">
+                <span class="en-main">at home</span>
+                <span class="zh-sub">在家裡</span>
+              </button>
+              <button type="button" class="word-audio-btn" onclick="speakText('in the park', this)">
+                <span class="en-main">in the park</span>
+                <span class="zh-sub">在公園裡</span>
+              </button>
+              <button type="button" class="word-audio-btn" onclick="speakText('on the desk', this)">
+                <span class="en-main">on the desk</span>
+                <span class="zh-sub">在書桌上</span>
+              </button>
+              <button type="button" class="word-audio-btn" onclick="speakText('in the classroom', this)">
+                <span class="en-main" style="font-size: 1rem;">in the classroom</span>
+                <span class="zh-sub">在教室裡</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: 時間 -->
+        <article class="flip-card" id="flip-card-3">
+          <div class="flip-front">
+            <span class="car-num-tag" style="background-color: var(--tangerine); color: var(--on-surface);">第 4 節車廂</span>
+            <div class="flip-front-center">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <circle cx="32" cy="32" r="30" fill="var(--tangerine-soft)"/>
+                <circle cx="32" cy="32" r="18" stroke="var(--tangerine)" stroke-width="5"/>
+                <path d="M32 22V33L40 37" stroke="var(--tangerine)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <h3 style="font-size: var(--headline-size); margin: 0;">時間</h3>
+              <p style="margin: 0; color: var(--on-surface-variant);">這件事什麼時候發生？</p>
+            </div>
+            <button type="button" class="btn" style="background-color: var(--tangerine); color: var(--on-surface); box-shadow: var(--shadow-tangerine);" onclick="toggleFlipCard(3)">翻開看秘密</button>
+          </div>
+          <div class="flip-back">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm);">
+              <span class="car-num-tag" style="background-color: var(--tangerine); color: var(--on-surface);">4. 時間</span>
+              <button type="button" class="btn btn-soft" style="min-height: 44px; padding: var(--space-xs) var(--space-md);" onclick="toggleFlipCard(3)">翻回正面</button>
+            </div>
+            <div class="flip-def-box">定義：什麼時候</div>
+            <p style="margin: 0; font-size: var(--label-size); color: var(--on-surface-variant); font-weight: 700;">點擊片語聽發音：</p>
+            <div class="word-chips-grid">
+              <button type="button" class="word-audio-btn" onclick="speakText('in the morning', this)">
+                <span class="en-main" style="font-size: 1.05rem;">in the morning</span>
+                <span class="zh-sub">在早上</span>
+              </button>
+              <button type="button" class="word-audio-btn" onclick="speakText('at night', this)">
+                <span class="en-main">at night</span>
+                <span class="zh-sub">在晚上</span>
+              </button>
+              <button type="button" class="word-audio-btn" onclick="speakText('every day', this)">
+                <span class="en-main">every day</span>
+                <span class="zh-sub">每天</span>
+              </button>
+              <button type="button" class="word-audio-btn" onclick="speakText('at 7:00', this)">
+                <span class="en-main">at 7:00</span>
+                <span class="zh-sub">在七點</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="feedback-box is-success" id="stage1-feedback">
+        <span>太棒了！你已經認識「主詞、動詞、地點、時間」四大車廂，第 1 關過關！</span>
+        <a href="#stage-2" class="btn btn-primary" style="min-height: 44px;">前往第 2 關</a>
+      </div>
+    </section>
+
+    <!-- STAGE 2: 火車車廂排隊去 -->
+    <section class="stage-section" id="stage-2">
+      <div class="stage-heading-row">
+        <div>
+          <span class="kicker-pill">第 2 關</span>
+          <h2 class="section-title" style="margin-top: var(--space-xs);">火車車廂排隊去</h2>
+          <p class="section-lead">點選下方積木，依照「主詞 → 動詞 → 地點 → 時間」排進火車車廂裡！點錯車廂裡的積木可以拿下來重排喔。</p>
+        </div>
+        <div class="stage-status-chip" id="status-stage-2">已完成 0 / 4 題</div>
+      </div>
+
+      <div class="game-card">
+        <div class="game-top-bar">
+          <span class="q-counter-pill" id="s2-q-label">第 1 題 / 共 4 題</span>
+          <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+            <span style="font-weight: 700; color: var(--on-surface-variant);" id="s2-zh-prompt">目標中文：我每天在家裡吃飯。</span>
+          </div>
+        </div>
+
+        <!-- 4 Slots -->
+        <div class="slots-row" id="s2-slots-row">
+          <button type="button" class="train-slot is-next" id="s2-slot-0" onclick="removeS2Slot(0)">
+            <span class="slot-role-label slot-role-0">1. 主詞（誰）</span>
+            <span class="slot-word-val" id="s2-slot-val-0">點下方積木</span>
+          </button>
+          <button type="button" class="train-slot" id="s2-slot-1" onclick="removeS2Slot(1)">
+            <span class="slot-role-label slot-role-1">2. 動詞（動作）</span>
+            <span class="slot-word-val" id="s2-slot-val-1">點下方積木</span>
+          </button>
+          <button type="button" class="train-slot" id="s2-slot-2" onclick="removeS2Slot(2)">
+            <span class="slot-role-label slot-role-2">3. 地點（哪裡）</span>
+            <span class="slot-word-val" id="s2-slot-val-2">點下方積木</span>
+          </button>
+          <button type="button" class="train-slot" id="s2-slot-3" onclick="removeS2Slot(3)">
+            <span class="slot-role-label slot-role-3">4. 時間（何時）</span>
+            <span class="slot-word-val" id="s2-slot-val-3">點下方積木</span>
+          </button>
+        </div>
+
+        <!-- Shuffled Word Pool -->
+        <div>
+          <p style="margin: 0 0 var(--space-sm); font-weight: 700; color: var(--on-surface-variant);">請點選積木排進車廂（點小喇叭可先聽發音）：</p>
+          <div class="pool-row" id="s2-pool-row"></div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center;">
+          <button type="button" class="btn btn-primary" id="s2-check-btn" onclick="checkStage2()" disabled>檢查火車順序</button>
+          <button type="button" class="btn btn-soft" onclick="resetCurrentS2()">重排這一題</button>
+          <button type="button" class="btn-speak" id="s2-listen-btn" onclick="speakCurrentS2Sentence()" style="display: none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+            再聽一次整句
+          </button>
+        </div>
+
+        <div class="feedback-box" id="s2-feedback">
+          <span id="s2-feedback-text"></span>
+          <button type="button" class="btn btn-primary" id="s2-next-btn" onclick="nextStage2()" style="display: none; min-height: 44px;">下一題</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 3: 先小後大套套樂 -->
+    <section class="stage-section" id="stage-3">
+      <div class="stage-heading-row">
+        <div>
+          <span class="kicker-pill">第 3 關</span>
+          <h2 class="section-title" style="margin-top: var(--space-xs);">先小後大套套樂（俄羅斯套娃規則）</h2>
+          <p class="section-lead">出現「兩個地點」或「兩個時間」怎麼辦？記住俄羅斯套娃規則：<strong>小的放前面，大的放後面</strong>！</p>
+        </div>
+        <div class="stage-status-chip" id="status-stage-3">已完成 0 / 4 題</div>
+      </div>
+
+      <!-- Visual Pre-training Cards for Nesting Rule -->
+      <div class="doll-guide-grid">
+        <div class="doll-rule-card">
+          <div style="display: flex; align-items: center; gap: var(--space-md);">
+            <svg width="68" height="68" viewBox="0 0 68 68" fill="none" aria-hidden="true">
+              <circle cx="34" cy="34" r="30" fill="var(--tertiary-soft)" stroke="var(--tertiary)" stroke-width="3"/>
+              <circle cx="34" cy="34" r="16" fill="var(--primary-container)" stroke="var(--primary)" stroke-width="3"/>
+              <text x="34" y="38" text-anchor="middle" font-size="12" font-weight="800" fill="var(--on-surface)">小</text>
+            </svg>
+            <div>
+              <h3 style="margin: 0; font-size: var(--subhead-size);">地點先小後大</h3>
+              <p style="margin: 0; color: var(--on-surface-variant);">兩個地點時，先寫小的再寫大的</p>
+            </div>
+          </div>
+          <div class="doll-example-strip">
+            <span class="size-tag-small">小：書桌上</span>
+            <span class="en-text">on the desk</span>
+            <strong>→</strong>
+            <span class="size-tag-big">大：教室裡</span>
+            <span class="en-text">in the classroom</span>
+            <button type="button" class="btn-speak" onclick="speakText('on the desk in the classroom', this)">聽示範</button>
+          </div>
+          <div class="doll-example-strip">
+            <span class="size-tag-small">小：我房間</span>
+            <span class="en-text">in my room</span>
+            <strong>→</strong>
+            <span class="size-tag-big">大：家裡</span>
+            <span class="en-text">at home</span>
+            <button type="button" class="btn-speak" onclick="speakText('in my room at home', this)">聽示範</button>
+          </div>
+        </div>
+
+        <div class="doll-rule-card">
+          <div style="display: flex; align-items: center; gap: var(--space-md);">
+            <svg width="68" height="68" viewBox="0 0 68 68" fill="none" aria-hidden="true">
+              <circle cx="34" cy="34" r="30" fill="var(--tangerine-soft)" stroke="var(--tangerine)" stroke-width="3"/>
+              <circle cx="34" cy="34" r="16" fill="var(--primary-container)" stroke="var(--primary)" stroke-width="3"/>
+              <text x="34" y="38" text-anchor="middle" font-size="12" font-weight="800" fill="var(--on-surface)">小</text>
+            </svg>
+            <div>
+              <h3 style="margin: 0; font-size: var(--subhead-size);">時間先小後大</h3>
+              <p style="margin: 0; color: var(--on-surface-variant);">先寫幾點幾分（小），再寫早晚或星期（大）</p>
+            </div>
+          </div>
+          <div class="doll-example-strip">
+            <span class="size-tag-small">小：七點</span>
+            <span class="en-text">at 7:00</span>
+            <strong>→</strong>
+            <span class="size-tag-big">大：早上</span>
+            <span class="en-text">in the morning</span>
+            <button type="button" class="btn-speak" onclick="speakText('at 7:00 in the morning', this)">聽示範</button>
+          </div>
+          <div class="doll-example-strip">
+            <span class="size-tag-small">小：八點</span>
+            <span class="en-text">at 8:00</span>
+            <strong>→</strong>
+            <span class="size-tag-big">大：星期日</span>
+            <span class="en-text">on Sunday</span>
+            <button type="button" class="btn-speak" onclick="speakText('at 8:00 on Sunday', this)">聽示範</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Stage 3 Game -->
+      <div class="game-card" style="box-shadow: var(--shadow-grape);">
+        <div class="game-top-bar">
+          <span class="q-counter-pill" id="s3-q-label">第 1 題 / 共 4 題</span>
+          <span style="font-weight: 800; color: var(--primary);" id="s3-type-badge">地點挑戰</span>
+        </div>
+
+        <p style="margin: 0; font-size: var(--subhead-size); font-weight: 700;" id="s3-prompt">請點選積木，先放「比較小的」，再放「比較大的」：</p>
+
+        <div class="doll-slots-pair">
+          <button type="button" class="doll-slot" id="s3-slot-0" onclick="removeS3Slot(0)">
+            <span class="size-tag-small">1. 小範圍（放前面）</span>
+            <span class="slot-word-val" id="s3-slot-val-0">點下方小的積木</span>
+          </button>
+          <button type="button" class="doll-slot" id="s3-slot-1" onclick="removeS3Slot(1)">
+            <span class="size-tag-big">2. 大範圍（放後面）</span>
+            <span class="slot-word-val" id="s3-slot-val-1">點下方大的積木</span>
+          </button>
+        </div>
+
+        <div class="pool-row" id="s3-pool-row"></div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-md);">
+          <button type="button" class="btn btn-secondary" id="s3-check-btn" onclick="checkStage3()" disabled>確認套娃順序</button>
+          <button type="button" class="btn btn-soft" onclick="resetCurrentS3()">重新選擇</button>
+        </div>
+
+        <div class="feedback-box" id="s3-feedback">
+          <span id="s3-feedback-text"></span>
+          <button type="button" class="btn btn-secondary" id="s3-next-btn" onclick="nextStage3()" style="display: none; min-height: 44px;">下一題</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 4: 小小車長來除錯 -->
+    <section class="stage-section" id="stage-4">
+      <div class="stage-heading-row">
+        <div>
+          <span class="kicker-pill">第 4 關</span>
+          <h2 class="section-title" style="margin-top: var(--space-xs);">小小車長來除錯</h2>
+          <p class="section-lead">糟糕！下面這列火車有兩個車廂順序放反了！請先「點出順序相反的積木」，再按修正鈕幫火車排對。</p>
+        </div>
+        <div class="stage-status-chip" id="status-stage-4">已完成 0 / 4 題</div>
+      </div>
+
+      <div class="game-card" style="box-shadow: var(--shadow-tangerine);">
+        <div class="game-top-bar">
+          <span class="q-counter-pill" id="s4-q-label">第 1 題 / 共 4 題</span>
+          <button type="button" class="btn-speak" onclick="speakS4Sentence()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+            聽看看這句話
+          </button>
+        </div>
+
+        <p style="margin: 0; font-weight: 700;" id="s4-instruction">步驟 1：點一下你覺得「位置放錯」的英文積木：</p>
+
+        <div class="bug-sentence-row" id="s4-tokens-row"></div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center;">
+          <button type="button" class="btn btn-primary" id="s4-fix-btn" onclick="applyStage4Fix()" style="display: none;">
+            一鍵對調修正順序！
+          </button>
+        </div>
+
+        <div class="feedback-box" id="s4-feedback">
+          <span id="s4-feedback-text"></span>
+          <button type="button" class="btn btn-primary" id="s4-next-btn" onclick="nextStage4()" style="display: none; min-height: 44px;">下一題</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 5: 重點筆記總結卡 & 車長結業小徽章 -->
+    <section class="stage-section" id="stage-5">
+      <div class="stage-heading-row">
+        <div>
+          <span class="kicker-pill">第 5 關</span>
+          <h2 class="section-title" style="margin-top: var(--space-xs);">重點筆記總結卡與車長徽章</h2>
+          <p class="section-lead">把今天學到的「黃金順序」和「先小後大」口訣收進口袋，領取你的車長結業小徽章吧！</p>
+        </div>
+        <button type="button" class="btn btn-soft no-print" onclick="window.print()">列印 A4 重點筆記</button>
+      </div>
+
+      <!-- Printable A4-Friendly Summary Sheet Card -->
+      <div class="summary-sheet-card">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-md);">
+          <h3 style="margin: 0; font-size: var(--headline-size);">Unit 1-1 英文句子筆記小卡</h3>
+          <button type="button" class="btn-speak no-print" onclick="speakText('I read on the desk in the classroom at 7:00 in the morning.', this)">聽超強示範長句</button>
+        </div>
+
+        <div class="summary-formula-row">
+          <div class="formula-cell car-subj">
+            <span class="car-num-tag">1. 主詞</span>
+            <strong>句子的主角</strong>
+            <span class="en-text">I / The cat / We / Sandy</span>
+          </div>
+          <div class="formula-cell car-verb">
+            <span class="car-num-tag">2. 動詞</span>
+            <strong>主角的動作或狀態</strong>
+            <span class="en-text">eat / sleep / run / read</span>
+          </div>
+          <div class="formula-cell car-place">
+            <span class="car-num-tag">3. 地點</span>
+            <strong>在哪裡</strong>
+            <span class="en-text">at home / in the park</span>
+          </div>
+          <div class="formula-cell car-time">
+            <span class="car-num-tag">4. 時間</span>
+            <strong>什麼時候</strong>
+            <span class="en-text">at night / every day</span>
+          </div>
+        </div>
+
+        <div class="doll-guide-grid">
+          <div style="padding: var(--space-md); background-color: var(--tertiary-soft); border-radius: var(--rounded);">
+            <strong style="color: var(--tertiary-ink);">地點先小後大：</strong>
+            <p style="margin: var(--space-xs) 0 0;">
+              <span class="en-text">on the desk</span>（小）→ <span class="en-text">in the classroom</span>（大）<br>
+              <span class="en-text">in my room</span>（小）→ <span class="en-text">at home</span>（大）
+            </p>
+          </div>
+          <div style="padding: var(--space-md); background-color: var(--tangerine-soft); border-radius: var(--rounded);">
+            <strong style="color: var(--tangerine-ink);">時間先小後大：</strong>
+            <p style="margin: var(--space-xs) 0 0;">
+              <span class="en-text">at 7:00</span>（小）→ <span class="en-text">in the morning</span>（大）<br>
+              <span class="en-text">at 8:00</span>（小）→ <span class="en-text">on Sunday</span>（大）
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Conductor Graduation Badge -->
+      <div class="badge-award-card no-print">
+        <div style="display: grid; gap: var(--space-md);">
+          <h3 style="margin: 0; font-size: var(--headline-size);">頒發車長結業小徽章</h3>
+          <p style="margin: 0; color: var(--on-surface-variant);">輸入你的名字，按下按鈕就可以點亮專屬你的「英文句型小車長」徽章！</p>
+
+          <div class="name-input-group">
+            <label for="student-name-input" class="name-input-label">你的名字或車長代號：</label>
+            <input type="text" id="student-name-input" class="pill-input" placeholder="例如：小宇、Sandy" oninput="updateStudentName(this.value)">
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-md);">
+            <button type="button" class="btn btn-primary" onclick="claimConductorBadge()">
+              領取車長結業小徽章
+            </button>
+            <button type="button" class="btn btn-soft" onclick="exportProgressRecord()">
+              下載學習成果紀錄
+            </button>
+          </div>
+
+          <div class="feedback-box" id="s5-feedback">
+            <span id="s5-feedback-text"></span>
+          </div>
+        </div>
+
+        <div class="conductor-medal is-locked" id="conductor-medal-card">
+          <svg width="96" height="96" viewBox="0 0 96 96" fill="none" aria-hidden="true">
+            <circle cx="48" cy="48" r="44" fill="var(--surface-container-low)" stroke="var(--primary)" stroke-width="5"/>
+            <path d="M48 18L56 35L74 37L61 50L64 68L48 59L32 68L35 50L22 37L40 35L48 18Z" fill="var(--tangerine)"/>
+            <circle cx="48" cy="46" r="10" fill="var(--primary)"/>
+          </svg>
+          <span class="kicker-pill" id="medal-status-tag">待領取徽章</span>
+          <h4 style="margin: 0; font-size: var(--headline-size);" id="medal-owner-name">小小車長</h4>
+          <p style="margin: 0; font-weight: 700; color: var(--on-surface-variant);" id="medal-score-summary">目前完成 0 / 5 關</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <api-shim></api-shim>
+  <script>
+    /* State Schema */
+    let appState = {
+      speechRate: 0.75,
+      flippedCards: [false, false, false, false],
+      stageDone: [false, false, false, false, false],
+      s2Index: 0,
+      s2Solved: [false, false, false, false],
+      s3Index: 0,
+      s3Solved: [false, false, false, false],
+      s4Index: 0,
+      s4Solved: [false, false, false, false],
+      studentName: ``,
+      badgeClaimed: false
+    };
+
+    /* Stage 2 Data: 4 Train Builder Questions */
+    const stage2Questions = [
+      {
+        zh: `我每天在家裡吃飯。`,
+        tokens: [
+          { id: 0, en: `I`, zh: `我`, role: 0 },
+          { id: 1, en: `eat`, zh: `吃飯`, role: 1 },
+          { id: 2, en: `at home`, zh: `在家裡`, role: 2 },
+          { id: 3, en: `every day`, zh: `每天`, role: 3 }
+        ],
+        poolOrder: [2, 0, 3, 1],
+        fullSentence: `I eat at home every day.`
+      },
+      {
+        zh: `這隻貓晚上在書桌上睡覺。`,
+        tokens: [
+          { id: 0, en: `The cat`, zh: `這隻貓`, role: 0 },
+          { id: 1, en: `sleeps`, zh: `睡覺`, role: 1 },
+          { id: 2, en: `on the desk`, zh: `在書桌上`, role: 2 },
+          { id: 3, en: `at night`, zh: `在晚上`, role: 3 }
+        ],
+        poolOrder: [1, 3, 0, 2],
+        fullSentence: `The cat sleeps on the desk at night.`
+      },
+      {
+        zh: `我們早上在公園裡跑步。`,
+        tokens: [
+          { id: 0, en: `We`, zh: `我們`, role: 0 },
+          { id: 1, en: `run`, zh: `跑步`, role: 1 },
+          { id: 2, en: `in the park`, zh: `在公園裡`, role: 2 },
+          { id: 3, en: `in the morning`, zh: `在早上`, role: 3 }
+        ],
+        poolOrder: [3, 1, 2, 0],
+        fullSentence: `We run in the park in the morning.`
+      },
+      {
+        zh: `Sandy 七點在教室裡閱讀。`,
+        tokens: [
+          { id: 0, en: `Sandy`, zh: `珊迪`, role: 0 },
+          { id: 1, en: `reads`, zh: `閱讀`, role: 1 },
+          { id: 2, en: `in the classroom`, zh: `在教室裡`, role: 2 },
+          { id: 3, en: `at 7:00`, zh: `在七點`, role: 3 }
+        ],
+        poolOrder: [2, 3, 1, 0],
+        fullSentence: `Sandy reads in the classroom at 7:00.`
+      }
+    ];
+
+    /* Stage 3 Data: Nesting Rule (先小後大) */
+    const stage3Questions = [
+      {
+        typeLabel: `地點挑戰（先小後大）`,
+        items: [
+          { en: `on the desk`, zh: `在書桌上`, size: 0 },
+          { en: `in the classroom`, zh: `在教室裡`, size: 1 }
+        ],
+        poolOrder: [1, 0],
+        hint: `想一想喔！「書桌」和「教室」哪一個空間比較小？小的要放前面喔！`,
+        combined: `on the desk in the classroom`
+      },
+      {
+        typeLabel: `時間挑戰（先小後大）`,
+        items: [
+          { en: `at 7:00`, zh: `在七點`, size: 0 },
+          { en: `in the morning`, zh: `在早上`, size: 1 }
+        ],
+        poolOrder: [1, 0],
+        hint: `想一想喔！「七點」是一個時間點，「早上」是一整段時間，比較小的七點要先寫！`,
+        combined: `at 7:00 in the morning`
+      },
+      {
+        typeLabel: `地點挑戰（先小後大）`,
+        items: [
+          { en: `in my room`, zh: `在我房間裡`, size: 0 },
+          { en: `at home`, zh: `在家裡`, size: 1 }
+        ],
+        poolOrder: [1, 0],
+        hint: `「我的房間」是在「家」裡面的一部分，所以房間比較小，放前面喔！`,
+        combined: `in my room at home`
+      },
+      {
+        typeLabel: `時間挑戰（先小後大）`,
+        items: [
+          { en: `at 8:00`, zh: `在八點`, size: 0 },
+          { en: `on Sunday`, zh: `在星期日`, size: 1 }
+        ],
+        poolOrder: [1, 0],
+        hint: `「八點」比一整天「星期日」還要小，幾點鐘要先放前面喔！`,
+        combined: `at 8:00 on Sunday`
+      }
+    ];
+
+    /* Stage 4 Data: Spot & Fix the Error */
+    const stage4Questions = [
+      {
+        tokens: [
+          { en: `We`, zh: `主詞`, isTarget: false },
+          { en: `run`, zh: `動詞`, isTarget: false },
+          { en: `in the morning`, zh: `時間`, isTarget: true },
+          { en: `in the park`, zh: `地點`, isTarget: true }
+        ],
+        swapIndices: [2, 3],
+        wrongHint: `前面的「We（主詞）」和「run（動詞）」是對的喔！檢查看看「時間」和「地點」是不是放反了？`,
+        foundMsg: `抓到了！「地點（in the park）」應該在「時間（in the morning）」前面！按下綠色按鈕對調吧！`,
+        fixedSentence: `We run in the park in the morning.`,
+        fixedPraise: `修正成功！We run in the park in the morning.`
+      },
+      {
+        tokens: [
+          { en: `I`, zh: `主詞`, isTarget: false },
+          { en: `sleep`, zh: `動詞`, isTarget: false },
+          { en: `at night`, zh: `時間`, isTarget: true },
+          { en: `at home`, zh: `地點`, isTarget: true }
+        ],
+        swapIndices: [2, 3],
+        wrongHint: `「I（主詞）」和「sleep（動詞）」都在正確位置喔！看看後面的時間和地點有沒有寫反？`,
+        foundMsg: `好眼力！「地點（at home）」要排在「時間（at night）」前面喔！快按對調修正！`,
+        fixedSentence: `I sleep at home at night.`,
+        fixedPraise: `修正成功！I sleep at home at night.`
+      },
+      {
+        tokens: [
+          { en: `Sandy`, zh: `主詞`, isTarget: false },
+          { en: `reads`, zh: `動詞`, isTarget: false },
+          { en: `in the morning`, zh: `大時間`, isTarget: true },
+          { en: `at 7:00`, zh: `小時間`, isTarget: true }
+        ],
+        swapIndices: [2, 3],
+        wrongHint: `「Sandy」和「reads」沒問題！檢查看看兩個「時間」，有沒有遵守先小後大？`,
+        foundMsg: `太棒了！兩個時間要「先小後大」，所以小的「at 7:00」要放在前面！`,
+        fixedSentence: `Sandy reads at 7:00 in the morning.`,
+        fixedPraise: `修正成功！Sandy reads at 7:00 in the morning.`
+      },
+      {
+        tokens: [
+          { en: `The cat`, zh: `主詞`, isTarget: false },
+          { en: `sleeps`, zh: `動詞`, isTarget: false },
+          { en: `at home`, zh: `大地點`, isTarget: true },
+          { en: `in my room`, zh: `小地點`, isTarget: true }
+        ],
+        swapIndices: [2, 3],
+        wrongHint: `「The cat」和「sleeps」是對的！檢查看看兩個「地點」，哪一個比較小應該放前面？`,
+        foundMsg: `抓到問題了！兩個地點要「先小後大」，「in my room（小）」要放「at home（大）」前面！`,
+        fixedSentence: `The cat sleeps in my room at home.`,
+        fixedPraise: `修正成功！The cat sleeps in my room at home.`
+      }
+    ];
+
+    /* Runtime UI selection buffers */
+    let s2Slots = [null, null, null, null];
+    let s3Slots = [null, null];
+    let s4Found = false;
+    let s4Fixed = false;
+
+    /* Persistence Helpers */
+    async function saveState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+          await window.notebookAppApi.setAppState(appState);
+        }
+      } catch (err) {
+        /* Gracefully ignore in offline standalone mode */
+      }
+    }
+
+    async function initApp() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            appState = Object.assign({}, appState, saved);
+          }
+        }
+      } catch (err) {
+        /* Fallback to initial empty state */
+      }
+
+      applyLoadedStateToUI();
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    function applyLoadedStateToUI() {
+      setSpeechRateUI(appState.speechRate || 0.75);
+
+      const nameInput = document.getElementById(`student-name-input`);
+      if (nameInput) nameInput.value = appState.studentName || ``;
+
+      /* Restore flipped cards */
+      for (let i = 0; i < 4; i++) {
+        const card = document.getElementById(`flip-card-` + i);
+        if (card) {
+          if (appState.flippedCards[i]) card.classList.add(`is-flipped`);
+          else card.classList.remove(`is-flipped`);
+        }
+      }
+      updateStage1UI();
+
+      /* Render interactive stages */
+      renderStage2();
+      renderStage3();
+      renderStage4();
+      updateProgressUI();
+      updateMedalUI();
+    }
+
+    /* Web Speech API Engine */
+    function setSpeechRate(rate) {
+      appState.speechRate = rate;
+      setSpeechRateUI(rate);
+      saveState();
+    }
+
+    function setSpeechRateUI(rate) {
+      const slowBtn = document.getElementById(`rate-slow-btn`);
+      const normBtn = document.getElementById(`rate-norm-btn`);
+      if (slowBtn && normBtn) {
+        slowBtn.classList.toggle(`is-active`, rate < 0.85);
+        normBtn.classList.toggle(`is-active`, rate >= 0.85);
+      }
+    }
+
+    function pickVoice(langPrefix) {
+      if (!(`speechSynthesis` in window)) return null;
+      const voices = window.speechSynthesis.getVoices() || [];
+      const exact = voices.find((v) => v.lang && v.lang.toLowerCase() === langPrefix.toLowerCase());
+      if (exact) return exact;
+      const short = langPrefix.split(`-`)[0].toLowerCase();
+      return voices.find((v) => v.lang && v.lang.toLowerCase().startsWith(short)) || null;
+    }
+
+    function speakText(text, triggerEl) {
+      speakInternal(text, `en-US`, triggerEl);
+    }
+
+    function speakChinese(text, triggerEl) {
+      speakInternal(text, `zh-TW`, triggerEl);
+    }
+
+    function speakInternal(text, lang, triggerEl) {
+      const statusEl = document.getElementById(`speech-status-text`);
+      if (statusEl) statusEl.textContent = `正在朗讀：${text}`;
+
+      document.querySelectorAll(`.is-speaking`).forEach((el) => el.classList.remove(`is-speaking`));
+      if (triggerEl) triggerEl.classList.add(`is-speaking`);
+
+      if (!(`speechSynthesis` in window)) {
+        if (statusEl) statusEl.textContent = `跟著一起念：${text}`;
+        setTimeout(() => {
+          if (triggerEl) triggerEl.classList.remove(`is-speaking`);
+        }, 1200);
+        return;
+      }
+
+      try {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = lang;
+        utter.rate = lang === `zh-TW` ? 0.95 : (appState.speechRate || 0.75);
+        utter.pitch = 1.0;
+        const chosenVoice = pickVoice(lang);
+        if (chosenVoice) utter.voice = chosenVoice;
+
+        utter.onend = function () {
+          if (triggerEl) triggerEl.classList.remove(`is-speaking`);
+          if (statusEl) statusEl.textContent = `點擊任何英文單字即可聽發音`;
+        };
+        utter.onerror = function () {
+          if (triggerEl) triggerEl.classList.remove(`is-speaking`);
+        };
+        window.speechSynthesis.speak(utter);
+      } catch (err) {
+        if (triggerEl) triggerEl.classList.remove(`is-speaking`);
+      }
+    }
+
+    /* Visual Train Demo */
+    function playTrainDemo() {
+      const words = [`I`, `read`, `at home`, `every day`];
+      words.forEach((w, idx) => {
+        setTimeout(() => {
+          for (let j = 0; j < 4; j++) {
+            const car = document.getElementById(`demo-car-` + j);
+            if (car) car.classList.toggle(`is-lit`, j === idx);
+          }
+          speakText(w, null);
+        }, idx * 950);
+      });
+      setTimeout(() => {
+        for (let j = 0; j < 4; j++) {
+          const car = document.getElementById(`demo-car-` + j);
+          if (car) car.classList.remove(`is-lit`);
+        }
+        speakText(`I read at home every day.`, null);
+      }, 3900);
+    }
+
+    /* Progress & Reset */
+    function updateProgressUI() {
+      let doneCount = 0;
+      for (let i = 0; i < 5; i++) {
+        if (appState.stageDone[i]) doneCount++;
+        const navBtn = document.getElementById(`nav-stage-` + (i + 1));
+        const dotEl = document.getElementById(`dot-stage-` + (i + 1));
+        if (navBtn && dotEl) {
+          navBtn.classList.toggle(`is-done`, !!appState.stageDone[i]);
+          dotEl.textContent = appState.stageDone[i] ? `✓` : String(i + 1);
+        }
+      }
+      const countText = document.getElementById(`stars-count-text`);
+      if (countText) countText.textContent = `${doneCount} / 5 關完成`;
+
+      const bar = document.getElementById(`main-progress-bar`);
+      const fill = document.getElementById(`main-progress-fill`);
+      if (bar) bar.setAttribute(`aria-valuenow`, String(doneCount));
+      if (fill) fill.style.width = `${(doneCount / 5) * 100}%`;
+
+      updateMedalUI();
+    }
+
+    function handleResetAll(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `再點一次確認重設`;
+        setTimeout(() => {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            btn.textContent = `重新開始全部關卡`;
+          }
+        }, 4000);
+        return;
+      }
+
+      btn.dataset.armed = `false`;
+      btn.textContent = `重新開始全部關卡`;
+
+      appState = {
+        speechRate: appState.speechRate,
+        flippedCards: [false, false, false, false],
+        stageDone: [false, false, false, false, false],
+        s2Index: 0,
+        s2Solved: [false, false, false, false],
+        s3Index: 0,
+        s3Solved: [false, false, false, false],
+        s4Index: 0,
+        s4Solved: [false, false, false, false],
+        studentName: appState.studentName,
+        badgeClaimed: false
+      };
+      s2Slots = [null, null, null, null];
+      s3Slots = [null, null];
+      s4Found = false;
+      s4Fixed = false;
+
+      saveState();
+      applyLoadedStateToUI();
+    }
+
+    /* STAGE 1: Flip Cards */
+    function toggleFlipCard(idx) {
+      const card = document.getElementById(`flip-card-` + idx);
+      if (!card) return;
+      const isNowFlipped = !card.classList.contains(`is-flipped`);
+      card.classList.toggle(`is-flipped`, isNowFlipped);
+      if (isNowFlipped) {
+        appState.flippedCards[idx] = true;
+      }
+      updateStage1UI();
+      saveState();
+    }
+
+    function updateStage1UI() {
+      const count = appState.flippedCards.filter(Boolean).length;
+      const chip = document.getElementById(`status-stage-1`);
+      const fb = document.getElementById(`stage1-feedback`);
+      if (chip) {
+        chip.textContent = count === 4 ? `第 1 關已過關 ✓` : `已翻開 ${count} / 4 張卡片`;
+        chip.classList.toggle(`is-complete`, count === 4);
+      }
+      if (count === 4) {
+        appState.stageDone[0] = true;
+        if (fb) fb.classList.add(`is-visible`);
+      } else {
+        if (fb) fb.classList.remove(`is-visible`);
+      }
+      updateProgressUI();
+    }
+
+    /* STAGE 2: Train Builder */
+    function renderStage2() {
+      const q = stage2Questions[appState.s2Index];
+      if (!q) return;
+
+      s2Slots = [null, null, null, null];
+      const qLabel = document.getElementById(`s2-q-label`);
+      const zhPrompt = document.getElementById(`s2-zh-prompt`);
+      if (qLabel) qLabel.textContent = `第 ${appState.s2Index + 1} 題 / 共 ${stage2Questions.length} 題`;
+      if (zhPrompt) zhPrompt.textContent = `目標中文：${q.zh}`;
+
+      const poolEl = document.getElementById(`s2-pool-row`);
+      if (poolEl) {
+        poolEl.innerHTML = ``;
+        q.poolOrder.forEach((tokIdx) => {
+          const tok = q.tokens[tokIdx];
+          const tile = document.createElement(`div`);
+          tile.className = `pool-tile`;
+          tile.id = `s2-pool-tile-` + tok.id;
+          tile.setAttribute(`role`, `button`);
+          tile.setAttribute(`tabindex`, `0`);
+          tile.onclick = function () { placeS2Token(tok.id); };
+          tile.onkeydown = function (e) {
+            if (e.key === `Enter` || e.key === ` `) {
+              e.preventDefault();
+              placeS2Token(tok.id);
+            }
+          };
+
+          const mainDiv = document.createElement(`div`);
+          mainDiv.className = `pool-tile-main`;
+          const enSpan = document.createElement(`span`);
+          enSpan.className = `pool-tile-en`;
+          enSpan.textContent = tok.en;
+          const zhSpan = document.createElement(`span`);
+          zhSpan.className = `pool-tile-zh`;
+          zhSpan.textContent = tok.zh;
+          mainDiv.appendChild(enSpan);
+          mainDiv.appendChild(zhSpan);
+
+          const audioBtn = document.createElement(`button`);
+          audioBtn.type = `button`;
+          audioBtn.className = `mini-audio-icon`;
+          audioBtn.setAttribute(`aria-label`, `朗讀 ${tok.en}`);
+          audioBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>`;
+          audioBtn.onclick = function (e) {
+            e.stopPropagation();
+            speakText(tok.en, audioBtn);
+          };
+
+          tile.appendChild(mainDiv);
+          tile.appendChild(audioBtn);
+          poolEl.appendChild(tile);
+        });
+      }
+
+      const fb = document.getElementById(`s2-feedback`);
+      const nextBtn = document.getElementById(`s2-next-btn`);
+      const listenBtn = document.getElementById(`s2-listen-btn`);
+      if (fb) fb.className = `feedback-box`;
+      if (nextBtn) nextBtn.style.display = `none`;
+      if (listenBtn) listenBtn.style.display = `none`;
+
+      refreshS2SlotsUI();
+      updateStage2Chip();
+    }
+
+    function placeS2Token(tokenId) {
+      if (s2Slots.includes(tokenId)) return;
+      const nextEmpty = s2Slots.indexOf(null);
+      if (nextEmpty === -1) return;
+
+      const q = stage2Questions[appState.s2Index];
+      const tok = q.tokens.find((t) => t.id === tokenId);
+      if (tok) speakText(tok.en, null);
+
+      s2Slots[nextEmpty] = tokenId;
+      refreshS2SlotsUI();
+    }
+
+    function removeS2Slot(slotIdx) {
+      if (s2Slots[slotIdx] === null) return;
+      s2Slots[slotIdx] = null;
+      const fb = document.getElementById(`s2-feedback`);
+      if (fb) fb.className = `feedback-box`;
+      refreshS2SlotsUI();
+    }
+
+    function resetCurrentS2() {
+      s2Slots = [null, null, null, null];
+      const fb = document.getElementById(`s2-feedback`);
+      const nextBtn = document.getElementById(`s2-next-btn`);
+      const listenBtn = document.getElementById(`s2-listen-btn`);
+      if (fb) fb.className = `feedback-box`;
+      if (nextBtn) nextBtn.style.display = `none`;
+      if (listenBtn) listenBtn.style.display = `none`;
+      refreshS2SlotsUI();
+    }
+
+    function refreshS2SlotsUI() {
+      const q = stage2Questions[appState.s2Index];
+      const firstEmpty = s2Slots.indexOf(null);
+
+      for (let i = 0; i < 4; i++) {
+        const slotEl = document.getElementById(`s2-slot-` + i);
+        const valEl = document.getElementById(`s2-slot-val-` + i);
+        if (!slotEl || !valEl) continue;
+
+        slotEl.classList.remove(`is-next`, `is-filled`, `is-wrong`, `is-correct`);
+        if (s2Slots[i] !== null) {
+          const tok = q.tokens.find((t) => t.id === s2Slots[i]);
+          valEl.textContent = tok ? tok.en : ``;
+          slotEl.classList.add(`is-filled`);
+        } else {
+          valEl.textContent = `點下方積木`;
+          if (i === firstEmpty) slotEl.classList.add(`is-next`);
+        }
+      }
+
+      q.tokens.forEach((tok) => {
+        const tile = document.getElementById(`s2-pool-tile-` + tok.id);
+        if (tile) {
+          const used = s2Slots.includes(tok.id);
+          tile.style.opacity = used ? `0.35` : `1`;
+          tile.style.pointerEvents = used ? `none` : `auto`;
+        }
+      });
+
+      const checkBtn = document.getElementById(`s2-check-btn`);
+      if (checkBtn) checkBtn.disabled = s2Slots.includes(null);
+    }
+
+    function checkStage2() {
+      const q = stage2Questions[appState.s2Index];
+      const fb = document.getElementById(`s2-feedback`);
+      const fbText = document.getElementById(`s2-feedback-text`);
+      const nextBtn = document.getElementById(`s2-next-btn`);
+      const listenBtn = document.getElementById(`s2-listen-btn`);
+      const roleNames = [`主詞（誰）`, `動詞（動作）`, `地點（在哪裡）`, `時間（什麼時候）`];
+
+      let wrongSlots = [];
+      for (let i = 0; i < 4; i++) {
+        const slotEl = document.getElementById(`s2-slot-` + i);
+        const tok = q.tokens.find((t) => t.id === s2Slots[i]);
+        if (tok && tok.role === i) {
+          if (slotEl) slotEl.classList.add(`is-correct`);
+        } else {
+          if (slotEl) slotEl.classList.add(`is-wrong`);
+          wrongSlots.push(i);
+        }
+      }
+
+      if (wrongSlots.length === 0) {
+        appState.s2Solved[appState.s2Index] = true;
+        if (appState.s2Solved.every(Boolean)) appState.stageDone[1] = true;
+        saveState();
+        updateStage2Chip();
+        updateProgressUI();
+
+        if (fb && fbText) {
+          fb.className = `feedback-box is-visible is-success`;
+          fbText.textContent = `太厲害了！順序完全正確：${q.fullSentence}（${q.zh}）`;
+        }
+        if (listenBtn) listenBtn.style.display = `inline-flex`;
+        if (nextBtn) {
+          nextBtn.style.display = `inline-flex`;
+          nextBtn.textContent = appState.s2Index < stage2Questions.length - 1 ? `下一題` : `全部完成！去第 3 關`;
+        }
+        speakText(q.fullSentence, null);
+      } else {
+        const firstWrong = wrongSlots[0];
+        if (fb && fbText) {
+          fb.className = `feedback-box is-visible is-hint`;
+          fbText.textContent = `沒關係，我們再試一次！提示：第 ${firstWrong + 1} 節車廂應該放「${roleNames[firstWrong]}」喔。點一下橘色框的積木可以拿下來交換！`;
+        }
+      }
+    }
+
+    function speakCurrentS2Sentence() {
+      const q = stage2Questions[appState.s2Index];
+      if (q) speakText(q.fullSentence, document.getElementById(`s2-listen-btn`));
+    }
+
+    function nextStage2() {
+      if (appState.s2Index < stage2Questions.length - 1) {
+        appState.s2Index++;
+        saveState();
+        renderStage2();
+      } else {
+        const s3 = document.getElementById(`stage-3`);
+        if (s3) s3.scrollIntoView({ behavior: `smooth` });
+      }
+    }
+
+    function updateStage2Chip() {
+      const done = appState.s2Solved.filter(Boolean).length;
+      const chip = document.getElementById(`status-stage-2`);
+      if (chip) {
+        chip.textContent = done === stage2Questions.length ? `第 2 關已過關 ✓` : `已完成 ${done} / ${stage2Questions.length} 題`;
+        chip.classList.toggle(`is-complete`, done === stage2Questions.length);
+      }
+    }
+
+    /* STAGE 3: Nesting Rule */
+    function renderStage3() {
+      const q = stage3Questions[appState.s3Index];
+      if (!q) return;
+
+      s3Slots = [null, null];
+      const qLabel = document.getElementById(`s3-q-label`);
+      const typeBadge = document.getElementById(`s3-type-badge`);
+      if (qLabel) qLabel.textContent = `第 ${appState.s3Index + 1} 題 / 共 ${stage3Questions.length} 題`;
+      if (typeBadge) typeBadge.textContent = q.typeLabel;
+
+      const poolEl = document.getElementById(`s3-pool-row`);
+      if (poolEl) {
+        poolEl.innerHTML = ``;
+        q.poolOrder.forEach((itemIdx) => {
+          const item = q.items[itemIdx];
+          const tile = document.createElement(`div`);
+          tile.className = `pool-tile`;
+          tile.id = `s3-pool-tile-` + item.size;
+          tile.setAttribute(`role`, `button`);
+          tile.setAttribute(`tabindex`, `0`);
+          tile.onclick = function () { placeS3Item(item.size); };
+          tile.onkeydown = function (e) {
+            if (e.key === `Enter` || e.key === ` `) {
+              e.preventDefault();
+              placeS3Item(item.size);
+            }
+          };
+
+          const mainDiv = document.createElement(`div`);
+          mainDiv.className = `pool-tile-main`;
+          const enSpan = document.createElement(`span`);
+          enSpan.className = `pool-tile-en`;
+          enSpan.textContent = item.en;
+          const zhSpan = document.createElement(`span`);
+          zhSpan.className = `pool-tile-zh`;
+          zhSpan.textContent = item.zh;
+          mainDiv.appendChild(enSpan);
+          mainDiv.appendChild(zhSpan);
+
+          const audioBtn = document.createElement(`button`);
+          audioBtn.type = `button`;
+          audioBtn.className = `mini-audio-icon`;
+          audioBtn.setAttribute(`aria-label`, `朗讀 ${item.en}`);
+          audioBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>`;
+          audioBtn.onclick = function (e) {
+            e.stopPropagation();
+            speakText(item.en, audioBtn);
+          };
+
+          tile.appendChild(mainDiv);
+          tile.appendChild(audioBtn);
+          poolEl.appendChild(tile);
+        });
+      }
+
+      const fb = document.getElementById(`s3-feedback`);
+      const nextBtn = document.getElementById(`s3-next-btn`);
+      if (fb) fb.className = `feedback-box`;
+      if (nextBtn) nextBtn.style.display = `none`;
+
+      refreshS3SlotsUI();
+      updateStage3Chip();
+    }
+
+    function placeS3Item(sizeId) {
+      if (s3Slots.includes(sizeId)) return;
+      const nextEmpty = s3Slots.indexOf(null);
+      if (nextEmpty === -1) return;
+
+      const q = stage3Questions[appState.s3Index];
+      const item = q.items.find((it) => it.size === sizeId);
+      if (item) speakText(item.en, null);
+
+      s3Slots[nextEmpty] = sizeId;
+      refreshS3SlotsUI();
+    }
+
+    function removeS3Slot(slotIdx) {
+      if (s3Slots[slotIdx] === null) return;
+      s3Slots[slotIdx] = null;
+      const fb = document.getElementById(`s3-feedback`);
+      if (fb) fb.className = `feedback-box`;
+      refreshS3SlotsUI();
+    }
+
+    function resetCurrentS3() {
+      s3Slots = [null, null];
+      const fb = document.getElementById(`s3-feedback`);
+      const nextBtn = document.getElementById(`s3-next-btn`);
+      if (fb) fb.className = `feedback-box`;
+      if (nextBtn) nextBtn.style.display = `none`;
+      refreshS3SlotsUI();
+    }
+
+    function refreshS3SlotsUI() {
+      const q = stage3Questions[appState.s3Index];
+      for (let i = 0; i < 2; i++) {
+        const slotEl = document.getElementById(`s3-slot-` + i);
+        const valEl = document.getElementById(`s3-slot-val-` + i);
+        if (!slotEl || !valEl) continue;
+
+        slotEl.classList.remove(`is-filled`, `is-correct`, `is-wrong`);
+        if (s3Slots[i] !== null) {
+          const item = q.items.find((it) => it.size === s3Slots[i]);
+          valEl.textContent = item ? `${item.en}（${item.zh}）` : ``;
+          slotEl.classList.add(`is-filled`);
+        } else {
+          valEl.textContent = i === 0 ? `點下方小的積木` : `點下方大的積木`;
+        }
+      }
+
+      q.items.forEach((item) => {
+        const tile = document.getElementById(`s3-pool-tile-` + item.size);
+        if (tile) {
+          const used = s3Slots.includes(item.size);
+          tile.style.opacity = used ? `0.35` : `1`;
+          tile.style.pointerEvents = used ? `none` : `auto`;
+        }
+      });
+
+      const checkBtn = document.getElementById(`s3-check-btn`);
+      if (checkBtn) checkBtn.disabled = s3Slots.includes(null);
+    }
+
+    function checkStage3() {
+      const q = stage3Questions[appState.s3Index];
+      const fb = document.getElementById(`s3-feedback`);
+      const fbText = document.getElementById(`s3-feedback-text`);
+      const nextBtn = document.getElementById(`s3-next-btn`);
+      const s0 = document.getElementById(`s3-slot-0`);
+      const s1 = document.getElementById(`s3-slot-1`);
+
+      if (s3Slots[0] === 0 && s3Slots[1] === 1) {
+        if (s0) s0.classList.add(`is-correct`);
+        if (s1) s1.classList.add(`is-correct`);
+
+        appState.s3Solved[appState.s3Index] = true;
+        if (appState.s3Solved.every(Boolean)) appState.stageDone[2] = true;
+        saveState();
+        updateStage3Chip();
+        updateProgressUI();
+
+        if (fb && fbText) {
+          fb.className = `feedback-box is-visible is-success`;
+          fbText.textContent = `答對了！先小後大就是「${q.combined}」！`;
+        }
+        if (nextBtn) {
+          nextBtn.style.display = `inline-flex`;
+          nextBtn.textContent = appState.s3Index < stage3Questions.length - 1 ? `下一題` : `全部完成！去第 4 關`;
+        }
+        speakText(q.combined, null);
+      } else {
+        if (s0) s0.classList.add(`is-wrong`);
+        if (s1) s1.classList.add(`is-wrong`);
+        if (fb && fbText) {
+          fb.className = `feedback-box is-visible is-hint`;
+          fbText.textContent = `${q.hint}（點上方框框可重選）`;
+        }
+      }
+    }
+
+    function nextStage3() {
+      if (appState.s3Index < stage3Questions.length - 1) {
+        appState.s3Index++;
+        saveState();
+        renderStage3();
+      } else {
+        const s4 = document.getElementById(`stage-4`);
+        if (s4) s4.scrollIntoView({ behavior: `smooth` });
+      }
+    }
+
+    function updateStage3Chip() {
+      const done = appState.s3Solved.filter(Boolean).length;
+      const chip = document.getElementById(`status-stage-3`);
+      if (chip) {
+        chip.textContent = done === stage3Questions.length ? `第 3 關已過關 ✓` : `已完成 ${done} / ${stage3Questions.length} 題`;
+        chip.classList.toggle(`is-complete`, done === stage3Questions.length);
+      }
+    }
+
+    /* STAGE 4: Bug Fixer */
+    function renderStage4() {
+      const q = stage4Questions[appState.s4Index];
+      if (!q) return;
+
+      s4Found = false;
+      s4Fixed = false;
+
+      const qLabel = document.getElementById(`s4-q-label`);
+      const inst = document.getElementById(`s4-instruction`);
+      const fixBtn = document.getElementById(`s4-fix-btn`);
+      const nextBtn = document.getElementById(`s4-next-btn`);
+      const fb = document.getElementById(`s4-feedback`);
+
+      if (qLabel) qLabel.textContent = `第 ${appState.s4Index + 1} 題 / 共 ${stage4Questions.length} 題`;
+      if (inst) inst.textContent = `步驟 1：點一下你覺得「位置放錯」的英文積木：`;
+      if (fixBtn) fixBtn.style.display = `none`;
+      if (nextBtn) nextBtn.style.display = `none`;
+      if (fb) fb.className = `feedback-box`;
+
+      renderS4Tokens(q.tokens, false);
+      updateStage4Chip();
+    }
+
+    function renderS4Tokens(tokensArr, isFixedState) {
+      const row = document.getElementById(`s4-tokens-row`);
+      if (!row) return;
+      row.innerHTML = ``;
+
+      tokensArr.forEach((tok, idx) => {
+        const btn = document.createElement(`button`);
+        btn.type = `button`;
+        btn.className = `bug-token`;
+        if (s4Found && tok.isTarget && !isFixedState) btn.classList.add(`is-suspect`);
+        if (isFixedState && tok.isTarget) btn.classList.add(`is-fixed`);
+
+        const enSpan = document.createElement(`span`);
+        enSpan.textContent = tok.en;
+        const zhSpan = document.createElement(`span`);
+        zhSpan.className = `token-zh`;
+        zhSpan.textContent = tok.zh;
+
+        btn.appendChild(enSpan);
+        btn.appendChild(zhSpan);
+        btn.onclick = function () { handleS4TokenClick(idx); };
+        row.appendChild(btn);
+      });
+
+      const dot = document.createElement(`span`);
+      dot.className = `en-text`;
+      dot.style.fontSize = `2rem`;
+      dot.textContent = `.`;
+      row.appendChild(dot);
+    }
+
+    function handleS4TokenClick(idx) {
+      const q = stage4Questions[appState.s4Index];
+      if (s4Fixed) {
+        speakText(q.fixedSentence, null);
+        return;
+      }
+
+      const tok = q.tokens[idx];
+      if (tok) speakText(tok.en, null);
+
+      const fb = document.getElementById(`s4-feedback`);
+      const fbText = document.getElementById(`s4-feedback-text`);
+      const fixBtn = document.getElementById(`s4-fix-btn`);
+      const inst = document.getElementById(`s4-instruction`);
+
+      if (tok && tok.isTarget) {
+        s4Found = true;
+        renderS4Tokens(q.tokens, false);
+        if (inst) inst.textContent = `步驟 2：太棒了！請按下綠色或粉紅色按鈕，把它們對調修正！`;
+        if (fb && fbText) {
+          fb.className = `feedback-box is-visible is-success`;
+          fbText.textContent = q.foundMsg;
+        }
+        if (fixBtn) fixBtn.style.display = `inline-flex`;
+      } else {
+        if (fb && fbText) {
+          fb.className = `feedback-box is-visible is-hint`;
+          fbText.textContent = q.wrongHint;
+        }
+      }
+    }
+
+    function applyStage4Fix() {
+      const q = stage4Questions[appState.s4Index];
+      if (!q) return;
+
+      s4Fixed = true;
+      const reordered = q.tokens.slice();
+      const a = q.swapIndices[0];
+      const b = q.swapIndices[1];
+      const tmp = reordered[a];
+      reordered[a] = reordered[b];
+      reordered[b] = tmp;
+
+      renderS4Tokens(reordered, true);
+
+      const fixBtn = document.getElementById(`s4-fix-btn`);
+      const nextBtn = document.getElementById(`s4-next-btn`);
+      const fb = document.getElementById(`s4-feedback`);
+      const fbText = document.getElementById(`s4-feedback-text`);
+      const inst = document.getElementById(`s4-instruction`);
+
+      if (fixBtn) fixBtn.style.display = `none`;
+      if (inst) inst.textContent = `修正完成！整列火車排對囉：`;
+      if (fb && fbText) {
+        fb.className = `feedback-box is-visible is-success`;
+        fbText.textContent = q.fixedPraise;
+      }
+      if (nextBtn) {
+        nextBtn.style.display = `inline-flex`;
+        nextBtn.textContent = appState.s4Index < stage4Questions.length - 1 ? `下一題` : `全部除錯完成！去第 5 關`;
+      }
+
+      appState.s4Solved[appState.s4Index] = true;
+      if (appState.s4Solved.every(Boolean)) appState.stageDone[3] = true;
+      saveState();
+      updateStage4Chip();
+      updateProgressUI();
+
+      speakText(q.fixedSentence, null);
+    }
+
+    function speakS4Sentence() {
+      const q = stage4Questions[appState.s4Index];
+      if (!q) return;
+      const text = s4Fixed ? q.fixedSentence : q.tokens.map((t) => t.en).join(` `);
+      speakText(text, null);
+    }
+
+    function nextStage4() {
+      if (appState.s4Index < stage4Questions.length - 1) {
+        appState.s4Index++;
+        saveState();
+        renderStage4();
+      } else {
+        const s5 = document.getElementById(`stage-5`);
+        if (s5) s5.scrollIntoView({ behavior: `smooth` });
+      }
+    }
+
+    function updateStage4Chip() {
+      const done = appState.s4Solved.filter(Boolean).length;
+      const chip = document.getElementById(`status-stage-4`);
+      if (chip) {
+        chip.textContent = done === stage4Questions.length ? `第 4 關已過關 ✓` : `已完成 ${done} / ${stage4Questions.length} 題`;
+        chip.classList.toggle(`is-complete`, done === stage4Questions.length);
+      }
+    }
+
+    /* STAGE 5: Badge & Summary */
+    function updateStudentName(val) {
+      appState.studentName = val.trim();
+      updateMedalUI();
+      saveState();
+    }
+
+    function claimConductorBadge() {
+      const fb = document.getElementById(`s5-feedback`);
+      const fbText = document.getElementById(`s5-feedback-text`);
+      appState.badgeClaimed = true;
+      appState.stageDone[4] = true;
+      saveState();
+      updateProgressUI();
+      updateMedalUI();
+
+      const displayName = appState.studentName || `小小車長`;
+      if (fb && fbText) {
+        fb.className = `feedback-box is-visible is-success`;
+        fbText.textContent = `恭喜 ${displayName}！你已經獲得「英文句型小車長」結業徽章！`;
+      }
+      speakText(`Great job! You are a sentence train conductor!`, null);
+    }
+
+    function updateMedalUI() {
+      const medal = document.getElementById(`conductor-medal-card`);
+      const tag = document.getElementById(`medal-status-tag`);
+      const owner = document.getElementById(`medal-owner-name`);
+      const summary = document.getElementById(`medal-score-summary`);
+
+      const doneCount = appState.stageDone.filter(Boolean).length;
+      const displayName = appState.studentName ? `${appState.studentName} 車長` : `小小車長`;
+
+      if (owner) owner.textContent = displayName;
+      if (summary) summary.textContent = `已完成 ${doneCount} / 5 關`;
+      if (medal && tag) {
+        if (appState.badgeClaimed) {
+          medal.classList.remove(`is-locked`);
+          tag.textContent = `已獲得結業徽章 ★`;
+        } else {
+          medal.classList.add(`is-locked`);
+          tag.textContent = `待領取徽章`;
+        }
+      }
+    }
+
+    function exportProgressRecord() {
+      const doneCount = appState.stageDone.filter(Boolean).length;
+      const displayName = appState.studentName || `小小車長`;
+      const content = [
+        `Unit 1-1 英文句子的秘密：四大車廂與黃金順序 — 學習成果紀錄`,
+        `學生／車長姓名：${displayName}`,
+        `完成關卡進度：${doneCount} / 5 關`,
+        `結業徽章狀態：${appState.badgeClaimed ? `已領取` : `尚未領取`}`,
+        ``,
+        `【重點口訣複習】`,
+        `1. 黃金順序：主詞 → 動詞 → 地點 → 時間`,
+        `2. 先小後大（地點）：on the desk in the classroom / in my room at home`,
+        `3. 先小後大（時間）：at 7:00 in the morning / at 8:00 on Sunday`
+      ].join(`\n`);
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: content,
+          contentType: `text/plain`,
+          encoding: `UTF-8`,
+          filename: `Unit1-1_Sentence_Train_Record.txt`
+        });
+      } else {
+        const blob = new Blob([content], { type: `text/plain;charset=utf-8` });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement(`a`);
+        a.href = url;
+        a.download = `Unit1-1_Sentence_Train_Record.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+    }
+
+    /* Voices preload listener for Web Speech API */
+    if (`speechSynthesis` in window && typeof window.speechSynthesis.onvoiceschanged !== `undefined`) {
+      window.speechSynthesis.onvoiceschanged = function () {};
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>
