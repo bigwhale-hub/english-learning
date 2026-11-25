@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>我的學習紀錄｜英語拼讀練習</title>
+<link rel="stylesheet" href="nav.css">
+<link rel="stylesheet" href="adaptive.css">
+<style>
+:root{--ink:#2f312f;--muted:#6f716c;--paper:#fffdf8;--line:#e5dfd2;--green:#2f6c60;--soft:#f5f1e7;--amber:#fff7dd;--blue:#eef5fb;--rose:#fff2ef;--good:#eff8ed}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;background:linear-gradient(#faf8f1 1px,transparent 1px),linear-gradient(90deg,#faf8f1 1px,transparent 1px),#fffdf8;background-size:26px 26px}
+.wrap{max-width:1040px;margin:auto;padding:82px 18px 50px}
+.hero,.panel{background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:22px;box-shadow:0 8px 22px rgba(55,45,30,.06)}
+.hero{padding:22px}.heroTop{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}.eyebrow{font-weight:850;color:#7d5e16;font-size:14px}.hero h1{margin:4px 0 8px;font-size:32px}.muted{color:var(--muted);line-height:1.6}.studentChip{background:var(--soft);border-radius:999px;padding:9px 14px;font-weight:850;white-space:nowrap}
+.panel{padding:18px;margin-top:16px}.panel h2{margin:0 0 6px;font-size:22px}.panelLead{margin:0 0 12px;color:var(--muted);font-size:14px;line-height:1.55}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:14px;border-radius:16px;background:var(--soft);text-align:center}.stat b{display:block;font-size:28px;margin-top:4px}.stat small{display:block;color:var(--muted);margin-top:4px;line-height:1.35}
+.statusGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.skillCard{border:1px solid var(--line);border-radius:17px;padding:14px;background:#fff;display:flex;flex-direction:column;gap:8px}.skillCard.good{background:var(--good);border-color:#cfe2ca}.skillCard.again{background:var(--amber);border-color:#ead49b}.skillCard.practice{background:var(--blue);border-color:#c9dceb}.skillCard.teacher{background:var(--rose);border-color:#e5c1b8}.skillTop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.skillName{font-weight:900;font-size:17px}.badge{display:inline-flex;align-items:center;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:850;white-space:nowrap;background:#fff;border:1px solid rgba(0,0,0,.07)}.skillNote{color:#625e55;font-size:13px;line-height:1.45}.skillActions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.go{display:inline-flex;text-decoration:none;border-radius:999px;padding:8px 12px;background:var(--green);color:white;font-weight:850;font-size:13px}.detailBtn{border:0;background:transparent;color:#637083;font-weight:800;font-size:12px;cursor:pointer;padding:5px 2px}.teacherDetail{display:none;margin-top:2px;padding:10px 11px;border-radius:12px;background:rgba(255,255,255,.75);font-size:12px;line-height:1.6;color:#536174}.teacherDetail.show{display:block}.detailGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 10px}.detailGrid b{color:#334155}
+.progressList{display:grid;gap:9px}.progressItem{border:1px solid #cfe2ca;background:var(--good);border-radius:15px;padding:12px 14px}.progressItem b{display:block}.progressItem span{display:block;color:#5f6d5d;font-size:13px;margin-top:3px}
+.empty{padding:18px;text-align:center;color:var(--muted);background:#f8f6f0;border-radius:14px}.noStudent{display:none}.noStudent.show{display:block}.summaryBlock{display:block}.summaryBlock.hide{display:none}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.legend span{font-size:12px;border-radius:999px;padding:5px 9px;background:#f7f5ef;color:#625e55}
+@media(max-width:760px){.wrap{padding-top:78px}.stats{grid-template-columns:1fr}.statusGrid{grid-template-columns:1fr}.hero h1{font-size:28px}}
+</style>
+<script src="adaptive.js"></script>
+<script src="student_storage.js"></script></head>
+<body>
+<div class="site-nav"><a href="index.html">← 上一層</a><div class="crumb">首頁 › 我的學習紀錄</div><a href="index.html">⌂ 首頁</a></div>
+<main class="wrap">
+<section class="hero">
+  <div class="heroTop">
+    <div><div class="eyebrow">📘 我的學習紀錄</div><h1>看看我最近學得怎麼樣</h1><div class="muted">我可以自己看哪些已經會了、哪些要再練一下，也可以直接把這一頁拿給老師看。</div></div>
+    <div class="studentChip" id="studentChip">學生代碼：尚未設定</div>
+  </div>
+</section>
+
+<section class="panel noStudent" id="noStudent">
+  <h2>先回首頁輸入學生代碼</h2>
+  <p class="panelLead">輸入班級＋座號後，網站才知道要顯示誰的學習紀錄。</p>
+  <a class="go" href="index.html">回首頁輸入代碼</a>
+</section>
+
+<div class="summaryBlock" id="summaryBlock">
+<section class="panel">
+  <h2>今天的學習</h2>
+  <p class="panelLead">只算今天在這個網站留下的練習紀錄。</p>
+  <div class="stats">
+    <div class="stat"><span>今天練習</span><b id="todayPractice">0</b><small>回／次</small></div>
+    <div class="stat"><span>今天補強</span><b id="todayRemedial">0</b><small>網站幫我多練的項目</small></div>
+    <div class="stat"><span>目前要再練</span><b id="needN">0</b><small>會排進「今天先練這些」</small></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>我目前的學習狀況</h2>
+  <p class="panelLead">不是考試分數，而是依我的練習、提示使用和自評結果整理。</p>
+  <div class="legend"><span>✅ 我會了</span><span>🔁 再練一下</span><span>🎯 補強中</span><span>👩‍🏫 可以請老師幫我看看</span></div>
+  <div class="statusGrid" id="skillList" style="margin-top:12px"></div>
+</section>
+
+<section class="panel" id="progressPanel">
+  <h2>🌱 我進步了</h2>
+  <p class="panelLead">曾經需要再練，後來補強後比較穩定的項目會出現在這裡。</p>
+  <div class="progressList" id="progressList"></div>
+</section>
+</div>
+</main>
+<script>
+(function(){
+  function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+  function sameLocalDay(ts){if(!ts)return false;const a=new Date(ts),b=new Date();return a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate()}
+  function statusFor(x){
+    if(x.teacherCheck)return {key:'teacher',icon:'👩‍🏫',label:'可以請老師幫我看看',note:'這個地方已經練過幾次，還常需要幫忙。'};
+    if(x.needsPractice && (x.remedialRounds||0)>0)return {key:'practice',icon:'🎯',label:'補強中',note:'網站正在幫我多練這個項目。'};
+    if(x.needsPractice)return {key:'again',icon:'🔁',label:'再練一下',note:'這個地方還不夠穩，之後會再遇到。'};
+    return {key:'good',icon:'✅',label:'我會了',note:'目前的練習紀錄顯示這個項目比較穩定。'};
+  }
+  function detailText(x){
+    const total=x.seen||0,ind=x.independent||0,prompt=x.prompted||0,model=x.modeled||0;
+    return `<div class="detailGrid"><span>練習紀錄：<b>${total}</b></span><span>一般回合：<b>${x.rounds||0}</b></span><span>獨立完成：<b>${ind}</b></span><span>使用提示：<b>${prompt}</b></span><span>示範後完成：<b>${model}</b></span><span>補強回合：<b>${x.remedialRounds||0}</b></span></div>`;
+  }
+  function render(){
+    const id=(PhonicsAdaptive.studentId()||'').trim();
+    const no=document.getElementById('noStudent'),summary=document.getElementById('summaryBlock');
+    if(!id){no.classList.add('show');summary.classList.add('hide');return}
+    document.getElementById('studentChip').textContent='學生代碼：'+id;
+    const db=PhonicsAdaptive.load();const stu=db.students?.[id]||{skills:{},events:[]};
+    const skills=Object.values(stu.skills||{}).sort((a,b)=>(b.lastTime||0)-(a.lastTime||0));
+    const events=(stu.events||[]).filter(e=>sameLocalDay(e.time));
+    const todayPractice=events.filter(e=>e.type==='round'||e.type==='item').length;
+    const todayRemedial=events.filter(e=>e.type==='round'&&e.remedial).length;
+    document.getElementById('todayPractice').textContent=todayPractice;
+    document.getElementById('todayRemedial').textContent=todayRemedial;
+    document.getElementById('needN').textContent=skills.filter(x=>x.needsPractice).length;
+
+    const list=document.getElementById('skillList');
+    if(!skills.length){list.innerHTML='<div class="empty" style="grid-column:1/-1">還沒有學習紀錄。先完成一個練習單元，這裡就會開始整理。</div>'}
+    else{
+      list.innerHTML=skills.map((x,i)=>{const s=statusFor(x);return `<div class="skillCard ${s.key}"><div class="skillTop"><div class="skillName">${esc(x.label||x.id)}</div><span class="badge">${s.icon} ${s.label}</span></div><div class="skillNote">${esc(s.note)}</div><div class="skillActions">${x.url?`<a class="go" href="${esc(x.url)}">${x.needsPractice?'再練一次':'去看看'}</a>`:''}<button type="button" class="detailBtn" data-detail="detail-${i}">給老師看詳細紀錄</button></div><div class="teacherDetail" id="detail-${i}">${detailText(x)}<div style="margin-top:6px">最近狀態：<b>${esc(x.lastResult||'尚無')}</b></div></div></div>`}).join('');
+      list.querySelectorAll('.detailBtn').forEach(btn=>btn.addEventListener('click',()=>{const d=document.getElementById(btn.dataset.detail);const show=d.classList.toggle('show');btn.textContent=show?'收起詳細紀錄':'給老師看詳細紀錄'}));
+    }
+
+    const improved=skills.filter(x=>{
+      if((x.remedialRounds||0)<=0)return false;
+      if(x.lastResult==='補救後穩定'||x.lastResult==='補救後進步')return true;
+      return !x.needsPractice && (x.remedialRounds||0)>0;
+    });
+    const p=document.getElementById('progressList'),panel=document.getElementById('progressPanel');
+    if(improved.length){p.innerHTML=improved.map(x=>`<div class="progressItem"><b>🌱 ${esc(x.label||x.id)}</b><span>${x.lastResult==='補救後進步'?'補強後比之前進步了。':'原本需要再練，補強後目前比較穩定。'}</span></div>`).join('');panel.style.display='block'}
+    else{p.innerHTML='<div class="empty">之後有項目從「需要再練」變得比較穩定，就會出現在這裡。</div>'}
+  }
+  render();
+})();
+</script>
+</body>
+</html>

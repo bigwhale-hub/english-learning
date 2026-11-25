@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<title>英語拼讀練習｜學習首頁</title>
+<link href="nav.css" rel="stylesheet"/>
+<style>
+:root{--ink:#243041;--muted:#687386;--line:#dfe5ec;--paper:#fbfaf6;--card:#fff;--accent:#334155}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:var(--ink);background:var(--paper);background-image:linear-gradient(#edf0f3 1px,transparent 1px),linear-gradient(90deg,#edf0f3 1px,transparent 1px);background-size:28px 28px}.wrap{max-width:1040px;margin:auto;padding:28px 18px 64px}.hero{background:rgba(255,255,255,.95);border:2px solid var(--line);border-radius:22px;padding:24px;margin-bottom:18px}.hero h1{margin:0 0 8px;font-size:clamp(30px,5vw,44px)}.hero p{margin:0;color:var(--muted);font-weight:750;line-height:1.6}.heroBottom{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:20px;flex-wrap:wrap}.idbox{min-width:280px}.idbox label{display:block;font-size:13px;color:#64748b;font-weight:900;margin-bottom:6px}.idrow{display:flex;gap:8px}.idrow input{flex:1;min-width:0;border:2px solid #cbd5e1;border-radius:11px;padding:10px 12px;font-size:17px;font-weight:800;background:#fff}.btn{border:0;border-radius:11px;padding:10px 14px;font-weight:900;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px}.btn.primary{background:#334155;color:#fff}.saved{min-height:18px;color:#64748b;font-size:12px;margin-top:5px}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 18px}.stat{background:#fff;border:2px solid var(--line);border-radius:15px;padding:14px}.stat span{font-size:12px;color:var(--muted);font-weight:850}.stat b{display:block;font-size:22px;margin-top:5px}.path{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.sectionCard{display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px;min-height:220px;position:relative;transition:.14s}.sectionCard:hover{transform:translateY(-2px);border-color:#94a3b8;box-shadow:0 8px 22px rgba(15,23,42,.07)}.n{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#334155;color:#fff;font-weight:950}.sectionCard h2{margin:12px 0 7px;font-size:22px}.sectionCard p{margin:0;color:var(--muted);font-weight:750;line-height:1.55;font-size:14px}.progress{position:absolute;left:20px;right:20px;bottom:18px}.progTop{display:flex;justify-content:space-between;font-size:12px;color:#64748b;font-weight:850;margin-bottom:6px}.track{height:7px;border-radius:999px;background:#edf1f5;overflow:hidden}.fill{height:100%;width:0;background:#64748b}.guide{margin-top:18px;background:rgba(255,255,255,.9);border:1.5px dashed #bac4cf;border-radius:15px;padding:13px 15px;color:#536174;font-size:13px;font-weight:750;line-height:1.6}.footer{text-align:center;color:#7a8595;font-size:12px;margin-top:24px}@media(max-width:850px){.path{grid-template-columns:1fr 1fr}.summary{grid-template-columns:1fr 1fr}.summary .wide{grid-column:1/-1}}@media(max-width:560px){.wrap{padding:15px 10px 44px}.hero{padding:18px}.path,.summary{grid-template-columns:1fr}.summary .wide{grid-column:auto}.sectionCard{min-height:190px}.idbox{min-width:100%;width:100%}}
+</style>
+<link href="adaptive.css" rel="stylesheet"/><script src="student_storage.js"></script></head>
+<body>
+<div id="offlineFileWarning" style="display:none;position:relative;z-index:9999;background:#fff3cd;border-bottom:2px solid #e7b84b;color:#664d03;padding:12px 16px;font-family:Arial,\"Microsoft JhengHei\",sans-serif;font-weight:800;line-height:1.6">⚠️ 目前是直接開啟 HTML。為了讓錄音與跨頁學習紀錄穩定，請關閉此頁並雙擊資料夾內的「啟動離線版.bat」。</div>
+<div class="wrap">
+<section class="hero">
+<h1>英語拼讀練習</h1>
+<p>整個網站固定用同一條路徑：先選學習區，再進單元；每一頁上方都看得到「我在哪裡」和「上一層去哪裡」。</p>
+<div class="heroBottom">
+<a class="btn primary" href="00_video_letter.html" id="continueBtn">▶ 依建議順序繼續</a>
+<div class="idbox"><label>學生代碼</label><div class="idrow"><input id="studentId" inputmode="numeric" maxlength="8" placeholder="例如 80105"/><button class="btn primary" id="saveId">儲存</button></div><div class="saved" id="savedMsg">班級＋座號即可，不需要姓名。</div></div>
+</div>
+</section>
+<div class="summary">
+<div class="stat"><span>已瀏覽單元</span><b id="visitedCount">0 / 18</b></div>
+<div class="stat">需要優先練習<b id="weakCount">0</b></div>
+<div class="stat wide"><span>最近學習</span><b id="lastTitle" style="font-size:17px">尚未開始</b></div>
+</div><section class="adaptiveSection" style="margin:18px 0 22px"><div style="display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap"><div><div style="font-weight:800;color:#7d5e16;font-size:14px">🎯 依我的練習紀錄</div><h2 style="margin:4px 0 0;font-size:25px">今天先練這些</h2></div><a class="btn secondary" href="17_my_learning.html">📘 我的學習紀錄</a></div><p style="margin:8px 0;color:#6f6b62">網站會依我的練習、提示使用與自評結果，把目前比較需要練習的項目排到前面。</p><div class="adaptive-home" id="adaptiveHomeList"></div></section>
+<main class="path">
+<a class="sectionCard" href="section_videos.html"><div class="n">1</div><h2>🎬 學習影片</h2><p>字母長短音、子音音標、母音音標。先複習聲音與符號。</p><div class="progress"><div class="progTop"><span>本區進度</span><span id="pVideos">0 / 3</span></div><div class="track"><div class="fill" id="fVideos"></div></div></div></a>
+<a class="sectionCard" href="section_ipa.html"><div class="n">2</div><h2>🔊 音標學習</h2><p>音標字典、子音、母音與混合挑戰，練到看到音標就會念。</p><div class="progress"><div class="progTop"><span>本區進度</span><span id="pIpa">0 / 4</span></div><div class="track"><div class="fill" id="fIpa"></div></div></div></a>
+<a class="sectionCard" href="section_basic.html"><div class="n">3</div><h2>🔤 基礎拼讀</h2><p>CVC 短母音與 LMNR 前後發音，把聲音真正放進單字。</p><div class="progress"><div class="progTop"><span>本區進度</span><span id="pBasic">0 / 2</span></div><div class="track"><div class="fill" id="fBasic"></div></div></div></a>
+<a class="sectionCard" href="section_rules.html"><div class="n">4</div><h2>🧩 拼讀規則</h2><p>長母音、子音組合、母音組合、母音＋r 等常用規則。</p><div class="progress"><div class="progTop"><span>本區進度</span><span id="pRules">0 / 9</span></div><div class="track"><div class="fill" id="fRules"></div></div></div></a>
+</main>
+<div class="guide">💡 導航原則固定為：<strong>首頁 ＞ 學習區 ＞ 單元 ＞ 練習狀態</strong>。左上永遠是「← 上一層」，右上永遠可以回首頁；手機與 iPad 往下滑時，上方路徑列會留在畫面上。</div>
+<div class="footer">參賽離線版 v10.4・學生紀錄分流</div>
+</div>
+<script src="adaptive.js"></script><script>
+const modules=[
+['video-letter','字母長短音影片','00_video_letter.html','videos'],['video-cons','子音音標影片','00_video_consonant.html','videos'],['video-vowel','母音音標影片','00_video_vowel.html','videos'],
+['ipa-dict','音標字典','01_ipa_dictionary.html','ipa'],['ipa-cons','子音音標練習','02_consonant_practice.html','ipa'],['ipa-vowel','母音音標練習','03_vowel_practice.html','ipa'],['ipa-mixed','音標混合挑戰','04_mixed_ipa.html','ipa'],
+['cvc','CVC 短母音','05_cvc_short_vowels.html','basic'],['lmnr','LMNR 前後發音','06_lmnr.html','basic'],
+['long','長母音','07_long_vowels.html','rules'],['digraph','常見子音組合','08_consonant_groups.html','rules'],['ending','常見字尾組合','09_word_endings.html','rules'],['softc','c 的特殊念法','10_soft_c.html','rules'],['eeea','ee / ea','11_ee_ea.html','rules'],['oo','oo','12_oo.html','rules'],['ouow','ou / ow','13_ou_ow.html','rules'],['r','母音＋r','14_r_controlled.html','rules'],['all','all','15_all.html','rules']];
+const order=modules.filter(m=>m[0]!=='ipa-dict');
+function getVisited(){return PhonicsStorage.getJSON('phonics_hub_visited_v1',{})||{}}
+function countWeak(){return window.PhonicsAdaptive?PhonicsAdaptive.countNeedsPractice(PhonicsStorage.studentId()):0}
+function render(){const v=getVisited();document.getElementById('visitedCount').textContent=`${Object.keys(v).length} / 18`;document.getElementById('weakCount').textContent=countWeak();const groups={videos:3,ipa:4,basic:2,rules:9};for(const g in groups){const n=modules.filter(m=>m[3]===g&&v[m[0]]).length;const cap=g[0].toUpperCase()+g.slice(1);document.getElementById('p'+cap).textContent=`${n} / ${groups[g]}`;document.getElementById('f'+cap).style.width=`${n/groups[g]*100}%`}
+ const last=PhonicsStorage.getText('phonics_hub_last_v1','');const lm=modules.find(m=>m[0]===last);document.getElementById('lastTitle').textContent=lm?lm[1]:'尚未開始';const next=order.find(m=>!v[m[0]])||order[order.length-1];document.getElementById('continueBtn').href=next[2];document.getElementById('continueBtn').textContent=v[next[0]]?'▶ 再看最後一個單元':'▶ 依建議順序繼續';}
+const sid=document.getElementById('studentId');sid.value=PhonicsStorage.studentId();document.getElementById('saveId').onclick=()=>{const val=sid.value.trim();if(!/^\d{5,8}$/.test(val)){document.getElementById('savedMsg').textContent='請輸入班級＋座號，例如 80105。';return}PhonicsStorage.setStudentId(val);document.getElementById('savedMsg').textContent='已切換學生：'+val;render()};render();
+</script>
+<script src="nav.js"></script>
+<script>
+(function(){
+ function refreshAdaptive(){const id=PhonicsStorage.studentId();if(window.PhonicsAdaptive){PhonicsAdaptive.renderHome('#adaptiveHomeList',id);const w=document.getElementById('weakCount');if(w)w.textContent=PhonicsAdaptive.countNeedsPractice(id)}}
+ const b=document.getElementById('saveId');if(b)b.addEventListener('click',()=>setTimeout(()=>{const v=(document.getElementById('studentId')?.value||'').trim();if(/^\d{5,8}$/.test(v)&&window.PhonicsAdaptive)PhonicsAdaptive.setStudent(v);refreshAdaptive()},0));
+ refreshAdaptive();window.addEventListener('focus',refreshAdaptive);
+})();
+</script>
+<!-- v10 full unified -->
+<script>if(location.protocol==='file:'){const w=document.getElementById('offlineFileWarning');if(w)w.style.display='block';}</script>
+</body></html>

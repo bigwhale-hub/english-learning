@@ -1,0 +1,51 @@
+:root{
+  --site-nav-ink:#243041;
+  --site-nav-muted:#667085;
+  --site-nav-line:#d9e0e7;
+  --site-nav-bg:rgba(255,255,255,.96);
+  --site-nav-accent:#334155;
+}
+#siteNav.site-nav{
+  position:sticky; top:0; z-index:2147483000;
+  width:100%; background:var(--site-nav-bg); backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--site-nav-line);
+  box-shadow:0 2px 10px rgba(15,23,42,.05);
+  font-family:Arial,"Noto Sans TC","Microsoft JhengHei",sans-serif;
+}
+.site-nav-inner{
+  max-width:1120px; min-height:58px; margin:auto; padding:8px 14px;
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:12px;
+}
+.site-nav-back,.site-nav-home,.site-nav-crumb-btn{
+  appearance:none; border:0; background:transparent; color:var(--site-nav-ink);
+  font:inherit; font-weight:900; cursor:pointer; text-decoration:none;
+}
+.site-nav-back,.site-nav-home{
+  min-height:40px; padding:8px 12px; border:1.5px solid #cbd5e1; border-radius:11px; background:#fff;
+  white-space:nowrap;
+}
+.site-nav-back:hover,.site-nav-home:hover{background:#f8fafc;border-color:#94a3b8}
+.site-nav-back:disabled{opacity:.45;cursor:default;background:#f8fafc}
+.site-nav-crumbs{
+  min-width:0; display:flex; align-items:center; justify-content:center; gap:5px;
+  color:var(--site-nav-muted); font-size:13px; font-weight:800; overflow:hidden;
+}
+.site-nav-crumb-btn{color:#536174;padding:5px 4px;border-radius:7px;white-space:nowrap}
+.site-nav-crumb-btn:hover{background:#f1f5f9;color:#1f2937}
+.site-nav-crumb-current{color:#1f2937;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38vw}
+.site-nav-sep{color:#a0a8b3;flex:0 0 auto}
+.site-nav-context{
+  display:none; max-width:1120px; margin:auto; padding:0 14px 7px;
+  text-align:center; color:#667085; font-size:11px; font-weight:800;
+}
+.site-managed-back{display:none!important}
+#hubHomeBtn{display:none!important}
+@media(max-width:700px){
+  .site-nav-inner{grid-template-columns:auto minmax(0,1fr) auto;gap:6px;padding:7px 8px}
+  .site-nav-back,.site-nav-home{min-height:38px;padding:7px 9px;font-size:13px}
+  .site-nav-home .home-word{display:none}
+  .site-nav-crumbs{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;font-size:12px}
+  .site-nav-crumbs::-webkit-scrollbar{display:none}
+  .site-nav-crumb-current{max-width:none;overflow:visible;text-overflow:clip}
+  .site-nav-context{display:block}
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>平板 QR Code 啟動器｜英語自主拼讀學習系統</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Segoe UI","Noto Sans TC",sans-serif;color:#263238;background:#f7f3e8}
+*{box-sizing:border-box}body{margin:0}.wrap{max-width:1050px;margin:auto;padding:26px 22px 48px}
+.hero{background:#fff;border:2px solid #d8caa9;border-radius:24px;padding:24px;box-shadow:0 10px 30px #0000000d}
+h1{margin:0 0 8px;font-size:30px}.sub{color:#59636a;line-height:1.65;margin:0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.step{background:#fffaf0;border:1px solid #eadfca;border-radius:16px;padding:14px;line-height:1.5}.n{font-weight:800;font-size:20px;color:#6d5531}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.btn{display:inline-block;border:0;border-radius:14px;padding:12px 17px;font-weight:800;font-size:16px;text-decoration:none;cursor:pointer;background:#263238;color:#fff}.btn.alt{background:#efe5cf;color:#3a342b}
+.notice{border-left:5px solid #d9923b;background:#fff8e8;padding:13px 15px;border-radius:10px;line-height:1.6;margin:17px 0}.ok{border-left-color:#4b8f68;background:#effaf2}
+#cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px;margin-top:18px}.card{background:white;border:1px solid #ddd1b8;border-radius:22px;padding:18px;text-align:center;box-shadow:0 6px 20px #0000000a}.card h2{font-size:19px;margin:4px 0 12px}.qr{display:flex;justify-content:center;align-items:center;min-height:260px}.url{word-break:break-all;font:600 14px ui-monospace,SFMono-Regular,Consolas,monospace;background:#f5f5f5;border-radius:10px;padding:10px;text-align:left}.hint{font-size:14px;color:#667085;line-height:1.55}.error{color:#9b2c2c;background:#fff1f1;border-radius:12px;padding:14px}.footer{margin-top:24px;color:#707070;font-size:13px;line-height:1.6}
+@media(max-width:720px){.steps{grid-template-columns:1fr}h1{font-size:25px}}
+</style>
+</head>
+<body><div class="wrap">
+<div class="hero">
+<h1>📱 平板 QR Code 啟動器</h1>
+<p class="sub">筆電負責提供離線教材，iPad 只要和筆電連在同一個 Wi‑Fi／行動熱點，再用相機掃下面的 QR Code 即可。</p>
+<div class="steps">
+  <div class="step"><div class="n">1</div><b>連到同一個網路</b><br>iPad 與這台 Windows 筆電需使用同一個 Wi‑Fi，或讓 iPad 連到筆電的「行動熱點」。</div>
+  <div class="step"><div class="n">2</div><b>掃 QR Code</b><br>用 iPad 相機掃描下方 QR Code，點畫面上方跳出的網址。</div>
+  <div class="step"><div class="n">3</div><b>開始使用</b><br>進入首頁後輸入學生代碼。不同學生在同一台 iPad 仍會分開紀錄。</div>
+</div>
+<div class="actions"><a class="btn" href="START_HERE.html" target="_blank">💻 在這台筆電開啟完整版</a><button class="btn alt" onclick="location.reload()">↻ 重新偵測網路</button></div>
+<div class="notice ok"><b>展示功能：</b>影片、標準音、題目、拼讀規則、學生代碼、學習紀錄與自動補強，都可以透過區域網路使用。</div>
+<div class="notice"><b>iPad 錄音提醒：</b>這個離線 QR 版本使用區域網路的 <code>http://</code> 網址。Safari / Chrome 在 iPad 上通常不會把一般區網 HTTP 視為安全來源，因此網頁麥克風可能無法啟用。要展示「錄自己的聲音」功能，建議直接在這台筆電用上面的「完整版」；若未來希望 iPad 也能完整錄音，網站需改為 HTTPS。</div>
+</div>
+<div id="status" class="hint" style="margin-top:18px">正在偵測可供 iPad 連線的網址…</div>
+<div id="cards"></div>
+<div class="footer">如果 QR Code 掃了卻打不開：先確認 iPad 與筆電真的在同一個網路；若 Windows 出現防火牆詢問，請允許「私人網路」。必要時可執行資料夾內的 <b>2_ALLOW_TABLET_ACCESS.bat</b>。</div>
+</div>
+<script src="qrcode_bundle.js"></script>
+<script>
+(async function(){
+ const status=document.getElementById('status'), cards=document.getElementById('cards');
+ try{
+   const r=await fetch('/__network.json',{cache:'no-store'}); if(!r.ok) throw new Error('HTTP '+r.status);
+   const data=await r.json();
+   if(!data.urls || !data.urls.length){ status.innerHTML='<div class="error">找不到可供平板連線的區域網路位址。請先連接 Wi‑Fi 或開啟 Windows 行動熱點，再按「重新偵測網路」。</div>'; return; }
+   status.textContent='找到 '+data.urls.length+' 個可用位址。通常掃第一個即可；若第一個無法連線，再試下一個。';
+   data.urls.forEach((item,idx)=>{
+     const card=document.createElement('section'); card.className='card';
+     const title=document.createElement('h2'); title.textContent=(idx===0?'建議使用':'備用位址')+' · '+item.ip; card.appendChild(title);
+     const qrWrap=document.createElement('div'); qrWrap.className='qr'; const canvas=document.createElement('canvas'); qrWrap.appendChild(canvas); card.appendChild(qrWrap);
+     LocalQRCode.drawToCanvas(canvas,item.url,7,4);
+     const p=document.createElement('div'); p.className='url'; p.textContent=item.url; card.appendChild(p);
+     const h=document.createElement('p'); h.className='hint'; h.textContent='iPad 相機掃描後，點出現的網址即可。'; card.appendChild(h);
+     cards.appendChild(card);
+   });
+ }catch(e){status.innerHTML='<div class="error">無法取得網路資訊：'+String(e.message||e)+'</div>';}
+})();
+</script>
+</body></html>

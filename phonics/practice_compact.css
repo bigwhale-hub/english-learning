@@ -1,0 +1,91 @@
+/* v10 全站集中式練習版面：iPad 優先，減少練習中垂直捲動 */
+:root{--focus-gap:10px}
+body.practice-active{overflow-anchor:none}
+body.practice-active .wrap{max-width:1040px!important;padding-top:74px!important;padding-bottom:30px!important}
+body.practice-active .card:not(.summary){padding:16px 20px!important;border-radius:20px!important}
+body.practice-active .topbar{margin-bottom:7px!important;min-height:0!important}
+body.practice-active .brand{font-size:clamp(20px,3vw,27px)!important}
+body.practice-active .crumb,.practice-active .kicker,.practice-active .qcount{font-size:12px!important}
+body.practice-active .practiceHead{margin:0 auto 6px!important}
+body.practice-active .practiceHead h2{margin:2px 0 3px!important}
+body.practice-active .instruction h2{margin:3px 0!important;font-size:clamp(21px,3vw,27px)!important}
+body.practice-active .prompt{margin-top:7px!important}
+body.practice-active .chunkWord,
+body.practice-active .magicWord,
+body.practice-active .readWord{margin:7px auto 4px!important;min-height:0!important;line-height:1.05!important}
+body.practice-active .chunkHelp,
+body.practice-active .phonemes,
+body.practice-active .hintArea{margin-top:5px!important;margin-bottom:6px!important}
+body.practice-active .ruleCue,
+body.practice-active .positionCue{margin:5px auto!important;min-height:18px!important}
+body.practice-active .actions{margin-top:7px!important;margin-bottom:5px!important;gap:7px!important}
+body.practice-active .btn{min-height:42px!important;padding:8px 13px!important}
+body.practice-active .record{min-height:46px!important}
+body.practice-active .micstatus,
+body.practice-active #micStatus{min-height:16px!important;margin-top:3px!important}
+body.practice-active .tester{margin:7px auto 0!important;padding:9px 11px!important;max-width:650px!important;border-radius:15px!important}
+body.practice-active .tester p{margin:0 0 6px!important;line-height:1.35!important}
+body.practice-active .feedback{margin:7px auto!important;padding:9px 12px!important;min-height:0!important}
+body.practice-active .next,
+body.practice-active .nextBox{margin-top:7px!important}
+body.practice-active .progress,
+body.practice-active .progressbar{margin-top:8px!important;padding-top:6px!important;padding-bottom:4px!important;position:static!important}
+body.practice-active .node{width:25px!important;height:25px!important;flex-basis:25px!important;font-size:11px!important}
+body.practice-active .flag{font-size:19px!important}
+body.practice-active .listen{margin:7px auto!important;padding:10px 12px!important}
+body.practice-active .listen .muted{font-size:11px!important;line-height:1.35!important;margin-top:4px!important}
+body.practice-active .slots,
+body.practice-active .spellSlots{margin:10px 0!important}
+body.practice-active .slot{height:66px!important;font-size:36px!important}
+body.practice-active .reveal{margin:6px auto!important}
+body.practice-active .adaptive-remedial-banner{margin:0 auto 9px!important}
+
+/* 音標練習：題目在左，錄音與比較在右，一個 iPad 畫面完成主要操作 */
+@media(min-width:760px){
+ body.ipa-practice-page.practice-active #practice .question{display:grid!important;grid-template-columns:minmax(270px,.9fr) minmax(390px,1.1fr);grid-template-rows:auto auto 1fr;column-gap:20px;align-items:start;margin-top:4px!important}
+ body.ipa-practice-page.practice-active #practice .question>.prompt{grid-column:1/-1;grid-row:1;margin:2px 0 4px!important}
+ body.ipa-practice-page.practice-active #practice .ipa-stage{grid-column:1;grid-row:2/4;min-height:260px!important;margin:0!important;align-self:center}
+ body.ipa-practice-page.practice-active #practice .record-box{grid-column:2;grid-row:2;margin:10px 0 0!important;padding-top:10px!important}
+ body.ipa-practice-page.practice-active #practice .compare{grid-column:2;grid-row:3;margin:7px 0 0!important;padding:12px!important}
+ body.ipa-practice-page.practice-active #practice .ipa{font-size:clamp(86px,13vw,140px)!important}
+ body.ipa-practice-page.practice-active #practice .compare h3{margin-bottom:2px!important}
+ body.ipa-practice-page.practice-active #practice .compare p{margin-bottom:7px!important;line-height:1.35!important;font-size:12px!important}
+ body.ipa-practice-page.practice-active #practice .judge{margin-top:8px!important;padding-top:8px!important}
+ body.ipa-practice-page.practice-active #practice .judge-title{margin-bottom:6px!important}
+}
+
+/* 規則拼讀：保留題目大字，但壓縮不必要留白 */
+body.rule-practice-page.practice-active #decode .chunkWord,
+body.rule-practice-page.practice-active #decode .magicWord{font-size:clamp(48px,8vw,76px)!important}
+body.rule-practice-page.practice-active #decode .chunkHelp.near-target{max-width:560px!important}
+body.rule-practice-page.practice-active #encode .listen{max-width:650px!important}
+body.rule-practice-page.practice-active #decode>.topbar,
+body.rule-practice-page.practice-active #encode>.topbar{padding-bottom:2px!important}
+
+/* LMNR：進入練習時只留下當前練習，不讓前兩段教學內容墊在上面 */
+body.lmnr-page.practice-active .learningStep:nth-of-type(1),
+body.lmnr-page.practice-active .learningStep:nth-of-type(2){display:none!important}
+body.lmnr-page.practice-active .learningStep:nth-of-type(3)>.stepHead,
+body.lmnr-page.practice-active .learningStep:nth-of-type(3)>.practiceMenu{display:none!important}
+body.lmnr-page.practice-active .learningStep:nth-of-type(3){padding:12px 14px!important;margin-top:0!important}
+body.lmnr-page.practice-active .practicePanel.show{margin:0!important;padding:12px 14px!important}
+body.lmnr-page.practice-active .readWord{font-size:clamp(54px,10vw,84px)!important}
+
+/* 自我比較面板 */
+.self-compare-title{font-weight:900;margin-bottom:5px}
+.self-compare-note{font-size:12px;color:#6f716c;line-height:1.4;margin-bottom:7px}
+.self-compare-judge{border-top:1px solid rgba(120,110,90,.18);padding-top:7px;margin-top:7px}
+.self-compare-judge b{display:block;margin-bottom:6px}
+.selfComparePanel button:disabled{opacity:.42;cursor:not-allowed}
+
+/* 系統自動補強提示，短而清楚，不佔一整頁 */
+.adaptive-remedial-banner{max-width:760px;border:1px solid #e5cb84;background:#fff8df;border-radius:14px;padding:8px 12px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;text-align:center;font-size:13px}
+.adaptive-remedial-banner b{font-size:14px}
+
+@media(max-width:759px){
+ body.practice-active .wrap{padding-left:10px!important;padding-right:10px!important;padding-top:68px!important}
+ body.practice-active .card:not(.summary){padding:14px 12px!important}
+ body.practice-active .topbar .btn{min-height:36px!important;padding:6px 9px!important;font-size:12px!important}
+ body.practice-active .chunkWord,body.practice-active .magicWord,body.practice-active .readWord{font-size:clamp(46px,15vw,68px)!important}
+ body.practice-active .actions .btn{flex:1 1 42%;min-width:0!important}
+}
